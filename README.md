@@ -1,1 +1,0 @@
-# alphalete-redesign-app
