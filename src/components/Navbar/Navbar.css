@@ -28,10 +28,6 @@ li a {
   text-decoration: none;
 }
 
-body {
-  height: 1500px;
-}
-
 .Navbar-Container {
   height: 60px;
   width: 100%;
@@ -44,7 +40,7 @@ body {
   font-weight: 400;
   overflow: hidden;
   top: 0;
-  position: fixed;
+  position: relative;
   
 }
 

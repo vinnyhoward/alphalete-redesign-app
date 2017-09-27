@@ -6,7 +6,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-
+<Navbar />
+{ router }
       </div>
     );
   }

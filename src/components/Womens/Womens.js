@@ -4,7 +4,7 @@ class Womens extends Component {
   render() {
     return (
       <div>
-        hilo
+
       </div>
     );
   }

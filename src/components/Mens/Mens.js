@@ -4,7 +4,6 @@ class Mens extends Component {
   render() {
     return (
       <div>
-        hi
       </div>
     );
   }
