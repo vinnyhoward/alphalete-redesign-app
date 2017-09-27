@@ -7,7 +7,9 @@ class Navbar extends Component {
   constructor() {
     super()
     this.state = {
-      slideVisible: false
+      slideVisibleMens: false,
+      slideVisibleWomens: false,
+      slideVisibleAccess: false
     }
 this.openSlideMens = this.openSlideMens.bind(this)
 this.closeSlideMens = this.closeSlideMens.bind(this)
@@ -58,27 +60,33 @@ closeSlideAccess() {
   render() {
     return (
       <div className="Navbar">
-      <ul className="Navbar-Container">
-        <div className="Nav-padding">
+        <div className="Navbar-Container">
+      <ul className="left-nav">
         <li
-          onMouseOver={ this.openSlideMens } onChange={ this.closeSlideMens } ><Link to="/mens">MEN'S</Link></li>
+          onMouseOver={ this.openSlideMens } onMouseLeave={ this.closeSlideMens } ><Link to="/mens">MEN'S</Link></li>
         <li onMouseOver={ this.openSlideWomens } onMouseLeave={ this.closeSlideWomens } ><Link to="/womens">WOMEN'S</Link></li>
         <li onMouseOver={ this.openSlideAccess } onMouseLeave={ this.closeSlideAccess } ><Link to="/accessories">ACCESSORIES</Link></li>
-        {/* <li><img className="Main-logo" src='' /></li> */}
+        </ul>
+
+
+       
+        <ul className="right-nav">
         <li className="Nav-right"><Link to="/cart">CART</Link></li>
         <li className="Nav-right"><Link to="/login">ACCOUNT</Link></li>
         <li className="Nav-right"><a>SEARCH</a></li>
-        </div>
-      </ul>
-      <div className={this.state.slideVisibleMens ? 'slide open_mens' : 'not_slide'}></div>
-      <div className={this.state.slideNotVisibleMens ? 'slide close_mens' : 'not_slide'}></div>
-      <div className={this.state.slideVisibleWomens ? 'slide open_womens' : 'not_slide'}></div>
-      <div className={this.state.slideNotVisibleWomens ? 'slide' : 'not_slide'}></div>
-      <div className={this.state.slideVisibleAccess ? 'slide open_accessories' : 'not_slide'}></div>
-      <div className={this.state.slideNotVisibleAccess ? 'slide' : 'not_slide'}></div>
-      
-    </div>
-    );
+        </ul>
+        
+        
+      </div>
+
+        <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : 'not_slide'}></div>
+        {/* <div className={this.state.slideNotVisibleMens ? 'slide close_mens' : 'not_slide'}></div> */}
+        <div className={this.state.slideVisibleWomens ? 'slide_womens open_womens' : 'not_slide'}></div>
+        {/* <div className={this.state.slideNotVisibleWomens ? 'slide' : 'not_slide'}></div> */}
+        <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : 'not_slide'}></div>
+        {/* <div className={this.state.slideNotVisibleAccess ? 'slide' : 'not_slide'}></div> */}
+      </div>
+    )
   }
 }
 

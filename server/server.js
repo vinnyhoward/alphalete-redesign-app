@@ -29,12 +29,12 @@ passport.use( new Auth0Strategy({
 }, function(accessToken, refreshToken, extraParams, profile, done){
     const db = app.get('db');
 
-    db.get_user([profile.identities.auth_id]).then(user => {
+    db.get_user([profile.identities[0].auth_id]).then(user => {
         console.log(user)
         if (user[0]){
             done(null, user[0].id)
         } else {
-            db.create_user([profile.user_name, profile.user_email.value, profile.user_password, profile.identities.auth_id]).then(user => {
+            db.create_user([profile.user_name, profile.user_email[0].value, profile.user_password, profile.identities[0].auth_id]).then(user => {
                 done(null, user[0].id)
             })
         }

@@ -11,16 +11,12 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
 }
 
 li {
   float: left;
 }
 
-li:last-child {
-  border-right: none;
-}
 
 li a {
   display: block;
@@ -51,24 +47,52 @@ li a {
   float: right;
 }
 
-.Nav-padding {
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
 .Main-logo {
   width: 100px;
   height: 20px;
   /* background-image: url("../../Alphalete_logo1") */
 }
 
+.left-nav {
+  opacity: 0px;
+  float: left;
+  padding-left: 30px;
+}
+
+.right-nav {
+  opacity: 0px;
+  float: right;
+  padding-right: 30px;
+}
+
+
 /* NAVBAR ANIMATIONS */
 
-.slide {
+.slide_mens {
   height: 0px;
   width: 100%;
-  background: #FFFFFF;
-  transition: .34s;
+  background: #A00000;
+  transition: .54s;
+  transition-timing-function: ease-out;
+  /* border-bottom: 1px solid rgba(153, 153, 153, 0.80); */
+  /* box-shadow: 1px 1px 2px #333; */
+}
+
+.slide_womens {
+  height: 0px;
+  width: 100%;
+  background: #4200A0;
+  transition: .54s;
+  transition-timing-function: ease-out;
+  /* border-bottom: 1px solid rgba(153, 153, 153, 0.80); */
+  /* box-shadow: 1px 1px 2px #333; */
+}
+
+.slide_accessories {
+  height: 0px;
+  width: 100%;
+  background: #4BA000;
+  transition: .54s;
   transition-timing-function: ease-out;
   /* border-bottom: 1px solid rgba(153, 153, 153, 0.80); */
   /* box-shadow: 1px 1px 2px #333; */
