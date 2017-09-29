@@ -71,7 +71,7 @@ li a {
 .slide_mens {
   height: 0px;
   width: 100%;
-  background: #A00000;
+  background: #FFFFFF;
   transition: .54s;
   transition-timing-function: ease-out;
   /* border-bottom: 1px solid rgba(153, 153, 153, 0.80); */
@@ -81,7 +81,7 @@ li a {
 .slide_womens {
   height: 0px;
   width: 100%;
-  background: #4200A0;
+  background: #FFFFFF;
   transition: .54s;
   transition-timing-function: ease-out;
   /* border-bottom: 1px solid rgba(153, 153, 153, 0.80); */
@@ -91,7 +91,7 @@ li a {
 .slide_accessories {
   height: 0px;
   width: 100%;
-  background: #4BA000;
+  background: #FFFFFF;
   transition: .54s;
   transition-timing-function: ease-out;
   /* border-bottom: 1px solid rgba(153, 153, 153, 0.80); */
@@ -102,6 +102,7 @@ li a {
 
 .open_mens {
   height: 350px;
+  display: relative;
   border-bottom: 1px solid rgba(153, 153, 153, 0.80);
 
 }

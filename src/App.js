@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import router from './router';
 
 class App extends Component {
+
   render() {
     return (
       <div>

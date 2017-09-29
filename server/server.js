@@ -3,9 +3,13 @@ const express = require('express'),
         massive = require('massive'),
         session = require('express-session'),
         passport = require('passport'),
-        Auth0Strategy = require('passport-auth0');
+        // cors = require('cors'),
+        Auth0Strategy = require('passport-auth0'),
+        ctrl = require('./productsController');
+
 
 require ('dotenv').config();
+// app.use( cors() );
 
 const app = express();
 app.use(session({
@@ -19,8 +23,11 @@ app.use(passport.session());
 
 massive(process.env.CONNECTION_STRING).then( db => {
     app.set('db', db);
+    const PORT = 3030;
+    app.listen(PORT, () => console.log('Listening on port: ', PORT))
 })
 
+//PASSPORT STRATEGY
 passport.use( new Auth0Strategy({
     domain: process.env.AUTH_DOMAIN,
     clientID: process.env.AUTH_CLIENT_ID,
@@ -29,51 +36,51 @@ passport.use( new Auth0Strategy({
 }, function(accessToken, refreshToken, extraParams, profile, done){
     const db = app.get('db');
 
-    db.get_user([profile.identities[0].auth_id]).then(user => {
+    db.get_user([profile.identities[0].user_id]).then(user => {
         console.log(user)
         if (user[0]){
             done(null, user[0].id)
         } else {
-            db.create_user([profile.user_name, profile.user_email[0].value, profile.user_password, profile.identities[0].auth_id]).then(user => {
+            db.create_user([profile.displayName, profile.emails[0].value, profile.identities[0].user_id]).then(user => {
                 done(null, user[0].id)
             })
         }
     })
 }))  
 
-passport.serializeUser(function(userId, done) {
-    console.log(userId);
-    done(null, userId);
-})
-
-
-passport.deserializeUser(function(userId,done) {
-    app.get('db').current_user([userId]).then(res => {
-        done(null, res[0]);
-    })
+//PASSPORT SERIALIZE AND DESERIALIZE
+passport.serializeUser(function(userId,done) {
+    done(null, userId);
 }) 
 
-app.get('/auth/user', (req, res) => { //Making sure the user exists and is redirected to the frontend or an error will occur
-    // res
-    if (!req.user) {
-        return res.status(404).send('Not Found Bro, Sorry');
-    } else {
-        return res.status(200).send(req.user);
-    }
-})
+passport.deserializeUser(function(userId,done) {
+    app.get('db').current_user([userId]).then( userId => {
+        done(null,userId[0])
+    })
+}) 
 
+//AUTH ENDPOINTS
 app.get('/auth', passport.authenticate('auth0'));
-
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/private',
-    failureRedirect: '/auth'
+    successRedirect: 'http://localhost:3000/#/mens',
+    failureRedirect: 'http://localhost:3000/#womens'
 }));
-
-app.get('/auth/logout', (req, res) => {
-    req.logOut(); //This will kill the session
-    res.redirect(302, "http://localhost:3000")
+app.get('/auth/user', (req, res) => {
+   if(!req.user) {
+       return res.status(404).send('User not found');
+   } else {
+    return res.status(200).send(req.user);
+   }
+})
+app.get('/auth/logout', (req,res) => {
+    req.logOut();
+    res.redirect(302, 'http://localhost:3000/')
 })
 
+//PRODUCT ENDPOINTS
+app.get('/api/getproduct/:id', ctrl.getOne); 
+app.get('/api/getproducts/mens', ctrl.getAllMale);
+app.get(`/api/getproducts/womens`, ctrl.getAllFemale);
 
-const PORT = 8080;
-app.listen(PORT, () => console.log('Listening on port: ', PORT))
+
+//PORT

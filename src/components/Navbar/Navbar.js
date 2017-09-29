@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Navbar.css';
 import { Link } from "react-router-dom";
+import MensDropNav from '../DropNav/MensDropNav';
 
 
 class Navbar extends Component {
@@ -12,22 +13,14 @@ class Navbar extends Component {
       slideVisibleAccess: false
     }
 this.openSlideMens = this.openSlideMens.bind(this)
-this.closeSlideMens = this.closeSlideMens.bind(this)
 this.openSlideWomens = this.openSlideWomens.bind(this)
-this.closeSlideWomens = this.closeSlideWomens.bind(this)
 this.openSlideAccess = this.openSlideAccess.bind(this)
-this.closeSlideAccess = this.closeSlideAccess.bind(this)
   }
+
 
 openSlideMens() {
   this.setState({
     slideVisibleMens: !this.state.slideVisibleMens
-  })
-}
-
-closeSlideMens() {
-  this.setState({
-    slideNotVisibleMens: !this.state.slideNotVisibleMens
   })
 }
 
@@ -37,25 +30,11 @@ openSlideWomens() {
   })
 }
 
-closeSlideWomens() {
-  this.setState({
-    slideNotVisibleWomens: !this.state.slideNotVisibleWomens
-  })
-}
-
-
 openSlideAccess() {
   this.setState({
     slideVisibleAccess: !this.state.slideVisibleAccess
   })
 }
-
-closeSlideAccess() {
-  this.setState({
-    slideNotVisibleAccess: !this.state.slideNotVisibleAccess
-  })
-}
-
 
   render() {
     return (
@@ -63,11 +42,10 @@ closeSlideAccess() {
         <div className="Navbar-Container">
       <ul className="left-nav">
         <li
-          onMouseOver={ this.openSlideMens } onMouseLeave={ this.closeSlideMens } ><Link to="/mens">MEN'S</Link></li>
-        <li onMouseOver={ this.openSlideWomens } onMouseLeave={ this.closeSlideWomens } ><Link to="/womens">WOMEN'S</Link></li>
-        <li onMouseOver={ this.openSlideAccess } onMouseLeave={ this.closeSlideAccess } ><Link to="/accessories">ACCESSORIES</Link></li>
+          onMouseOver={ this.openSlideMens }  ><Link to="/mens">MEN'S</Link></li>
+        <li onMouseOver={ this.openSlideWomens }  ><Link to="/womens">WOMEN'S</Link></li>
+        <li onMouseOver={ this.openSlideAccess }  ><Link to="/accessories">ACCESSORIES</Link></li>
         </ul>
-
 
        
         <ul className="right-nav">
@@ -79,12 +57,9 @@ closeSlideAccess() {
         
       </div>
 
-        <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : 'not_slide'}></div>
-        {/* <div className={this.state.slideNotVisibleMens ? 'slide close_mens' : 'not_slide'}></div> */}
-        <div className={this.state.slideVisibleWomens ? 'slide_womens open_womens' : 'not_slide'}></div>
-        {/* <div className={this.state.slideNotVisibleWomens ? 'slide' : 'not_slide'}></div> */}
-        <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : 'not_slide'}></div>
-        {/* <div className={this.state.slideNotVisibleAccess ? 'slide' : 'not_slide'}></div> */}
+        {/* <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : ' '}></div>
+        <div className={this.state.slideVisibleWomens ? 'slide_womens open_womens' : ' '}></div>
+        <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : ' '}></div> */}
       </div>
     )
   }
