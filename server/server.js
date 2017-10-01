@@ -80,7 +80,9 @@ app.get('/auth/logout', (req,res) => {
 //PRODUCT ENDPOINTS
 app.get('/api/getproduct/:id', ctrl.getOne); 
 app.get('/api/getproducts/mens', ctrl.getAllMale);
+app.get('/api/getproducts/mens-asc', ctrl.filterMensByAsc);
+app.get('/api/getproducts/mens-desc', ctrl.filterMensByDesc);
 app.get(`/api/getproducts/womens`, ctrl.getAllFemale);
 
 
-//PORT
+//PORT  '/api/getproducts/mens-desc'

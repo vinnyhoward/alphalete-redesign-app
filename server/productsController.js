@@ -20,6 +20,26 @@ module.exports = {
           } );
       },
 
+    filterMensByAsc: ( req, res, next ) => {
+        const dbInstance = req.app.get('db');
+        const { params } = req; 
+        dbInstance.filter_asc_mens()
+          .then( products => res.status(200).send( products ) )
+          .catch( (err) => {
+              res.status(500).send(err)
+          } );
+      },
+
+    filterMensByDesc: ( req, res, next ) => {
+        const dbInstance = req.app.get('db');
+        const { params } = req; 
+        dbInstance.filter_desc_mens()
+          .then( products => res.status(200).send( products ) )
+          .catch( (err) => {
+              res.status(500).send(err)
+          } );
+      },
+
     getAllFemale: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -30,4 +50,6 @@ module.exports = {
           } );
       },
   };
+
+
 
