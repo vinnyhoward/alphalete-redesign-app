@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { getOne } from '../../services/productService';
 import axios from 'axios';
 import './Mens.css';
-import { getAllMensProducts, getMensAsc, getMensDesc } from '../../ducks/ProductsDucks'
+import { getAllMensProducts, getMensAsc, getMensDesc, getMensLowHigh, getMensHighLow } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
 // import FilterDropDownMenu from '../FilterDropDownMenu/FilterDropDownMenu';
 
@@ -10,8 +10,11 @@ class Mens extends Component {
   constructor(props) {
     super(props)
 
+    //MENS BINDED
     this.getMensAsc = this.getMensAsc.bind(this)
     this.getMensDesc = this.getMensDesc.bind(this)
+    this.getMensLowHigh = this.getMensLowHigh.bind(this)
+    this.getMensHighLow = this.getMensHighLow.bind(this)
   }
   
   componentDidMount() {
@@ -22,6 +25,12 @@ class Mens extends Component {
   }
   getMensDesc() {
     this.props.getMensDesc()
+  }
+  getMensLowHigh() {
+    this.props.getMensLowHigh()
+  }
+  getMensHighLow() {
+    this.props.getMensHighLow()
   }
  
 
@@ -42,8 +51,16 @@ class Mens extends Component {
     })
     
         return (
-          <div> <button onClick={ this.getMensAsc }>Alphabetically, A-Z</button> 
-          <button onClick={ this.getMensDesc }>Alphabetically, Z-A</button> 
+          <div> 
+            <div className="dropdown">
+            <button className="dropbtn">SORT BY</button>
+            <div className="dropdown-content">
+            <a onClick={ this.getMensAsc }>Alphabetically, A-Z</a>
+            <a onClick={ this.getMensDesc }>Alphabetically, Z-A</a>
+            <a onClick={ this.getMensLowHigh }>Price, low to high</a>
+            <a onClick={ this.getMensHighLow }>Price, high to low</a>
+            </div>
+            </div>
   
           <div className ='product-container'>
             {/* <FilterDropDownMenu /> */}
@@ -63,4 +80,4 @@ class Mens extends Component {
       }
     }
 
-    export default connect(mapStateToProps, { getAllMensProducts, getMensAsc, getMensDesc })(Mens); // "getAllMensProducts is passed down
+    export default connect(mapStateToProps, { getAllMensProducts, getMensAsc, getMensDesc, getMensLowHigh, getMensHighLow  })(Mens); // "getAllMensProducts is passed down

@@ -40,6 +40,28 @@ module.exports = {
           } );
       },
 
+
+      filterMensByLowHigh: ( req, res, next ) => {
+        const dbInstance = req.app.get('db');
+        const { params } = req; 
+        dbInstance.filter_price_low_high()
+          .then( products => res.status(200).send( products ) )
+          .catch( (err) => {
+              res.status(500).send(err)
+          } );
+      },
+
+      filterMensByHighLow: ( req, res, next ) => {
+        const dbInstance = req.app.get('db');
+        const { params } = req; 
+        dbInstance.filter_price_high_low()
+          .then( products => res.status(200).send( products ) )
+          .catch( (err) => {
+              res.status(500).send(err)
+          } );
+      },
+
+
     getAllFemale: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 

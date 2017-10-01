@@ -79,10 +79,15 @@ app.get('/auth/logout', (req,res) => {
 
 //PRODUCT ENDPOINTS
 app.get('/api/getproduct/:id', ctrl.getOne); 
+//MENS 
 app.get('/api/getproducts/mens', ctrl.getAllMale);
+//MENS FILTER
 app.get('/api/getproducts/mens-asc', ctrl.filterMensByAsc);
 app.get('/api/getproducts/mens-desc', ctrl.filterMensByDesc);
+app.get('/api/getproducts/mens-price-low-high', ctrl.filterMensByLowHigh);
+app.get('/api/getproducts/mens-price-high-low', ctrl.filterMensByHighLow);
+//WOMENS
 app.get(`/api/getproducts/womens`, ctrl.getAllFemale);
 
 
-//PORT  '/api/getproducts/mens-desc'
+//PORT  '/api/getproducts/mens-desc' filter_price_low_high filter_price_high_low
