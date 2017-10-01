@@ -17,7 +17,7 @@ class Womens extends Component {
   //       product: res.data
   //     })
   //   })
-  // }
+  // }1
 
 
   componentDidMount() {

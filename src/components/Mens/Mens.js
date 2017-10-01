@@ -20,11 +20,11 @@ class Mens extends Component {
   // }
 
 
-  componentDidMount() {
-    axios.get(`/api/getproducts/mens`).then(res => {
+componentDidMount() {
+  axios.get(`/api/getproducts/mens`).then(res => {
       this.setState({
         products: res.data
-        
+ 
       })
     })
   }
@@ -33,29 +33,24 @@ class Mens extends Component {
   render() {
     const mensClothing = this.state.products.map((e, i) => {
       return (
-        <div key={i}>
-        <h1>{e.title}</h1>
-        <img className='img-container' src={e.image1} alt=" " />
-        <p>{e.description}</p>
-        <p>${e.price}</p>
+
+        <div key={i} className='product'>
+        <img className='img' src={e.image1} alt=" " />
+        <div className='caption-container'>
+        <h1 className='product-title'>{e.title}</h1>
+        <p className='product-color'>{e.color}</p>
+        <p className='product-price'>${e.price}</p>
+        <button className='cart-button'>ADD TO CART</button>
         </div>
+        </div>
+
       )
     })
-    
+
+
     
         return (
-          <div>
-            <div class="dropdown">
-            <button class="dropbtn">SORT BY</button>
-            <div class="dropdown-content">
-            <a href="#">FEATURED</a>
-            <a href="#">PRICE: HIGH TO LOW</a>
-            <a href="#">PRICE: LOW TO HIGH</a>
-            <a href="#">POPULAR</a>
-            <a href="#">BEST SELLERS</a>
-            </div>
-            </div>
-
+          <div className ='product-container'>
             { mensClothing }
           </div>
         )
