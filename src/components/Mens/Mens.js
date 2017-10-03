@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-// import { getOne } from '../../services/productService';
-import axios from 'axios';
 import './Mens.css';
 import { getAllMensProducts, getMensAsc, getMensDesc, getMensLowHigh, getMensHighLow } from '../../ducks/ProductsDucks'
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-// import FilterDropDownMenu from '../FilterDropDownMenu/FilterDropDownMenu';
+// import MensSideNav from './MensSideNav'
 
 class Mens extends Component {
   constructor(props) {
@@ -38,12 +37,11 @@ class Mens extends Component {
     const mensClothing = this.props.products.map((e, i) => {
       return (
         <div key={i} className='product'>
-        <img className='img' src={e.image1} alt=" " />
+        <Link to={`/${i}`} ><img className='img' src={e.image1} alt=" " /></Link>
         <div className='caption-container'>
         <h1 className='product-title'>{e.title}</h1>
         <p className='product-color'>{e.color}</p>
         <p className='product-price'>${e.price}</p>
-        <button className='cart-button'>ADD TO CART</button>
         </div>
         </div>
 
@@ -51,8 +49,16 @@ class Mens extends Component {
     })
     
         return (
-          <div> 
-            <div className="dropdown">
+          
+          <div className='Main'> 
+          <div className='Wrapper'>
+
+
+            <div className='Header'>
+              <div className='Float-Mens'>MENS</div>
+              <div className='float-filter'>
+
+              <div className="dropdown"> 
             <button className="dropbtn">SORT BY</button>
             <div className="dropdown-content">
             <a onClick={ this.getMensAsc }>Alphabetically, A-Z</a>
@@ -61,12 +67,24 @@ class Mens extends Component {
             <a onClick={ this.getMensHighLow }>Price, high to low</a>
             </div>
             </div>
-  
-          <div className ='product-container'>
-            {/* <FilterDropDownMenu /> */}
+
+              </div>
+              </div>
+            <div className='SideNav'></div>
+
             
+            <div className='Content'>
+
+          
+          <div className ='product-container'>    
             { mensClothing }
-           
+          </div>
+         
+
+            </div>
+            <div className='Footer'></div>
+
+
           </div>
           </div>
         )
@@ -74,10 +92,10 @@ class Mens extends Component {
     
     };
 
-    function mapStateToProps(state) { //mapping global state to our local app props
+    function mapStateToProps(state) { 
       return {
-        products: state.products // it can now be accessed by "this.props.starsWarsPeople" 
+        products: state.products 
       }
     }
 
-    export default connect(mapStateToProps, { getAllMensProducts, getMensAsc, getMensDesc, getMensLowHigh, getMensHighLow  })(Mens); // "getAllMensProducts is passed down
+    export default connect(mapStateToProps, { getAllMensProducts, getMensAsc, getMensDesc, getMensLowHigh, getMensHighLow })(Mens);

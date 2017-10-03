@@ -4,3 +4,7 @@
   text-align: center;
 }
 
+.Background {
+  background-image: url('./photo1.jpg') 100% no-repeat;
+  background-size: cover;
+}

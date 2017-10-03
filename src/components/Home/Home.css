@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Quattrocento+Sans:400,400i,700,700i');
+.cart-button {
+  width: 100px;
+  height: 30px;
+}
+
+.caption-container {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+  align-content: stretch;
+  width: 400px;
+  height: 200px;
+  margin: 5px;
+}
+
+.product-title {
+  font-size: 18px;
+}
+
+.product {
+ margin: 20px;
+}
+
+.product-container {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: baseline;
+  align-content: center;
+  width: 1200px;
+}
+
+.img {
+  height: 400px;
+  width: 400px;
+  max-width: 100%;
+  position: relative;
+}

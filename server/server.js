@@ -78,7 +78,9 @@ app.get('/auth/logout', (req,res) => {
 })
 
 //PRODUCT ENDPOINTS
-app.get('/api/getproduct/:id', ctrl.getOne); 
+app.get('/api/getproduct/:id', ctrl.getOne);
+app.get('/api/getproducts/all', ctrl.getAllProducts);
+app.get('/api/getproducts/search', ctrl.getAllProducts);
 //MENS 
 app.get('/api/getproducts/mens', ctrl.getAllMale);
 //MENS FILTER
@@ -87,7 +89,11 @@ app.get('/api/getproducts/mens-desc', ctrl.filterMensByDesc);
 app.get('/api/getproducts/mens-price-low-high', ctrl.filterMensByLowHigh);
 app.get('/api/getproducts/mens-price-high-low', ctrl.filterMensByHighLow);
 //WOMENS
-app.get(`/api/getproducts/womens`, ctrl.getAllFemale);
+app.get(`/api/getproducts/womans`, ctrl.getAllFemale);
+app.get('/api/getproducts/womans-asc', ctrl.filterWomansByAsc);
+app.get('/api/getproducts/womans-desc', ctrl.filterWomansByDesc);
+app.get('/api/getproducts/womans-price-low-high', ctrl.filterWomansByLowHigh);
+app.get('/api/getproducts/womans-price-high-low', ctrl.filterWomansByHighLow);
 
 
 //PORT  '/api/getproducts/mens-desc' filter_price_low_high filter_price_high_low
