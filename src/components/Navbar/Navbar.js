@@ -10,13 +10,21 @@ class Navbar extends Component {
     this.state = {
       slideVisibleMens: false,
       slideVisibleWomans: false,
-      slideVisibleAccess: false
+      slideVisibleAccess: false,
+      searchOpen: false
     }
 this.openSlideMens = this.openSlideMens.bind(this)
 this.openSlideWomans = this.openSlideWomans.bind(this)
 this.openSlideAccess = this.openSlideAccess.bind(this)
+this.searchAnimate = this.searchAnimate.bind(this)
   }
 
+
+searchAnimate() {
+  this.setState({
+    searchOpen: !this.state.searchOpen
+  })
+}
 
 openSlideMens() {
   this.setState({
@@ -51,15 +59,15 @@ openSlideAccess() {
         <ul className="right-nav">
         <li className="Nav-right"><Link to="/cart">CART</Link></li>
         <li className="Nav-right"><Link to="/login">ACCOUNT</Link></li>
-        <li className="Nav-right"><Link to="/search">SEARCH</Link></li>
+        <li onMouseOver={this.searchAnimate} className="Nav-right"><Link to="/search"><form id='Demo'><input className='Open-Search-Box' placeholder='Search' />SEARCH</form></Link></li>
         </ul>
         
         
       </div>
-
-        {/* <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : ' '}></div>
-        <div className={this.state.slideVisibleWomans ? 'slide_womans open_womans' : ' '}></div>
-        <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : ' '}></div> */}
+      <div className={this.state.searchAnimate ? 'Search-Box-Transitions Open-Search-Box' : ' '}></div>
+      <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : ' '}></div>
+      <div className={this.state.slideVisibleWomans ? 'slide_womans open_womans' : ' '}></div>
+      <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : ' '}></div> 
       </div>
     )
   }

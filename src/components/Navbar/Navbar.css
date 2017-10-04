@@ -101,21 +101,70 @@ li a {
 
 
 .open_mens {
-  height: 350px;
+  height: 300px;
   display: relative;
+  position: absolute;
   border-bottom: 1px solid rgba(153, 153, 153, 0.80);
 
 }
 
 
 .open_womans {
-  height: 350px;
+  height: 300px;
+  position: absolute;
   border-bottom: 1px solid rgba(153, 153, 153, 0.80);
 
 }
 
 .open_accessories {
-  height: 350px;
+  height: 300px;
+  position: absolute;
   border-bottom: 1px solid rgba(153, 153, 153, 0.80);
 
 }
+
+.Open-Search-Box {
+  outline: none;
+  margin-right: 10px;
+  height: 25px;
+  width: 250px;
+  border: 1px solid #D8D8D8;
+  padding-left: 10px;
+  font-size: 10pt;
+
+  
+}
+
+.Search-Box-Transitions {
+  -webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	
+	-webkit-transition: all .1s;
+	-moz-transition: all .1s;
+	transition: all .1s;
+}
+
+/* #demo input[className=Open-Search-Box] {
+	width: 15px;
+	padding-left: 10px;
+	color: transparent;
+	cursor: pointer;
+  border: none;
+}
+#demo input[className=Open-Search-Box]:hover {
+	background-color: #fff;
+}
+#demo input[className=Open-Search-Box]:focus {
+	width: 200px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #fff;
+	cursor: auto;
+  border: solid 2px #ccc;
+}
+#demo input:-moz-placeholder {
+	color: transparent;
+}
+#demo input::-webkit-input-placeholder {
+	color: transparent;
+}  */

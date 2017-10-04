@@ -17,10 +17,9 @@ class Search extends Component {
       term: ''
     }
     this.searchHandler = this.searchHandler.bind(this)
-    this.searchAll = this.searchAll.bind(this)
   }
 
-  searchAll() {
+  componentDidMount() {
     this.props.getAllProducts()
   }
 

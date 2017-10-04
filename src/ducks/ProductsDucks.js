@@ -26,10 +26,10 @@ export function getAllProducts() {
   const products = axios.get(`/api/getproducts/all`)
   .then(res => {
     return res.data
-  }) // Function to be passed into the payload - the returned object of action
+  }) 
   return {
     type: GET_ALL_PRODUCTS,
-    payload: products // Object being returned
+    payload: products 
   }
 }
 
@@ -50,10 +50,10 @@ export function getMensAsc() {
   const products = axios.get('/api/getproducts/mens-asc')
   .then(res => {
     return res.data
-  }) // Function to be passed into the payload - the returned object of action
+  }) 
   return {
     type: GET_MENS_ASC,
-    payload: products // Object being returned
+    payload: products 
   }
 }
 
@@ -62,10 +62,10 @@ export function getMensDesc() {
   const products = axios.get('/api/getproducts/mens-desc')
   .then(res => {
     return res.data
-  }) // Function to be passed into the payload - the returned object of action
+  }) 
   return {
     type: GET_MENS_DESC,
-    payload: products // Object being returned
+    payload: products 
   }
 }
 
@@ -74,10 +74,10 @@ export function getMensLowHigh() {
   const products = axios.get('/api/getproducts/mens-price-low-high')
   .then(res => {
     return res.data
-  }) // Function to be passed into the payload - the returned object of action
+  }) 
   return {
     type: GET_MENS_PRICE_LOW_HIGH,
-    payload: products // Object being returned
+    payload: products 
   }
 }
 
@@ -85,10 +85,10 @@ export function getMensHighLow() {
   const products = axios.get('/api/getproducts/mens-price-high-low')
   .then(res => {
     return res.data
-  }) // Function to be passed into the payload - the returned object of action
+  }) 
   return {
     type: GET_MENS_PRICE_HIGH_LOW,
-    payload: products // Object being returned
+    payload: products 
   }
 }
 
@@ -98,10 +98,10 @@ export function getAllWomansProducts() {
   const products = axios.get(`/api/getproducts/womans`)
   .then(res => {
     return res.data
-  }) // Function to be passed into the payload - the returned object of action
+  }) 
   return {
     type: GET_WOMANS_PRODUCTS,
-    payload: products // Object being returned
+    payload: products 
   }
 }
 
@@ -109,10 +109,10 @@ export function getWomansAsc() {
   const products = axios.get('/api/getproducts/womans-asc')
   .then(res => {
     return res.data
-  }) // Function to be passed into the payload - the returned object of action
+  })
   return {
     type: GET_WOMANS_ASC,
-    payload: products // Object being returned
+    payload: products 
   }
 }
 
@@ -121,10 +121,10 @@ export function getWomansDesc() {
   const products = axios.get('/api/getproducts/womans-desc')
   .then(res => {
     return res.data
-  }) // Function to be passed into the payload - the returned object of action
+  }) // 
   return {
     type: GET_WOMANS_DESC,
-    payload: products // Object being returned
+    payload: products 
   }
 }
 
@@ -133,10 +133,10 @@ export function getWomansLowHigh() {
   const products = axios.get('/api/getproducts/womans-price-low-high')
   .then(res => {
     return res.data
-  }) // Function to be passed into the payload - the returned object of action
+  }) 
   return {
     type: GET_WOMANS_PRICE_LOW_HIGH,
-    payload: products // Object being returned
+    payload: products 
   }
 }
 
@@ -144,10 +144,10 @@ export function getWomansHighLow() {
   const products = axios.get('/api/getproducts/womans-price-high-low')
   .then(res => {
     return res.data
-  }) // Function to be passed into the payload - the returned object of action
+  }) 
   return {
     type: GET_WOMANS_PRICE_HIGH_LOW,
-    payload: products // Object being returned
+    payload: products 
   }
 }
 

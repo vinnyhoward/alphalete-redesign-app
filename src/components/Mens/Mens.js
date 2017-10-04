@@ -9,13 +9,17 @@ class Mens extends Component {
   constructor(props) {
     super(props)
 
+    this.state= {
+      products: []
+    }
+
     //MENS BINDED
     this.getMensAsc = this.getMensAsc.bind(this)
     this.getMensDesc = this.getMensDesc.bind(this)
     this.getMensLowHigh = this.getMensLowHigh.bind(this)
     this.getMensHighLow = this.getMensHighLow.bind(this)
   }
-  
+
   componentDidMount() {
     this.props.getAllMensProducts()
   }
@@ -32,13 +36,14 @@ class Mens extends Component {
     this.props.getMensHighLow()
   }
  
+  
 
   render() {
     const mensClothing = this.props.products.map((e, i) => {
       return (
-        <div key={i} className='product'>
-        <Link to={`/${i}`} ><img className='img' src={e.image1} alt=" " /></Link>
-        <div className='caption-container'>
+        <div key={i} className='Nested-Content-Box'>
+        <Link to={`/mens/${e.productid}`}><img className='Product-Img' src={e.image1} alt=" " /></Link>
+        <div className='Caption-Container'>
         <h1 className='product-title'>{e.title}</h1>
         <p className='product-color'>{e.color}</p>
         <p className='product-price'>${e.price}</p>
@@ -55,8 +60,7 @@ class Mens extends Component {
 
 
             <div className='Header'>
-              <div className='Float-Mens'>MENS</div>
-              <div className='float-filter'>
+              <div className='Float-Mens'>MENS 
 
               <div className="dropdown"> 
             <button className="dropbtn">SORT BY</button>
@@ -69,18 +73,17 @@ class Mens extends Component {
             </div>
 
               </div>
+              <div className='float-filter'>
+
+              </div>
               </div>
             <div className='SideNav'></div>
 
             
             <div className='Content'>
-
-          
           <div className ='product-container'>    
             { mensClothing }
           </div>
-         
-
             </div>
             <div className='Footer'></div>
 

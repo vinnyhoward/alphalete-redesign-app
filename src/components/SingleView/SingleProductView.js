@@ -1,50 +1,34 @@
-// import React, { Component } from 'react';
-// import axios from 'axios';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-// class SingleProductView extends Component {
-//   constructor() {
-//     super()
-//     this.state= {
-//       products: []
-//     }
-//   }
-  
-//    componentDidMount() {
 
-//     axios.get(`/api/getproduct/${this.props.match.params.id}`).then(res => {
-//       this.setState({
-//         product: res.data
-//       })
-//     })
-//    }
+export default class SingleProductView extends Component {
 
-//   render() {
+  constructor() {
+    super()
+    this.state = {
+      singleProduct: {}
+    }
+  }
+  componentDidMount() {
+    axios.get(`/api/getproduct/${this.props.match.params.id}`).then( res => {
+      this.setState({
+        singleProduct: res.data
+      })
+    })
+  }
 
-//     const singleView = this.state.products.map((e, i) => {
-//       return (
-//         <div key={i} className='product'>
-//         <img className='img' src={e.image1} alt=" " />
-//         <div className='caption-container'>
-//         <h1 className='product-title'>{e.title}</h1>
-//         <p className='product-color'>{e.color}</p>
-//         <p className='product-price'>${e.price}</p>
-//         <button className='cart-button'>ADD TO CART</button>
-//         </div>
-//         </div>
+  render() {
+      return ( 
 
-//       )
-//     })
-    
-//         return (
-//           <div className ='product-container'>
-            
-//             { singleView }
-           
-//           </div>
-//         )
-//       }
-    
-//     };
+          <div>
+            <img src={this.state.singleProduct.image1} alt='' />
+              <h1>{this.state.singleProduct.title}</h1>
+              <p>{this.state.singleProduct.color}</p>
+              <p>{this.state.singleProduct.price}</p>
 
-// export default SingleProductView;
-  
+              
+          </div>
+      )
+  }
+}
