@@ -3,14 +3,17 @@ import './Mens.css';
 import { getAllMensProducts, getMensAsc, getMensDesc, getMensLowHigh, getMensHighLow } from '../../ducks/ProductsDucks'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-// import MensSideNav from './MensSideNav'
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
+
 
 class Mens extends Component {
   constructor(props) {
     super(props)
 
     this.state= {
-      products: []
+      products: [],
+      value: 2
     }
 
     //MENS BINDED
@@ -19,6 +22,11 @@ class Mens extends Component {
     this.getMensLowHigh = this.getMensLowHigh.bind(this)
     this.getMensHighLow = this.getMensHighLow.bind(this)
   }
+
+  handleChange = (event, index, value) => 
+  this.setState({
+    value
+  });
 
   componentDidMount() {
     this.props.getAllMensProducts()
@@ -61,16 +69,22 @@ class Mens extends Component {
 
             <div className='Header'>
               <div className='Float-Mens'>MENS 
-
+            
               <div className="dropdown"> 
-            <button className="dropbtn">SORT BY</button>
-            <div className="dropdown-content">
-            <a onClick={ this.getMensAsc }>Alphabetically, A-Z</a>
-            <a onClick={ this.getMensDesc }>Alphabetically, Z-A</a>
-            <a onClick={ this.getMensLowHigh }>Price, low to high</a>
-            <a onClick={ this.getMensHighLow }>Price, high to low</a>
+              <DropDownMenu
+              style={{
+              width: '240px',
+              height: '50px',
+              margin: '0 auto',
+    }}
+              className='DropDown' value={this.state.value} onChange={this.handleChange} openImmediately={false}>
+            <MenuItem value={1} onClick={ this.getMensAsc } primaryText="Alphabetically, A-Z" />
+            <MenuItem value={2} onClick={ this.getMensDesc } primaryText="Alphabetically, Z-A" />
+            <MenuItem value={3} onClick={ this.getMensLowHigh } primaryText="Price, low to high" />
+            <MenuItem value={4} onClick={ this.getMensHighLow } primaryText="Price, high to low"  />
+              </DropDownMenu>
             </div>
-            </div>
+
 
               </div>
               <div className='float-filter'>

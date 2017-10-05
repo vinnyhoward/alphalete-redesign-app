@@ -60,7 +60,6 @@ class Womans extends Component {
             </div>
   
           <div className ='product-container'>
-            {/* <FilterDropDownMenu /> */}
             
             { womansClothing }
            

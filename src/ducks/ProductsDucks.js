@@ -6,6 +6,7 @@ const initialState = {
 
 
 const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
+const GET_SEARCH_PRODUCTS = 'GET_SEARCH_PRODUCTS'
 // const GET_SINGLE_VIEW = 'GET_SINGLE_VIEW'
 //MENS 
 const GET_MENS_PRODUCTS = 'GET_MENS_PRODUCTS'
@@ -19,6 +20,18 @@ const GET_WOMANS_ASC = 'GET_WOMANS_ASC'
 const GET_WOMANS_DESC = 'GET_WOMANS_DESC'
 const GET_WOMANS_PRICE_LOW_HIGH = 'GET_WOMANS_PRICE_LOW_HIGH'
 const GET_WOMANS_PRICE_HIGH_LOW = 'GET_WOMANS_PRICE_HIGH_LOW'
+
+
+export function getSearchProducts(term) {
+  const products = axios.get(`/api/search?${term}`)
+  .then(res => {
+    return res.data
+  }) 
+  return {
+    type: GET_SEARCH_PRODUCTS,
+    payload: products 
+  }
+}
 
 //MENS//MENS//MENS//MENS//MENS//MENS//MENS//MENS//MENS//MENS
 
@@ -155,6 +168,9 @@ export function getWomansHighLow() {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+
+    case GET_SEARCH_PRODUCTS + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload})
 
     case GET_ALL_PRODUCTS + '_FULFILLED':
     return Object.assign({}, state, {products: action.payload})

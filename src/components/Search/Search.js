@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getAllProducts } from '../../ducks/ProductsDucks'
+import { getAllProducts, getSearchProducts } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
 
 
@@ -14,23 +14,20 @@ class Search extends Component {
     super()
 
     this.state = {
-      term: ''
+
     }
-    this.searchHandler = this.searchHandler.bind(this)
+
   }
 
   componentDidMount() {
-    this.props.getAllProducts()
+    this.props.getSearchProducts()
   }
 
-  searchHandler(event){
-    this.setState({
-      term: event.target.value
-    })
-  }
+
 
 
   render() {
+    console.log(this.props);
     const allClothing = this.props.products.filter(searchingFor(this.state.term)).map((e, i) => {
       return (
         
@@ -48,20 +45,9 @@ class Search extends Component {
 
     })
 
-    return (
+    return ( 
       <div>
-
-      <div>
-        <form><input type="text"
-        onChange={this.searchHandler}
-        />
-        </form>
-      </div>
-
-      <div className ='product-container'>
-        
-{ allClothing }
-      </div>
+        {this.props.products}
       </div>
     );
   }

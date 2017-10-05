@@ -21,6 +21,26 @@ module.exports = {
           } );
       },
 
+      getSearchProducts: ( req, res, next ) => {
+        const dbInstance = req.app.get('db');
+        const { params } = req; 
+        dbInstance.get_all_products()
+          .then( products => {
+              
+           const searchedProducts = products.filter( (product) => {
+                  console.log(product.title.toLowerCase().includes(req.query.term.toLowerCase()));
+                  return product.title.toLowerCase().includes(req.query.term.toLowerCase())
+              })
+              res.status(200).send( searchedProducts ) 
+            
+            })
+          .catch( (err) => {
+              res.status(500).send(err)
+              
+          } );
+      },
+
+
     getAllMale: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
