@@ -1,3 +1,3 @@
 SELECT * 
 FROM products
-WHERE gender = 'Female';
+WHERE gender = 'FEMALE';

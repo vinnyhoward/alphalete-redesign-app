@@ -1,4 +1,4 @@
 SELECT *
 FROM products
-WHERE gender='Mens' 
+WHERE gender='MALE' 
 ORDER BY price ASC;

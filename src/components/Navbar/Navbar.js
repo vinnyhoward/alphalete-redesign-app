@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Navbar.css';
 import { Link } from "react-router-dom";
+import { getSearchProducts } from '../../ducks/ProductsDucks'
 
 
 
@@ -12,7 +13,8 @@ class Navbar extends Component {
       slideVisibleWomans: false,
       slideVisibleAccess: false,
       searchOpen: false,
-      term: ''
+      term: '',
+
     }
 this.openSlideMens = this.openSlideMens.bind(this)
 this.openSlideWomans = this.openSlideWomans.bind(this)
@@ -54,9 +56,17 @@ changeHandler(event){
 }
 
 keyPressHandler(event){
-  console.log(event.charCode);
+  // console.log(event.charCode);
+
+
   if(event.charCode === 13){
     //Call action creator from ducks and pass this.state.term
+    // let newlyDisplayed = this.state.getSearchProducts().filter, searchedProduct => this.state.searchedProduct.includes(event.target.value.toLowerCse()))
+
+    // this.setState({
+    //   searchTerm: event.target.value,
+    //   currentlyDisplayed: newlyDisplayed
+    // })
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getAllProducts, getSearchProducts } from '../../ducks/ProductsDucks'
+import { getAllProducts } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
 
 
@@ -20,7 +20,7 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    this.props.getSearchProducts()
+    this.props.getAllProducts()
   }
 
 
