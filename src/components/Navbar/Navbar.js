@@ -5,6 +5,7 @@ import { getSearchProducts } from '../../ducks/ProductsDucks'
 
 
 
+
 class Navbar extends Component {
   constructor() {
     super()
@@ -78,13 +79,15 @@ keyPressHandler(event){
         <li onMouseOver={ this.openSlideAccess } ><Link to="/accessories">ACCESSORIES</Link></li>
         </ul>
 
-       
+        
         <ul className="right-nav">
         <li className="Nav-right"><Link to="/cart">CART</Link></li>
         <li className="Nav-right"><Link to="/login">ACCOUNT</Link></li>
         <li className="Nav-right"><input onChange={this.changeHandler} onKeyPress={this.keyPressHandler} className='Open-Search-Box' placeholder='Search' />SEARCH</li>
         </ul>
-        
+
+
+   
         
       </div>
       {/* <div className={this.state.searchAnimate ? 'Search-Box-Transitions Open-Search-Box' : ' '}></div> */}

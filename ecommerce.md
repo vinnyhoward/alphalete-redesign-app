@@ -695,3 +695,19 @@ render() {
     }
 
     export default connect(mapStateToProps, { getAllWomansProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow  })(Womans);
+
+
+    <div className='Filter-Align'>
+            <DropDownMenu
+              style={{
+              width: '240px',
+              height: '50px',
+              margin: '0 auto',
+    }}
+              className='DropDown' value={this.state.value} onChange={this.handleChange} openImmediately={false}>
+            <MenuItem value={1} onClick={ this.getWomansAsc } primaryText="Alphabetically, A-Z" />
+            <MenuItem value={2} onClick={ this.getWomansDesc } primaryText="Alphabetically, Z-A" />
+            <MenuItem value={3} onClick={ this.getWomansLowHigh } primaryText="Price, low to high" />
+            <MenuItem value={4} onClick={ this.getWomansHighLow } primaryText="Price, high to low"  />
+              </DropDownMenu>
+            </div>

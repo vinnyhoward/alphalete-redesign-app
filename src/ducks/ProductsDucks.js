@@ -213,4 +213,4 @@ export default function reducer(state = initialState, action) {
   }
   }
 
-  //'/api/getproducts/mens-price-low-high' app.get('/api/getproducts/mens-price-high-low', ctrl.filterMensByHighLow); '/api/getproduct/all-products'
+//   //'/api/getproducts/mens-price-low-high' app.get('/api/getproducts/mens-price-high-low', ctrl.filterMensByHighLow); '/api/getproduct/all-products'

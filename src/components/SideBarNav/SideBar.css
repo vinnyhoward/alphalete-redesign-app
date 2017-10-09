@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800|Oswald');
+
+.sidebar p {
+
+}
+.sidebar {
+  padding: 10px;
+  width: 170px;
+  background-color: #434A54;
+  color: #fff;
+}
+.sidebar h3 {
+  margin: 0;
+  color: #2A2A2A;
+}
+.content,
+.sidebar {
+  float: left;
+}
+
+
+/* The sticky */
+.sidebar {
+  width: 260px;
+  height: 420px;
+  background: #fff;
+  color: #373737;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 110px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+}
+
+.side-nav-container  {
+  display: grid;
+  padding: 1em;
+  grid-gap: 1em;
+}
+
+.side-nav-container > h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  border-bottom: 1px line #242424;
+  margin: 0px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0.5em 0;
+    padding: 0;
+}
+
+.color-container {
+  display: grid;
+  grid-template-columns: repeat( 4,1fr );
+  grid-gap: 1em;
+}
+.box1 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #B8E0DB;
+  background-color: #9CD7D3
+}
+.box2 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #BE5E6E;
+  background-color: #BB2E45
+}
+.box3 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #436689;
+  background-color: #225689
+}
+.box4 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #EAD7D8;
+  background-color: #DEAEB0
+}
+
+.box5 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #864D67;
+  background-color: #7d204a
+}
+
+.box6 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #DDDDDD;
+  background-color: #B4B4B4
+}
+
+.box7 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #E5E5E5;
+  background-color: #F7F7F7
+}
+
+.box8 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #2E2E2E;
+  background-color: #121212
+}
+
+
+

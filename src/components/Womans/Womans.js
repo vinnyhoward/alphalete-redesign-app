@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
+import SideBarNav from '../SideBarNav/SideBarNav'
 
 class Womans extends Component {
   constructor(props) {
@@ -79,7 +80,10 @@ class Womans extends Component {
               </DropDownMenu>
             </div>
             </div>
-          <div className='Nav'></div>
+            <SideBarNav />
+          <div className='Nav'>
+          
+          </div>
           <div className='Content'> <div className='Nested-Content'>
 
             {womansClothing}
@@ -88,6 +92,7 @@ class Womans extends Component {
           <div className='Email-Sub'></div>
           </div>
           <div className='Footer'></div>
+
           </div>
         )
       }

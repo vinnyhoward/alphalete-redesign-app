@@ -37,7 +37,7 @@ font-family: 'Oswald', sans-serif;
 
 
 .Nav {
-  background: #fff;
+  background: #f6f6f6;
   grid-row: 2/6;
 }
 
@@ -48,7 +48,7 @@ font-family: 'Oswald', sans-serif;
 }
 
 .Email-Sub {
-background: #fff;
+background: #f6f6f6;
 grid-row: 6/8;
 grid-row: 1/8;
 }
@@ -84,8 +84,8 @@ grid-row: 1/8;
 }
 
 .Body-Margin {
-  margin-left: 100px;
-  margin-right: 180px;
+  margin-left: 80px;
+  margin-right: 50px;
 }
 
 /* CONTENT */
