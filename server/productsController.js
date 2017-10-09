@@ -21,7 +21,7 @@ module.exports = {
           } );
       },
 
-      getSearchProducts: ( req, res, next ) => {
+    getSearchProducts: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.get_all_products()
@@ -29,7 +29,7 @@ module.exports = {
               
            const searchedProducts = products.filter( (product) => {
                 //   console.log(product.title.toLowerCase().includes(req.query.term.toLowerCase()));
-                  return product.title.toLowerCase().includes(req.query.term.toLowerCase())
+                  return product.title.toLowerCase().includes(req.query.q.toLowerCase())
               })
               res.status(200).send( searchedProducts ) 
             

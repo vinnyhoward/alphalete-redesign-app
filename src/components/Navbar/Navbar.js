@@ -61,12 +61,7 @@ keyPressHandler(event){
 
   if(event.charCode === 13){
     //Call action creator from ducks and pass this.state.term
-    // let newlyDisplayed = this.state.getSearchProducts().filter, searchedProduct => this.state.searchedProduct.includes(event.target.value.toLowerCse()))
-
-    // this.setState({
-    //   searchTerm: event.target.value,
-    //   currentlyDisplayed: newlyDisplayed
-    // })
+    
   }
 }
 
@@ -87,16 +82,15 @@ keyPressHandler(event){
         <ul className="right-nav">
         <li className="Nav-right"><Link to="/cart">CART</Link></li>
         <li className="Nav-right"><Link to="/login">ACCOUNT</Link></li>
-        <li onMouseOver={this.searchAnimate} className="Nav-right">
-        <input onChange={this.changeHandler} onKeyPress={this.keyPressHandler} className='Open-Search-Box' placeholder='Search' />SEARCH</li>
+        <li className="Nav-right"><input onChange={this.changeHandler} onKeyPress={this.keyPressHandler} className='Open-Search-Box' placeholder='Search' />SEARCH</li>
         </ul>
         
         
       </div>
-      {/* <div className={this.state.searchAnimate ? 'Search-Box-Transitions Open-Search-Box' : ' '}></div>
-      <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : ' '}> </div>
-      <div className={this.state.slideVisibleWomans ? 'slide_womans open_womans' : ' '}></div>
-      <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : ' '}></div>  */}
+      {/* <div className={this.state.searchAnimate ? 'Search-Box-Transitions Open-Search-Box' : ' '}></div> */}
+      {/* <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : ' ' }> </div>
+      <div className={this.state.slideVisibleWomans ? 'slide_womans open_womans' : ' '}></div> */}
+      {/* <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : ' '}></div>  */}
       </div>
     )
   }

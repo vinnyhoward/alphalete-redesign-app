@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { getAllProducts } from '../../ducks/ProductsDucks'
+import { getAllProducts, getSearchProducts } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
 
-function searchingFor(term) {
-  return function(x){
-    return x.title.toLowerCase().includes(term.toLowerCase()) || !term
-  }
-}
+// function searchingFor(term) {
+//   return function(x){
+//     return x.title.toLowerCase().includes(term.toLowerCase()) || !term
+//   }
+// }
 
 class Search extends Component {
   constructor() {
@@ -20,34 +21,42 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    this.props.getAllProducts()
+    function searchFilter(string) {
+      const firstString = string[0] + string[1] + string[2]
+      if( firstString === '?q=')
+        return string.split('').slice(3).join('')
+    }
+    var searchTerm = searchFilter(this.props.location.search)
+    if(searchTerm) {
+      this.props.getSearchProducts(searchTerm)
+    }
   }
 
 
 
 
   render() {
-    console.log(this.props);
-    const allClothing = this.props.products.filter(searchingFor(this.state.term)).map((e, i) => {
+    console.log();
+
+    const searchedClothing = this.props.products.map((e, i) => {
       return (
-        
         <div key={i} className='product'>
-        <img className='img' src={e.image1} alt=" " />
+         <Link to={`/mens/${e.productid}`}><img className='img-womans' src={e.image1} alt=" " /></Link>
         <div className='caption-container'>
         <h1 className='product-title'>{e.title}</h1>
         <p className='product-color'>{e.color}</p>
         <p className='product-price'>${e.price}</p>
-        <button className='cart-button'>ADD TO CART</button>
+        
         </div>
         </div>
-
       )
-
     })
+    
+
 
     return ( 
       <div>
-        {this.props.products}
+      { searchedClothing }
       </div>
     );
   }
@@ -59,4 +68,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { getAllProducts })(Search);
+export default connect(mapStateToProps, { getAllProducts, getSearchProducts })(Search);

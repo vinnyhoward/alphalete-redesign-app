@@ -22,7 +22,7 @@ export default (
     {/* <Route component={ SingleProductView } path="/:id"/> */}
     
     <Route component={ Home } exact path="/"/>
-    <Route component={ Search } path="/search?term"/>
+    <Route component={ Search } path="/search"/>
     <Route component={ SingleProductView } path="/mens/:id"/>
     <Route component={ Mens } path="/mens/" />
     <Route component={ Womans } path="/womans" /> 

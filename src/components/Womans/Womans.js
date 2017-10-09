@@ -2,17 +2,31 @@ import React, { Component } from 'react';
 import './Womans.css';
 import { getAllWomansProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 
 class Womans extends Component {
   constructor(props) {
     super(props)
-
+    
+        this.state= {
+          products: [],
+          value: 2
+        }
+    
     //MENS BINDED
     this.getWomansAsc = this.getWomansAsc.bind(this)
     this.getWomansDesc = this.getWomansDesc.bind(this)
     this.getWomansLowHigh = this.getWomansLowHigh.bind(this)
     this.getWomansHighLow = this.getWomansHighLow.bind(this)
   }
+
+  handleChange = (event, index, value) => 
+  this.setState({
+    value
+  });
+
   
   componentDidMount() {
     this.props.getAllWomansProducts()
@@ -35,35 +49,45 @@ class Womans extends Component {
     const womansClothing = this.props.products.map((e, i) => {
       return (
         <div key={i} className='product'>
-        <img className='img' src={e.image1} alt=" " />
+         <Link to={`/mens/${e.productid}`}><img className='img-womans' src={e.image1} alt=" " /></Link>
         <div className='caption-container'>
         <h1 className='product-title'>{e.title}</h1>
         <p className='product-color'>{e.color}</p>
         <p className='product-price'>${e.price}</p>
-        <button className='cart-button'>ADD TO CART</button>
+        
         </div>
         </div>
-
       )
     })
     
         return (
-          <div> 
-            <div className="dropdown">
-            <button className="dropbtn">SORT BY</button>
-            <div className="dropdown-content">
-            <a onClick={ this.getWomansAsc }>Alphabetically, A-Z</a>
-            <a onClick={ this.getWomansDesc }>Alphabetically, Z-A</a>
-            <a onClick={ this.getWomansLowHigh }>Price, low to high</a>
-            <a onClick={ this.getWomansHighLow }>Price, high to low</a>
+          <div className='Body-Margin'>
+          <div className='wrapper'> 
+          <div className='Header'>SHOP WOMANS
+            <div className='Filter-Align'>
+            <DropDownMenu
+              style={{
+              width: '240px',
+              height: '50px',
+              margin: '0 auto',
+    }}
+              className='DropDown' value={this.state.value} onChange={this.handleChange} openImmediately={false}>
+            <MenuItem value={1} onClick={ this.getWomansAsc } primaryText="Alphabetically, A-Z" />
+            <MenuItem value={2} onClick={ this.getWomansDesc } primaryText="Alphabetically, Z-A" />
+            <MenuItem value={3} onClick={ this.getWomansLowHigh } primaryText="Price, low to high" />
+            <MenuItem value={4} onClick={ this.getWomansHighLow } primaryText="Price, high to low"  />
+              </DropDownMenu>
             </div>
             </div>
-  
-          <div className ='product-container'>
+          <div className='Nav'></div>
+          <div className='Content'> <div className='Nested-Content'>
+
+            {womansClothing}
             
-            { womansClothing }
-           
+            </div></div>
+          <div className='Email-Sub'></div>
           </div>
+          <div className='Footer'></div>
           </div>
         )
       }

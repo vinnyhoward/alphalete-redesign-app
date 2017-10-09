@@ -22,6 +22,8 @@ export default class SingleProductView extends Component {
       return ( 
 
           <div>
+
+            
             <img src={this.state.singleProduct.image1} alt='' />
               <h1>{this.state.singleProduct.title}</h1>
               <p>{this.state.singleProduct.color}</p>

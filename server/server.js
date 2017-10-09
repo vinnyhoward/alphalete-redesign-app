@@ -96,4 +96,4 @@ app.get('/api/getproducts/womans-price-low-high', ctrl.filterWomansByLowHigh);
 app.get('/api/getproducts/womans-price-high-low', ctrl.filterWomansByHighLow);
 
 
-//PORT  '/api/getproducts/mens-desc' filter_price_low_high filter_price_high_low
+//PORT  '/api/getproducts/mens-desc' filter_price_low_high filter_price_high_lows
