@@ -85,6 +85,7 @@ keyPressHandler(event){
         <li className="Nav-right"><Link to="/login">ACCOUNT</Link></li>
         <li className="Nav-right"><input onChange={this.changeHandler} onKeyPress={this.keyPressHandler} className='Open-Search-Box' placeholder='Search' />SEARCH</li>
         </ul>
+     
 
 
    
@@ -95,6 +96,7 @@ keyPressHandler(event){
       <div className={this.state.slideVisibleWomans ? 'slide_womans open_womans' : ' '}></div> */}
       {/* <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : ' '}></div>  */}
       </div>
+
     )
   }
 }

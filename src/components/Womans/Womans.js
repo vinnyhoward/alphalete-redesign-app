@@ -53,8 +53,9 @@ class Womans extends Component {
          <Link to={`/mens/${e.productid}`}><img className='img-womans' src={e.image1} alt=" " /></Link>
         <div className='caption-container'>
         <h1 className='product-title'>{e.title}</h1>
-        <p className='product-color'>{e.color}</p>
-        <p className='product-price'>${e.price}</p>
+       <p className='product-color'>{e.color}</p>
+
+       <p className='product-price'>${e.price}</p>
         
         </div>
         </div>
@@ -63,9 +64,11 @@ class Womans extends Component {
     
         return (
           <div className='Body-Margin'>
+          <div class="parallax"></div>
           <div className='wrapper'> 
-          <div className='Header'>SHOP WOMANS
-            <div className='Filter-Align'>
+          <div className='Header'>
+    
+            {/* <div className='Filter-Align'>
             <DropDownMenu
               style={{
               width: '240px',
@@ -78,8 +81,19 @@ class Womans extends Component {
             <MenuItem value={3} onClick={ this.getWomansLowHigh } primaryText="Price, low to high" />
             <MenuItem value={4} onClick={ this.getWomansHighLow } primaryText="Price, high to low"  />
               </DropDownMenu>
+            </div> */}
+            <ul className='sort-filter'>
+          
+              <li >Sort By</li>
+              <li onClick={ this.getWomansLowHigh } >Low to High</li>
+              <li onClick={ this.getWomansHighLow }>High to Low</li>
+              <li onClick={ this.getWomansLowHigh }>A-Z</li>
+              <li onClick={ this.getWomansHighLow }>Z-A</li> 
+         
+            </ul>
+            
             </div>
-            </div>
+            <div className='margin-shop'>
             <SideBarNav />
           <div className='Nav'>
           
@@ -92,7 +106,7 @@ class Womans extends Component {
           <div className='Email-Sub'></div>
           </div>
           <div className='Footer'></div>
-
+          </div>
           </div>
         )
       }

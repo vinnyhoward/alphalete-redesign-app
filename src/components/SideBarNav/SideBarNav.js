@@ -8,10 +8,10 @@ class SideNav extends Component {
            <ul className='side-nav-container'>
              <h3>CATEGORY</h3>
              <hr/>
-          <li>All Products</li>
-          <li>Tops</li>
-          <li>Leggings</li>
-          <li>Shorts</li>
+          <li className='sidelist'>All Products</li>
+          <li className='sidelist'>Tops</li>
+          <li className='sidelist'>Leggings</li>
+          <li className='sidelist'>Shorts</li>
             <hr/>
             <h3>FILTER</h3>
             <ul className='color-container'>
