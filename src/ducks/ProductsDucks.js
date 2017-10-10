@@ -25,6 +25,21 @@ const GET_WOMANS_PRICE_LOW_HIGH = 'GET_WOMANS_PRICE_LOW_HIGH'
 const GET_WOMANS_PRICE_HIGH_LOW = 'GET_WOMANS_PRICE_HIGH_LOW'
 
 
+
+
+
+
+export const fetchProductsSuccess = (products) => ({
+  type: FETCH_PRODUCTS_SUCCESS,
+  payload: products
+})
+
+export const fetchProductsFailure = (error) => ({
+  type: FETCH_PRODUCTS_FAILURE
+})
+
+//SEARCH//SEARCH//SEARCH//SEARCH//SEARCH//SEARCH//SEARCH//SEARCH
+
 export function getSearchProducts(q) {
   const products = axios.get(`/api/getproducts/search?q=${q}`)
   .then(res => {

@@ -64,7 +64,7 @@ class Womans extends Component {
     
         return (
           <div className='Body-Margin'>
-          <div class="parallax"></div>
+          <div className="parallax"></div>
           <div className='wrapper'> 
           <div className='Header'>
     

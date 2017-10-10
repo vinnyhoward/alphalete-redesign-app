@@ -32,9 +32,6 @@ class Search extends Component {
     }
   }
 
-
-
-
   render() {
     console.log();
 
@@ -52,8 +49,6 @@ class Search extends Component {
       )
     })
     
-
-
     return ( 
       <div>
       { searchedClothing }
