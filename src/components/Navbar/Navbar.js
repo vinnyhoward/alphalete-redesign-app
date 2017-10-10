@@ -93,8 +93,8 @@ keyPressHandler(event){
       </div>
       {/* <div className={this.state.searchAnimate ? 'Search-Box-Transitions Open-Search-Box' : ' '}></div> */}
       {/* <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : ' ' }> </div>
-      <div className={this.state.slideVisibleWomans ? 'slide_womans open_womans' : ' '}></div> */}
-      {/* <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : ' '}></div>  */}
+      <div className={this.state.slideVisibleWomans ? 'slide_womans open_womans' : ' '}></div>
+      <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : ' '}></div>  */}
       </div>
 
     )
