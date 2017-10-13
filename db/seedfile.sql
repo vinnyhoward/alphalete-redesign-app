@@ -1,0 +1,22 @@
+-- CREATE TABLE line_items 
+-- (
+-- id SERIAL PRIMARY KEY,
+-- productid INTEGER REFERENCES products(productid) NOT NULL,
+-- orderid INTEGER REFERENCES orders(id) NOT NULL,
+-- qty INTEGER
+-- );
+
+-- SELECT * FROM products;
+-- drop table orders;
+
+-- CREATE TABLE orders
+-- (
+-- id serial PRIMARY KEY,
+-- shipname TEXT,
+-- billingname TEXT,
+-- phonenumber INTEGER,
+-- total INTEGER,
+-- date VARCHAR(255),
+-- userid INTEGER REFERENCES users(id) NOT NULL,
+-- status TEXT
+-- );

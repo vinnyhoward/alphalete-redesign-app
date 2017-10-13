@@ -3,8 +3,8 @@ import './Womans.css';
 import { getAllWomansProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
+// import DropDownMenu from 'material-ui/DropDownMenu';
+// import MenuItem from 'material-ui/MenuItem';
 import SideBarNav from '../SideBarNav/SideBarNav'
 
 class Womans extends Component {
@@ -50,7 +50,7 @@ class Womans extends Component {
     const womansClothing = this.props.products.map((e, i) => {
       return (
         <div key={i} className='product'>
-         <Link to={`/mens/${e.productid}`}><img className='img-womans' src={e.image1} alt=" " /></Link>
+         <Link to={`/products/${e.productid}`}><img className='img-womans' src={e.image1} alt=" " /></Link>
         <div className='caption-container'>
         <h1 className='product-title'>{e.title}</h1>
        <p className='product-color'>{e.color}</p>

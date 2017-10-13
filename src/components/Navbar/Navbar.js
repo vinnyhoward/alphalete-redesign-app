@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Navbar.css';
 import { Link } from "react-router-dom";
-import { getSearchProducts } from '../../ducks/ProductsDucks'
+// import { getSearchProducts } from '../../ducks/ProductsDucks'
 
 
 
@@ -9,6 +9,7 @@ import { getSearchProducts } from '../../ducks/ProductsDucks'
 class Navbar extends Component {
   constructor() {
     super()
+    
     this.state = {
       slideVisibleMens: false,
       slideVisibleWomans: false,

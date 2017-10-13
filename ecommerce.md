@@ -1,13 +1,26 @@
-Orders
-id primary key
-total integer
-ship_name
-bill_name
-order_date
-status
+users
+id
+firstname
+lastname
+email
+password
 
 Line items
-ID Product_ID
+Product_ID
+orderID
+ID
+qty
+
+orders
+id
+shipname
+billingname
+phonenumber
+total
+date
+userid
+status
+
 
   // componentDidMount() {
   //   axios.get(`/api/getproduct/${this.props.match.params.id}`).then(res => {
@@ -711,3 +724,68 @@ render() {
             <MenuItem value={4} onClick={ this.getWomansHighLow } primaryText="Price, high to low"  />
               </DropDownMenu>
             </div>
+
+
+            SQL
+
+            -get_cart-
+
+            SELECT * 
+            FROM orders 
+            WHERE userid = $1 and status = 'false';
+
+            -check_duplicates-
+
+            SELECT *
+            FROM line_items
+            WHERE product_id = $1 AND order_id = $2;
+
+            -update_quantity-
+
+            UPDATE line_items
+            SET qty = $1
+            WHERE product_id = $2
+
+            -return_cart-
+
+            SELECT *
+            FROM line_items
+            JOIN products on line_items.product_id = products=id
+            WHERE order_id = $1
+
+            -add_to_cart-
+
+            INSERT INTO line_items
+            (product_id, order_id, qty)
+            VALUES
+            ($1, $2, 1)
+
+           - make_order-
+
+            INSERT INTO orders
+            (userid, status)
+            VALUES
+            ($1, false)
+        
+users
+id
+firstname
+lastname
+email
+password
+
+line_items
+product_id 
+order_id 
+id
+qty 
+
+orders
+id
+shipname
+billingname
+phonenumber
+total
+date
+userid x
+status 

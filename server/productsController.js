@@ -1,6 +1,57 @@
 module.exports = { 
-  
-    getOne: ( req, res, next ) => {
+
+addToCart:(req,res) => {
+        const db = req.app.get('db');
+        const {userid, productid, qty} = req.body;
+        console.log('thing',req.body);
+        db.get_cart([userid]).then((cart) => {
+            if(cart[0]){
+             db.check_duplicates([productid, cart[0].id]).then((dup) => {
+                if(dup[0]){
+                    console.log('HIYA')
+                    db.update_quantity([dup[0].qty + 1, dup[0].productid]).then(() => {
+                     db.return_cart([cart[0].id]).then((cartItems) => {
+                         res.send(cartItems)
+                     })
+                      
+                    })
+                    console.log("duplicate!")
+                } else {
+                    db.add_to_cart([productid, cart[0].id, 1]).then(() => {
+                        db.return_cart([cart[0].id]).then((cartItems) => {
+                            res.send(cartItems)
+                        })
+                    })
+                 }
+             })
+            } else {
+                db.make_order([userid]).then(() => {
+                    db.get_cart([userid]).then((cart) => { //could be a problem
+                        db.add_to_cart([productid, cart[0].id, 1]).then(() => {
+                            
+                            db.return_cart([cart[0].id]).then((cartItems) => {
+                                res.send(cartItems)
+                            })
+                        })
+                    })
+                })
+            }
+        })
+    },
+
+
+checkUser:() => {
+        const db = req.app.get('db');
+        db.get_cart([1]).then((cart) => {
+          if(cart[0]){
+            console.log('found cart!')
+          } else {
+              console.log('not found')
+          }      
+        })
+    },
+
+getOne: ( req, res, next ) => {
       const dbInstance = req.app.get('db');
       const { params } = req; 
       dbInstance.get_product([ params.id ])
@@ -10,18 +61,18 @@ module.exports = {
         } );
     },
 
-    getAllProducts: ( req, res, next ) => {
+getAllProducts: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.get_all_products()
           .then( products => res.status(200).send( products ) )
           .catch( (err) => {
               res.status(500).send(err)
-              
+
           } );
       },
 
-    getSearchProducts: ( req, res, next ) => {
+getSearchProducts: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.get_all_products()
@@ -41,7 +92,7 @@ module.exports = {
       },
 
 
-    getAllMale: ( req, res, next ) => {
+getAllMale: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.get_products_male()
@@ -51,7 +102,7 @@ module.exports = {
           } );
       },
 
-    filterMensByAsc: ( req, res, next ) => {
+filterMensByAsc: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.filter_asc_mens()
@@ -61,7 +112,7 @@ module.exports = {
           } );
       },
 
-    filterMensByDesc: ( req, res, next ) => {
+filterMensByDesc: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.filter_desc_mens()
@@ -72,7 +123,7 @@ module.exports = {
       },
 
 
-      filterMensByLowHigh: ( req, res, next ) => {
+filterMensByLowHigh: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.filter_price_low_high()
@@ -82,7 +133,7 @@ module.exports = {
           } );
       },
 
-      filterMensByHighLow: ( req, res, next ) => {
+filterMensByHighLow: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.filter_price_high_low()
@@ -93,7 +144,7 @@ module.exports = {
       },
 
 
-    getAllFemale: ( req, res, next ) => {
+getAllFemale: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.get_products_female()
@@ -103,7 +154,7 @@ module.exports = {
           } );
       },
 
-      filterWomansByAsc: ( req, res, next ) => {
+filterWomansByAsc: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.filter_asc_womans()
@@ -113,7 +164,7 @@ module.exports = {
           } );
       },
 
-    filterWomansByDesc: ( req, res, next ) => {
+filterWomansByDesc: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.filter_desc_womans()
@@ -123,7 +174,7 @@ module.exports = {
           } );
       },
 
-      filterWomansByLowHigh: ( req, res, next ) => {
+filterWomansByLowHigh: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.filter_price_low_high_womans()
@@ -133,7 +184,7 @@ module.exports = {
           } );
       },
 
-      filterWomansByHighLow: ( req, res, next ) => {
+filterWomansByHighLow: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.filter_price_high_low_womans()

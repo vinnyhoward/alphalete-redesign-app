@@ -10,7 +10,7 @@ import Search from './components/Search/Search'
 import SingleProductView from './components/SingleView/SingleProductView';
 // import All from './components/Mens/AllMens'
 // import Tops from './components/Mens/Tops'
-// import Premium from './components/Mens/Premium'
+// import Premium from './components2/Mens/Premium'
 // import Joggers from './components/Mens/Joggers'
 // import Shorts from './components/Mens/Shorts'
 // import MustGo from './components/Mens/MustGo'
@@ -23,12 +23,12 @@ export default (
     
     <Route component={ Home } exact path="/"/>
     <Route component={ Search } path="/search"/>
-    <Route component={ SingleProductView } path="/mens/:id"/>
+    <Route component={ SingleProductView } path="/products/:id"/>
     <Route component={ Mens } path="/mens/" />
     <Route component={ Womans } path="/womans" /> 
     <Route component={ Accessories } path="/accessories" />
     <Route component={ Login } path="/login" />
-    <Route component={ Cart } path="/car" />
+    <Route component={ Cart } path="/cart" />
 
     {/* <Route component={ All } path="/mens/all" /> */}
     {/* <Route component={ Tops } path="/mens/tops" />

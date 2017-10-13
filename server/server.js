@@ -3,13 +3,13 @@ const express = require('express'),
         massive = require('massive'),
         session = require('express-session'),
         passport = require('passport'),
-        // cors = require('cors'),
+        cors = require('cors'),
         Auth0Strategy = require('passport-auth0'),
         ctrl = require('./productsController');
 
 
 require ('dotenv').config();
-// app.use( cors() );
+
 
 const app = express();
 app.use(session({
@@ -18,8 +18,11 @@ app.use(session({
     saveUninitialized: true
 }))
 
+app.use(cors());
+
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.json())
 
 massive(process.env.CONNECTION_STRING).then( db => {
     app.set('db', db);
@@ -45,7 +48,7 @@ passport.use( new Auth0Strategy({
                 done(null, user[0].id)
             })
         }
-    })
+    }).catch(err => console.log(err))
 }))  
 
 //PASSPORT SERIALIZE AND DESERIALIZE
@@ -81,6 +84,8 @@ app.get('/auth/logout', (req,res) => {
 app.get('/api/getproduct/:id', ctrl.getOne);
 app.get('/api/getproducts/all', ctrl.getAllProducts);
 app.get('/api/getproducts/search', ctrl.getSearchProducts);
+app.post('/api/cart', ctrl.addToCart);
+// app.post('/api/cart', ctrl.getSearchProducts);
 //MENS 
 app.get('/api/getproducts/mens', ctrl.getAllMale);
 //MENS FILTER
