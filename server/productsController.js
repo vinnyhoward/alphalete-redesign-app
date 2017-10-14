@@ -15,7 +15,6 @@ addToCart:(req,res) => {
                      })
                       
                     })
-                    console.log("duplicate!")
                 } else {
                     db.add_to_cart([productid, cart[0].id, 1]).then(() => {
                         db.return_cart([cart[0].id]).then((cartItems) => {
@@ -28,17 +27,30 @@ addToCart:(req,res) => {
                 db.make_order([userid]).then(() => {
                     db.get_cart([userid]).then((cart) => { //could be a problem
                         db.add_to_cart([productid, cart[0].id, 1]).then(() => {
-                            
+
                             db.return_cart([cart[0].id]).then((cartItems) => {
                                 res.send(cartItems)
-                            })
-                        })
+                         })
                     })
                 })
-            }
-        })
-    },
+            })
+        }
+    })
+},
 
+removeFromCart(req, res ) {
+    console.log('id', req.params.id, 'req', req.params.userid);
+
+    const db = req.app.get('db');
+    db.get_cart([+req.params.userid]).then((order) => {
+            db.delete_item([+req.params.id, order[0].id]).then( () => {
+            db.return_cart((order[0].id)).then((cartItems) => {
+                    res.send(cartItems)
+            })
+        })
+    })
+},
+    
 
 checkUser:() => {
         const db = req.app.get('db');

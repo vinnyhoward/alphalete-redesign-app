@@ -85,7 +85,7 @@ app.get('/api/getproduct/:id', ctrl.getOne);
 app.get('/api/getproducts/all', ctrl.getAllProducts);
 app.get('/api/getproducts/search', ctrl.getSearchProducts);
 app.post('/api/cart', ctrl.addToCart);
-// app.post('/api/cart', ctrl.getSearchProducts);
+app.delete('/api/cart/:id/:userid', ctrl.removeFromCart);
 //MENS 
 app.get('/api/getproducts/mens', ctrl.getAllMale);
 //MENS FILTER

@@ -6,10 +6,10 @@ const initialState = {
   user: {}
 }
 
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const GET_USER = 'GET_USER'
 export const ADD_TO_CART = 'ADD_TO_CART '
-export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 const GET_SEARCH_PRODUCTS = 'GET_SEARCH_PRODUCTS'
@@ -27,6 +27,16 @@ const GET_WOMANS_DESC = 'GET_WOMANS_DESC'
 const GET_WOMANS_PRICE_LOW_HIGH = 'GET_WOMANS_PRICE_LOW_HIGH'
 const GET_WOMANS_PRICE_HIGH_LOW = 'GET_WOMANS_PRICE_HIGH_LOW'
 
+
+export function removeFromCart(productIndex,userid){
+  console.log(productIndex);
+  return{
+      type: 'REMOVE_FROM_CART',
+      payload: axios.delete(`/api/cart/${productIndex}/1`).then((res)=>{
+          return res.data
+  }).
+  catch((err)=>{console.log(err)})
+}}
 
 export function getUser() {
   const user = axios.get('/auth/user').then(res => {
@@ -46,15 +56,6 @@ export function addToCart(product) {
     }).catch( err => console.log(err))
   }
 }
-
-export function removeFromCart(productIndex) {
-  return {
-    type: REMOVE_FROM_CART,
-    payload: productIndex
-  }
-}
-
-
 
 //CARTATTEMPT//CARTATTEMPT//CARTATTEMPT//CARTATTEMPT//CARTATTEMPT//CARTATTEMPT
 
@@ -216,9 +217,11 @@ export default function reducer(state = initialState, action) {
 
 
 
-
-
-
+    case REMOVE_FROM_CART + '_FULFILLED':
+      //  let newArray = state.cart.slice();
+      //   newArray.splice(action.payload,1);
+        return Object.assign({},state, {cart: action.payload})
+  
     case GET_USER + '_FULFILLED':
     return Object.assign({}, state, {user: action.payload})
 
@@ -227,17 +230,6 @@ export default function reducer(state = initialState, action) {
    
     case ADD_TO_CART + '_FULFILLED':
     return Object.assign({}, state, {cart: action.payload})
-
-    case REMOVE_FROM_CART+ '_FULFILLED':
-      let newArray = state.cart.slice();
-      newArray.splice(action.payload, 1);
-    return Object.assign({}, state, {cart: newArray})
-
-
-
-
-
-
 
     case GET_ALL_PRODUCTS + '_FULFILLED':
     return Object.assign({}, state, {products: action.payload})
