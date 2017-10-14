@@ -1,49 +1,56 @@
 import axios from 'axios';
-
+// =============================================================================
+// INITIAL STATE
+// =============================================================================
 const initialState = {
   products: [],
   cart: [],
   user: {}
 }
-
+// =============================================================================
+// CART 
+// =============================================================================
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const GET_USER = 'GET_USER'
 export const ADD_TO_CART = 'ADD_TO_CART '
-
+// =============================================================================
+// GENERAL PRODUCTS
+// =============================================================================
 const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 const GET_SEARCH_PRODUCTS = 'GET_SEARCH_PRODUCTS'
-// const GET_SINGLE_VIEW = 'GET_SINGLE_VIEW'
-//MENS 
+// =============================================================================
+// MENS
+// =============================================================================
 const GET_MENS_PRODUCTS = 'GET_MENS_PRODUCTS'
 const GET_MENS_ASC = 'GET_MENS_ASC'
 const GET_MENS_DESC = 'GET_MENS_DESC'
 const GET_MENS_PRICE_LOW_HIGH = 'GET_MENS_PRICE_LOW_HIGH'
 const GET_MENS_PRICE_HIGH_LOW = 'GET_MENS_PRICE_HIGH_LOW'
-//WOMANS
+// =============================================================================
+// WOMANS
+// =============================================================================
 const GET_WOMANS_PRODUCTS = 'GET_WOMANS_PRODUCTS'
 const GET_WOMANS_ASC = 'GET_WOMANS_ASC'
 const GET_WOMANS_DESC = 'GET_WOMANS_DESC'
 const GET_WOMANS_PRICE_LOW_HIGH = 'GET_WOMANS_PRICE_LOW_HIGH'
 const GET_WOMANS_PRICE_HIGH_LOW = 'GET_WOMANS_PRICE_HIGH_LOW'
-
-
+// =============================================================================
+// REDUX FUNCTIONS - CART
+// =============================================================================
 export function removeFromCart(productIndex,userid){
   console.log(productIndex);
   return{
       type: 'REMOVE_FROM_CART',
       payload: axios.delete(`/api/cart/${productIndex}/1`).then((res)=>{
           return res.data
-  }).
-  catch((err)=>{console.log(err)})
+  }).catch((err)=>{console.log(err)})
 }}
-
-export function getUser() {
-  const user = axios.get('/auth/user').then(res => {
-    return res.data
-  })
-}
-
+// export function getUser() {
+//   const user = axios.get('/auth/user').then(res => {
+//     return res.data
+//   })
+// }
 export function addToCart(product) {
   console.log(product);
   return {
@@ -56,12 +63,9 @@ export function addToCart(product) {
     }).catch( err => console.log(err))
   }
 }
-
-//CARTATTEMPT//CARTATTEMPT//CARTATTEMPT//CARTATTEMPT//CARTATTEMPT//CARTATTEMPT
-
-
-//SEARCH//SEARCH//SEARCH//SEARCH//SEARCH//SEARCH//SEARCH//SEARCH
-
+// =============================================================================
+// REDUX FUNCTIONS - GENERAL 
+// =============================================================================
 export function getSearchProducts(q) {
   const products = axios.get(`/api/getproducts/search?q=${q}`)
   .then(res => {
@@ -72,9 +76,6 @@ export function getSearchProducts(q) {
     payload: products 
   }
 }
-
-//MENS//MENS//MENS//MENS//MENS//MENS//MENS//MENS//MENS//MENS
-
 export function getAllProducts() {
   const products = axios.get(`/api/getproducts/all`)
   .then(res => {
@@ -85,8 +86,9 @@ export function getAllProducts() {
     payload: products 
   }
 }
-
-
+// =============================================================================
+// REDUX FUNCTIONS - MENS
+// =============================================================================
 export function getAllMensProducts() {
   const products = axios.get(`/api/getproducts/mens`)
   .then(res => {
@@ -97,8 +99,6 @@ export function getAllMensProducts() {
     payload: products // Object being returned
   }
 }
-
-
 export function getMensAsc() {
   const products = axios.get('/api/getproducts/mens-asc')
   .then(res => {
@@ -109,8 +109,6 @@ export function getMensAsc() {
     payload: products 
   }
 }
-
-
 export function getMensDesc() {
   const products = axios.get('/api/getproducts/mens-desc')
   .then(res => {
@@ -121,8 +119,6 @@ export function getMensDesc() {
     payload: products 
   }
 }
-
-
 export function getMensLowHigh() {
   const products = axios.get('/api/getproducts/mens-price-low-high')
   .then(res => {
@@ -133,7 +129,6 @@ export function getMensLowHigh() {
     payload: products 
   }
 }
-
 export function getMensHighLow() {
   const products = axios.get('/api/getproducts/mens-price-high-low')
   .then(res => {
@@ -144,9 +139,9 @@ export function getMensHighLow() {
     payload: products 
   }
 }
-
-//WOMANS//WOMANS//WOMANS//WOMANS//WOMANS//WOMANS//WOMANS//WOMANS//WOMANS
-
+// =============================================================================
+// REDUX FUNCTIONS - WOMANS
+// =============================================================================
 export function getAllWomansProducts() {
   const products = axios.get(`/api/getproducts/womans`)
   .then(res => {
@@ -157,7 +152,6 @@ export function getAllWomansProducts() {
     payload: products 
   }
 }
-
 export function getWomansAsc() {
   const products = axios.get('/api/getproducts/womans-asc')
   .then(res => {
@@ -168,8 +162,6 @@ export function getWomansAsc() {
     payload: products 
   }
 }
-
-
 export function getWomansDesc() {
   const products = axios.get('/api/getproducts/womans-desc')
   .then(res => {
@@ -180,8 +172,6 @@ export function getWomansDesc() {
     payload: products 
   }
 }
-
-
 export function getWomansLowHigh() {
   const products = axios.get('/api/getproducts/womans-price-low-high')
   .then(res => {
@@ -192,7 +182,6 @@ export function getWomansLowHigh() {
     payload: products 
   }
 }
-
 export function getWomansHighLow() {
   const products = axios.get('/api/getproducts/womans-price-high-low')
   .then(res => {
@@ -203,70 +192,80 @@ export function getWomansHighLow() {
     payload: products 
   }
 }
-
-
-
+// =============================================================================
+// REDUCERS
+// =============================================================================
 export default function reducer(state = initialState, action) {
-  
+
+// =============================================================================
+// REDUX ACTION AND STATE TRACKER
+// =============================================================================
   console.log("Reducer fired");
   console.log("State:", state);
   console.log("Action:", action);
-
-  switch (action.type) {
-
-
-
-
-    case REMOVE_FROM_CART + '_FULFILLED':
-      //  let newArray = state.cart.slice();
-      //   newArray.splice(action.payload,1);
-        return Object.assign({},state, {cart: action.payload})
+// =============================================================================
+// SWITCH STATEMENT FOR REDUCER
+// =============================================================================
+switch (action.type) {
+// =============================================================================
+// CART REDUCERS
+// =============================================================================
+  case REMOVE_FROM_CART + '_FULFILLED':
+    //  let newArray = state.cart.slice();
+    //   newArray.splice(action.payload,1);
+  return Object.assign({},state, {cart: action.payload})
   
-    case GET_USER + '_FULFILLED':
-    return Object.assign({}, state, {user: action.payload})
-
-    case GET_PRODUCTS + '_FULFILLED':
+  case ADD_TO_CART + '_FULFILLED':
+  return Object.assign({}, state, {cart: action.payload})
+// =============================================================================
+// USER REDUCERS
+// =============================================================================
+  case GET_USER + '_FULFILLED':
+  return Object.assign({}, state, {user: action.payload})
+// =============================================================================
+// GENERAL PRODUCTS REDUCERS
+// =============================================================================
+  case GET_PRODUCTS + '_FULFILLED':
     return Object.assign({}, state, {products: action.payload})
-   
-    case ADD_TO_CART + '_FULFILLED':
-    return Object.assign({}, state, {cart: action.payload})
 
-    case GET_ALL_PRODUCTS + '_FULFILLED':
-    return Object.assign({}, state, {products: action.payload})
+  case GET_ALL_PRODUCTS + '_FULFILLED':
+  return Object.assign({}, state, {products: action.payload})
+// =============================================================================
+// MENS REDUCERS
+// =============================================================================
+  case GET_MENS_PRODUCTS + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload}) // MENS //Merges the new object "{}" to state(which is the empty array of) and the new object from action.payload
 
-    case GET_MENS_PRODUCTS + '_FULFILLED':
-      return Object.assign({}, state, {products: action.payload}) // MENS //Merges the new object "{}" to state(which is the empty array of) and the new object from action.payload
+  case GET_MENS_ASC + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload}) 
 
-    case GET_MENS_ASC + '_FULFILLED':
-      return Object.assign({}, state, {products: action.payload}) 
+  case GET_MENS_DESC + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload}) 
 
-    case GET_MENS_DESC + '_FULFILLED':
-      return Object.assign({}, state, {products: action.payload}) 
+  case GET_MENS_PRICE_LOW_HIGH + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload}) 
 
-    case GET_MENS_PRICE_LOW_HIGH + '_FULFILLED':
-      return Object.assign({}, state, {products: action.payload}) 
+  case GET_MENS_PRICE_HIGH_LOW + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload}) 
 
-    case GET_MENS_PRICE_HIGH_LOW + '_FULFILLED':
-      return Object.assign({}, state, {products: action.payload}) 
+  case GET_WOMANS_PRODUCTS + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload}) 
+// =============================================================================
+// WOMANS REDUCERS
+// =============================================================================
+  case GET_WOMANS_ASC + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload}) 
 
-    case GET_WOMANS_PRODUCTS + '_FULFILLED':
-      return Object.assign({}, state, {products: action.payload}) //WOMANS
+  case GET_WOMANS_DESC + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload}) 
 
-    case GET_WOMANS_ASC + '_FULFILLED':
-      return Object.assign({}, state, {products: action.payload}) 
+  case GET_WOMANS_PRICE_LOW_HIGH + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload}) 
 
-    case GET_WOMANS_DESC + '_FULFILLED':
-      return Object.assign({}, state, {products: action.payload}) 
-
-    case GET_WOMANS_PRICE_LOW_HIGH + '_FULFILLED':
-      return Object.assign({}, state, {products: action.payload}) 
-
-    case GET_WOMANS_PRICE_HIGH_LOW + '_FULFILLED':
-      return Object.assign({}, state, {products: action.payload}) 
-      
-    default:
-      return state;
+  case GET_WOMANS_PRICE_HIGH_LOW + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload}) 
+    
+  default:
+    return state;
   }
   }
-
-//   //'/api/getproducts/mens-price-low-high' app.get('/api/getproducts/mens-price-high-low', ctrl.filterMensByHighLow); '/api/getproduct/all-products'

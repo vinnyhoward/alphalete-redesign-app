@@ -3,9 +3,9 @@ import './Womans.css';
 import { getAllWomansProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
+import SideBarNav from '../SideBarNav/SideBarNav'
 // import DropDownMenu from 'material-ui/DropDownMenu';
 // import MenuItem from 'material-ui/MenuItem';
-import SideBarNav from '../SideBarNav/SideBarNav'
 
 class Womans extends Component {
   constructor(props) {
@@ -15,8 +15,9 @@ class Womans extends Component {
           products: [],
           value: 2
         }
-    
-    //MENS BINDED
+// =============================================================================
+// MENS BINDED
+// =============================================================================
     this.getWomansAsc = this.getWomansAsc.bind(this)
     this.getWomansDesc = this.getWomansDesc.bind(this)
     this.getWomansLowHigh = this.getWomansLowHigh.bind(this)
@@ -27,11 +28,15 @@ class Womans extends Component {
   this.setState({
     value
   });
+// =============================================================================
 
-  
+// =============================================================================
   componentDidMount() {
     this.props.getAllWomansProducts()
   }
+// =============================================================================
+// FILTER METHODS
+// =============================================================================
   getWomansAsc() {
     this.props.getWomansAsc()
   }
@@ -45,7 +50,6 @@ class Womans extends Component {
     this.props.getWomansHighLow()
   }
  
-
   render() {
     const womansClothing = this.props.products.map((e, i) => {
       return (
@@ -61,13 +65,11 @@ class Womans extends Component {
         </div>
       )
     })
-    
         return (
           <div className='Body-Margin'>
           <div className="parallax"></div>
           <div className='wrapper'> 
           <div className='Header'>
-    
             {/* <div className='Filter-Align'>
             <DropDownMenu
               style={{
@@ -99,19 +101,16 @@ class Womans extends Component {
           
           </div>
           <div className='Content'> <div className='Nested-Content'>
-
             {womansClothing}
-            
             </div></div>
           <div className='Email-Sub'></div>
           </div>
           <div className='Footer'></div>
           </div>
           </div>
-        )
-      }
-    
-    };
+      )
+    }
+  };
 
     function mapStateToProps(state) { 
       return {

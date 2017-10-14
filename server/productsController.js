@@ -1,8 +1,10 @@
 module.exports = { 
-
+// =============================================================================
+// CART CONTROLLERS
+// =============================================================================
 addToCart:(req,res) => {
-        const db = req.app.get('db');
-        const {userid, productid, qty} = req.body;
+    const db = req.app.get('db');
+    const {userid, productid, qty} = req.body;
         console.log('thing',req.body);
         db.get_cart([userid]).then((cart) => {
             if(cart[0]){
@@ -37,10 +39,7 @@ addToCart:(req,res) => {
         }
     })
 },
-
 removeFromCart(req, res ) {
-    console.log('id', req.params.id, 'req', req.params.userid);
-
     const db = req.app.get('db');
     db.get_cart([+req.params.userid]).then((order) => {
             db.delete_item([+req.params.id, order[0].id]).then( () => {
@@ -50,8 +49,9 @@ removeFromCart(req, res ) {
         })
     })
 },
-    
-
+// =============================================================================
+// USER CONTROLLERS
+// =============================================================================
 checkUser:() => {
         const db = req.app.get('db');
         db.get_cart([1]).then((cart) => {
@@ -62,7 +62,9 @@ checkUser:() => {
           }      
         })
     },
-
+// =============================================================================
+// GENERAL PRODUCT CONTROLLERS
+// =============================================================================
 getOne: ( req, res, next ) => {
       const dbInstance = req.app.get('db');
       const { params } = req; 
@@ -72,7 +74,6 @@ getOne: ( req, res, next ) => {
             res.status(500).send(err)
         } );
     },
-
 getAllProducts: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -83,27 +84,24 @@ getAllProducts: ( req, res, next ) => {
 
           } );
       },
-
 getSearchProducts: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
         dbInstance.get_all_products()
           .then( products => {
-              
            const searchedProducts = products.filter( (product) => {
                 //   console.log(product.title.toLowerCase().includes(req.query.term.toLowerCase()));
                   return product.title.toLowerCase().includes(req.query.q.toLowerCase())
               })
               res.status(200).send( searchedProducts ) 
-            
             })
           .catch( (err) => {
               res.status(500).send(err)
-              
           } );
       },
-
-
+// =============================================================================
+// MALE CONTROLLERS
+// =============================================================================
 getAllMale: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -113,7 +111,6 @@ getAllMale: ( req, res, next ) => {
               res.status(500).send(err)
           } );
       },
-
 filterMensByAsc: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -123,7 +120,6 @@ filterMensByAsc: ( req, res, next ) => {
               res.status(500).send(err)
           } );
       },
-
 filterMensByDesc: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -133,8 +129,6 @@ filterMensByDesc: ( req, res, next ) => {
               res.status(500).send(err)
           } );
       },
-
-
 filterMensByLowHigh: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -144,7 +138,6 @@ filterMensByLowHigh: ( req, res, next ) => {
               res.status(500).send(err)
           } );
       },
-
 filterMensByHighLow: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -154,8 +147,9 @@ filterMensByHighLow: ( req, res, next ) => {
               res.status(500).send(err)
           } );
       },
-
-
+// =============================================================================
+// FEMALE CONTROLLERS
+// =============================================================================
 getAllFemale: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -165,7 +159,6 @@ getAllFemale: ( req, res, next ) => {
               res.status(500).send(err)
           } );
       },
-
 filterWomansByAsc: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -175,7 +168,6 @@ filterWomansByAsc: ( req, res, next ) => {
               res.status(500).send(err)
           } );
       },
-
 filterWomansByDesc: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -185,7 +177,6 @@ filterWomansByDesc: ( req, res, next ) => {
               res.status(500).send(err)
           } );
       },
-
 filterWomansByLowHigh: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
@@ -195,7 +186,6 @@ filterWomansByLowHigh: ( req, res, next ) => {
               res.status(500).send(err)
           } );
       },
-
 filterWomansByHighLow: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         const { params } = req; 
