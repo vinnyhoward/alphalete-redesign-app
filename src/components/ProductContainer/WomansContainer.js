@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import '../Womans/Womans.css';
 import { getAllWomansProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow } from '../../ducks/ProductsDucks';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
 import SideBarNav from '../SideBarNav/SideBarNav';
 import Products from '../Products/Product';
 import WomansFilter from '../Filter/WomansFilter'
@@ -61,26 +59,25 @@ render() {
     )
   })
     return (
-      <div className='Body-Margin'>
-      <div className="parallax"></div>
-      <div className='wrapper'> 
-      <div className='Header'>
-      <div className='Filter-Align'>
-      </div>
-  <WomansFilter />
-      </div>
-      <div className='margin-shop'>
-  <SideBarNav />
-      <div className='Nav'>
-      </div>
-      <div className='Content'> <div className='Nested-Content'>
-        {womansClothing}
-      </div></div>
-      <div className='Email-Sub'></div>
-      </div>
-      <div className='Footer'></div>
-      </div>
-      </div>
+<div>
+  <div className='banner-womans'></div>
+  <div className='banner-womans-title'>SHOP WOMANS</div>
+  <div className='margin-default'>
+  <div className='product-container'>
+      <div className='header-filter'>
+        <WomansFilter 
+        products={getWomansLowHigh()}
+        />
+        </div>
+      <div className='content-container'>
+        <div className='nested-content'>{womansClothing}</div>
+        </div>
+      <div className='pag'></div>
+      <div className='footer-container'></div>
+      <div className='side-bar-container'><SideBarNav /></div>
+  </div>
+  </div>
+  </div>
     )
   }
 };

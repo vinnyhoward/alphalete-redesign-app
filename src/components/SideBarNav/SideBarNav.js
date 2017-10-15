@@ -6,14 +6,16 @@ class SideNav extends Component {
     return (
       <div className='sidebar'>
            <ul className='side-nav-container'>
-             <h3>CATEGORY</h3>
+
+             <h3 className='color-filter'>CATEGORY</h3>
              <hr/>
           <li className='sidelist'>All Products</li>
           <li className='sidelist'>Tops</li>
           <li className='sidelist'>Leggings</li>
           <li className='sidelist'>Shorts</li>
+
+            <h3 className='color-filter'>FILTER</h3>
             <hr/>
-            <h3>FILTER</h3>
             <ul className='color-container'>
               <li className='box1'></li>
               <li className='box2'></li>

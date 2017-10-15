@@ -65,23 +65,75 @@ keyPressHandler(event){
 // =============================================================================
     return (
       <div className="Navbar">
-      <div className="Navbar-Container">
-      <ul className="left-nav">
-      <li ><Link to="/">HOME</Link></li>
-        <li onMouseOver={ this.openSlideMens }  ><Link to="/mens">MEN'S</Link></li>
-        <li onMouseOver={ this.openSlideWomans } ><Link to="/womans">WOMEN'S</Link></li>
-        <li onMouseOver={ this.openSlideAccess } ><Link to="/accessories">ACCESSORIES</Link></li>
-        </ul>
+        <div className='nav-wrapper'>
 
-        <ul className="right-nav">
-        <li className="Nav-right"><Link to="/cart">CART</Link></li>
-        <li className="Nav-right" href={ process.env.REACT_APP_LOGIN } >ACCOUNT</li>
-        <li className="Nav-right"><input onChange={this.changeHandler} onKeyPress={this.keyPressHandler} className='Open-Search-Box' placeholder='Search' />SEARCH</li>
-        </ul>
-     
-      </div>
-      {/* <div className={this.state.searchAnimate ? 'Search-Box-Transitions Open-Search-Box' : ' '}></div> */}
-      {/* <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : ' ' }> </div>
+        <div 
+          className='mens-nav'
+          onMouseOver={ this.openSlideMens }
+          >
+          <Link 
+          to="/mens" 
+          className={'font-color'}
+          style={{ textDecoration: 'none' }}
+          >MENS</Link></div>
+
+           <div 
+          className='womans-nav'
+          onMouseOver={ this.openSlideWomans } 
+          >
+          <Link 
+          to="/womans" 
+          className={'font-color'}
+          style={{ textDecoration: 'none' }}
+          >WOMANS</Link></div>
+
+          <div 
+          className='access-nav'
+          onMouseOver={ this.openSlideAccess }
+          >
+          <Link 
+          to="/accessories" 
+          className={'font-color'}
+          style={{ textDecoration: 'none' }}
+          >ACCESSORIES</Link></div>
+
+          {/* <div className='dog-nav'>
+          <img className='alpha-dog-logo' 
+          src='https://s1.postimg.org/10zb96hrv3/Asset_2_3x.png' alt='DOG' />
+          </div> */}
+          
+          <div 
+          className='logo-main-nav'>
+          <Link to="/"><img className='alpha-logo' 
+          src='https://s1.postimg.org/7b4sepvavj/Asset_1_3x.png' alt='ALPHA' />
+          </Link></div>
+
+          <div 
+          className='search-nav'>
+          <Link 
+          to="/search" 
+          className={'font-color'}
+          style={{ textDecoration: 'none' }}
+          >SEARCH
+          </Link></div>
+
+          <div 
+          className='login-nav' 
+          href={ process.env.REACT_APP_LOGIN } > 
+          LOGIN
+          </div>
+
+          <div className='cart-nav'> 
+          <Link 
+          to="/cart" 
+          className={'font-color'}
+          style={{ textDecoration: 'none' }}
+          >CART
+          </Link>
+          </div>
+        </div>
+      {/* <div className={this.state.searchAnimate ? 'Search-Box-Transitions Open-Search-Box' : ' '}></div>
+      <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : ' ' }> </div>
       <div className={this.state.slideVisibleWomans ? 'slide_womans open_womans' : ' '}></div>
       <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : ' '}></div>  */}
       </div>

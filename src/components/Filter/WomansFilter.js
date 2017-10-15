@@ -7,9 +7,9 @@ export default class WomansFilter extends Component {
     return (
       <div>
         <ul className='sort-filter'>
-        <li >Sort By</li>
-        <li onClick={ this.getWomansLowHigh } >Low to High</li>
-        <li onClick={ this.getWomansHighLow }>High to Low</li>
+        <li >SORT BY</li>
+        <li onClick={ this.props.getWomansLowHigh } >LOW TO HIGH</li>
+        <li onClick={ this.getWomansHighLow }>HIGH TO LOW</li>
         <li onClick={ this.getWomansLowHigh }>A-Z</li>
         <li onClick={ this.getWomansHighLow }>Z-A</li> 
       </ul>

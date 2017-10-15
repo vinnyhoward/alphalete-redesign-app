@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
 // =============================================================================
 // DUMB COMPONENT - PRODUCTS
 // =============================================================================
@@ -9,9 +8,9 @@ function Products(props) {
       <div>
       <div>
       <div className='product'>
-      <Link to={`/products/${props.products.productid}`}><img className='img-womans' src={props.products.image1} alt=" " /></Link>
+      <Link to={`/products/${props.products.productid}`}><img className='img-product' src={props.products.image1} alt=" " /></Link>
       <div className='caption-container'>
-      <h1 className='product-title'>{props.products.title}</h1>
+      <div className='product-title'>{props.products.title}</div>
       <p className='product-color'>{props.products.color}</p>
       <p className='product-price'>${props.products.price}</p>
       </div>

@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Prata");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.nav-wrapper {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #3e3e3e;
+  letter-spacing: 1.5px;
+  font-size: 14px; }
+
+.font-color {
+  color: #3e3e3e; }
+
+.nav-wrapper > div {
+  padding: 1em; }
+
+.nav-wrapper > div:nth-child(odd) {
+  padding: 1em; }
+
+.logo-main-nav {
+  grid-column: 4/8; }
+
+.alpha-logo {
+  width: 180px;
+  height: 100%; }
+
+.caption-container {
+  width: 250px;
+  padding-top: 10px; }
+
+.product {
+  background-color: #FFFFFF;
+  padding: 0px; }
+
+.img-product {
+  height: 275px;
+  width: 275px; }
+
+.product-title {
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #4F4F4F;
+  text-align: left; }
+
+.product:hover .product-title {
+  transition: color 0.5s ease;
+  color: #4eb5f9; }
+
+.product:hover .product-price {
+  transition: color 0.1s ease-out;
+  color: #4eb5f9; }
+
+.product-color {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #A7A7A7;
+  text-align: left; }
+
+.product-price {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #212121;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  float: left;
+  color: #4eb5f9; }
+
+div.product {
+  padding: 0px;
+  width: 275px;
+  height: 380px; }
+
+div.product:hover {
+  cursor: pointer;
+  transition: box-shadow 0.4s ease-in-out;
+  border-radius: 3px; }
+
+/* ========================================================================== */
+/* CSS GRID - PRODUCTS  */
+/* ========================================================================== */
+body {
+  background: #FFFFFF; }
+
+.sort-filter {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1em;
+  text-align: left;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #8F8F8F;
+  line-height: 50px;
+  padding: 0px; }
+
+.banner-womans-title {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  height: 100px;
+  color: #212121;
+  line-height: 120px; }
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  font-size: 14px;
+  padding: 1em; }
+
+.product-container > div {
+  /* background: #BFBFBF; */ }
+
+.product-container > div:nth-child(odd) {
+  /* background: #888888; */ }
+
+.header-filter {
+  grid-column: 2/6; }
+
+.content-container {
+  grid-column: 2/6; }
+
+.pag {
+  grid-column: 2/6; }
+
+.footer-container {
+  grid-column: 2/6; }
+
+.side-bar-container {
+  grid-column: 1/1;
+  grid-row: 1/6; }
+
+.nested-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-auto-rows: 300px; */
+  grid-gap: 1em;
+  align-items: center; }
+
+.margin-default {
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.sidebar {
+  padding: 15px;
+  width: 150px;
+  color: #fff; }
+
+.color-filter {
+  margin: 5px;
+  color: #2A2A2A;
+  padding-top: 10px; }
+
+.sidebar {
+  float: left; }
+
+.sidelist {
+  font-size: 14px;
+  color: #373737;
+  cursor: pointer; }
+
+.sidelist:hover {
+  font-size: 14px;
+  color: #4eb5f9;
+  transition: color 0.4s ease-in-out; }
+
+.side-nav-container {
+  display: grid;
+  padding: 1em;
+  grid-gap: 0.5em; }
+
+.side-nav-container > h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  border-bottom: 1px line #242424;
+  margin: 0px; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 0.5em 0;
+  padding: 0; }
+
+.color-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em; }
+
+.box1 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #B8E0DB;
+  background-color: #9CD7D3; }
+
+.box2 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #BE5E6E;
+  background-color: #BB2E45; }
+
+.box3 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #436689;
+  background-color: #225689; }
+
+.box4 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #EAD7D8;
+  background-color: #DEAEB0; }
+
+.box5 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #864D67;
+  background-color: #7d204a; }
+
+.box6 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #DDDDDD;
+  background-color: #B4B4B4; }
+
+.box7 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #E5E5E5;
+  background-color: #F7F7F7; }
+
+.box8 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #2E2E2E;
+  background-color: #121212; }

@@ -1,0 +1,37 @@
+
+.nav-wrapper {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $off-grey;
+  letter-spacing: 1.5px;
+  font-size: 14px;
+
+}
+
+.font-color {
+  color: $off-grey;
+}
+
+.nav-wrapper > div {
+  // background: #BFBFBF;
+  padding: 1em;
+}
+
+.nav-wrapper > div:nth-child(odd) {
+  // background: #888888;
+  padding: 1em;
+}
+
+.logo-main-nav {
+  grid-column: 4/8;
+}
+
+.alpha-logo {
+  @include width-height( 180px, 100% ) ;
+}
+
+// .alpha-dog-logo {
+//   @include width-height( 30px, 100% ) 
+// }
