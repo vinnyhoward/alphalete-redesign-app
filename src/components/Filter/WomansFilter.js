@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-
+// =============================================================================
+// DUMB COMPONENT - WOMANS FILTER
+// =============================================================================
 export default class WomansFilter extends Component {
   render() {
     return (

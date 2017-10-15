@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-
-
-
+// =============================================================================
+// DUMB COMPONENT - PRODUCTS
+// =============================================================================
 function Products(props) {
     return (
       <div>

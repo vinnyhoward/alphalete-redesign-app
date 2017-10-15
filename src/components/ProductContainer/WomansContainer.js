@@ -67,10 +67,10 @@ render() {
       <div className='Header'>
       <div className='Filter-Align'>
       </div>
-      <WomansFilter />
+  <WomansFilter />
       </div>
       <div className='margin-shop'>
-      <SideBarNav />
+  <SideBarNav />
       <div className='Nav'>
       </div>
       <div className='Content'> <div className='Nested-Content'>
@@ -91,14 +91,5 @@ render() {
 
       }
     }
-  // const ProductContainer = connect(
-  //   mapStateToProps,
-  // )(Product)
-
-  // const mapDispatchToProps = (dispatch) => {
-  //   return {
-
-  //   }
-  // }
 
     export default connect(mapStateToProps, { getAllWomansProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow  })(Womans);
