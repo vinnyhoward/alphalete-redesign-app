@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { Switch, Route } from 'react-router-dom';
 import Mens from './components/Mens/Mens';
-import Womans from './components/Womans/Womans';
+import WomansContainer from './components/ProductContainer/WomansContainer';
 import Accessories from './components/Accessories/Accessories';
 import Cart from './components/Cart/Cart';
 import Home from './components/Home/Home';
@@ -30,7 +30,7 @@ render() {
   <Route component={ Search } path="/search"/>
   <Route component={ SingleProductView } path="/products/:id"/>
   <Route component={ Mens } path="/mens/"/>
-  <Route component={ Womans } path="/womans"/> 
+  <Route component={ WomansContainer } path="/womans"/> 
   <Route component={ Accessories } path="/accessories"/>
   <Route component={ Cart } path="/cart"/>
   {/* <Route component={ All } path="/mens/all"/> 
