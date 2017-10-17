@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import '../Womans/Womans.css';
-import { getAllWomansProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow } from '../../ducks/ProductsDucks';
+import { getAllProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow } from '../../ducks/ProductsDucks';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
 import SideBarNav from '../SideBarNav/SideBarNav';
 import Products from '../Products/Product';
-import WomansFilter from '../Filter/WomansFilter'
 
 class Womans extends Component {
   constructor(props) {
     super(props)
         this.state= {
           products: [],
-          value: 2
+          value: 2,
+          onProductHover: false
         }
 // =============================================================================
 // WOMANS BINDED
@@ -25,16 +23,15 @@ class Womans extends Component {
 // =============================================================================
 // METHODS
 // =============================================================================
+productHover() {
+  this.setState({
+  onProductHover: !this.state.onProductHover
+  })
+}
   handleChange = (event, index, value) => 
   this.setState({
     value
   });
-// =============================================================================
-//
-// =============================================================================
-  componentDidMount() {
-    this.props.getAllWomansProducts()
-  }
 // =============================================================================
 // FILTER METHODS
 // =============================================================================
@@ -50,37 +47,49 @@ class Womans extends Component {
   getWomansHighLow() {
     this.props.getWomansHighLow()
   }
+  componentDidMount() {
+    this.props.getAllProducts()
+  }
 
-render() {
-  const womansClothing = this.props.products.map((products, i) => {
+  render() {
+    const womansClothing = this.props.products.filter(function(products, i) {
+      return products.gender === 'FEMALE';
+    }).map(function(products, i) {
+      return (
+        <Products 
+        key={i}
+        products={products}
+        />
+      )
+    })
     return (
-    <Products 
-    key={i}
-    products={products}
-    />
-    )
-  })
-    return (
-      <div className='Body-Margin'>
-      <div className="parallax"></div>
-      <div className='wrapper'> 
-      <div className='Header'>
-      <div className='Filter-Align'>
+<div className='body-padding'>
+  <div className='banner'></div>
+  <div className='banner-title'>SHOP WOMANS</div>
+  <div className='margin-default'>
+  <div className='product-container'>
+      <div className='header-filter'>
+
+      {/* <div ClassName="dropdown">
+      <button ClassName="dropbtn">SORT BY</button>
+      <div ClassName="dropdown-content">
+      <a onClick={ this.getWomansLowHigh }>LOW TO HIGH</a>
+        <a onClick={ this.getWomansHighLow }>HIGH TO LOW</a>
+        <a onClick={ this.getWomansAsc } >A-Z</a>
+        <a onClick={ this.getWomansDesc } >Z-A</a>
       </div>
-  <WomansFilter />
-      </div>
-      <div className='margin-shop'>
-  <SideBarNav />
-      <div className='Nav'>
-      </div>
-      <div className='Content'> <div className='Nested-Content'>
-        {womansClothing}
-      </div></div>
-      <div className='Email-Sub'></div>
-      </div>
-      <div className='Footer'></div>
-      </div>
-      </div>
+      </div> */}
+
+        </div>
+      <div className='content-container'>
+        <div className='nested-content'>{womansClothing}</div>
+        </div>
+      <div className='pag'></div>
+      <div className='footer-container'></div>
+      <div className='side-bar-container'><SideBarNav /></div>
+  </div>
+  </div>
+  </div>
     )
   }
 };
@@ -92,4 +101,4 @@ render() {
       }
     }
 
-    export default connect(mapStateToProps, { getAllWomansProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow  })(Womans);
+    export default connect(mapStateToProps, { getAllProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow  })(Womans);

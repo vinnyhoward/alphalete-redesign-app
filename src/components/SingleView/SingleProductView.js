@@ -19,17 +19,70 @@ class SingleProductView extends Component {
       })
     })
   }
-
   render() {
     
       return ( 
-          <div>
-          <img src={this.state.singleProduct.image1} alt='' />
-              <h1>{this.state.singleProduct.title}</h1>
-              <p>{this.state.singleProduct.color}</p>
-              <p>{this.state.singleProduct.price}</p>
+          <div className='single-body'>
+            <div className='header-single'></div>
+            <div className='single-wrapper'>
+              <div className='margin-left-single'>1</div>
+              <div className='picture-single-content'>
+              <img className='image-single' src={this.state.singleProduct.image1} alt='' />
+                <div className='nested-images'>
+                <img className='nested-image' src={this.state.singleProduct.image1} alt='' />
+                <img className='nested-image' src={this.state.singleProduct.image2} alt='' />
+                <img className='nested-image' src={this.state.singleProduct.image3} alt='' />
+              </div>
+              </div>
+              <div className='info-single-content'>
+              <div className='product-info-caption'>
+
+                <div className='title-price'>
+                  <div className='single-title'>{this.state.singleProduct.title}</div>
+                  <div className='single-color'>{this.state.singleProduct.color}</div>
+                  <div className='single-price'>${this.state.singleProduct.price}.00</div>
+                  <hr/>
+                </div>
+
+              <div className='color-share'>
+
+              <div className='color-title'>COLOR</div>
+              <div className='share-title'>SHARE</div>
+      
+              </div>
+              
+              <div className='size-cart'>
+              <hr/>
+              SIZE
+              <div className="dropdown-size-size">
+              <button className="dropbtn-size">SIZE</button>
+              <div className="dropdown-content-size">
+              <a >Link 1</a>
+              <a >Link 2</a>
+              <a >Link 3</a>
+              </div>
+              </div>
+              <div className="qty-button-clicker"></div>
+              <button className='add-cart-button' onClick={ () => {this.props.addToCart(this.state.singleProduct.productid)}}
+              > ADD TO CART</button>
+             
+
+              <hr/>
+              </div>
+              <div className='description-title'>{this.state.singleProduct.descriptiontitle}</div>
+              <div className='product-info'>{this.state.singleProduct.description}</div>
+              </div>
+              </div>
+              <div className='margin-right-single'>4</div>
+              <div className='back'>5</div>
+              <div className='single-footer'>6</div>
+            </div>
+          {/* <img src={this.state.singleProduct.image1} alt='' />
+              <div>{this.state.singleProduct.title}</div>
+              <div>{this.state.singleProduct.color}</div>
+              <div>{this.state.singleProduct.price}</div>
     
-          <button onClick={ () => {this.props.addToCart(this.state.singleProduct.productid)}}> ADD TO CART</button>
+          <button onClick={ () => {this.props.addToCart(this.state.singleProduct.productid)}}> ADD TO CART</button> */}
           </div>
       )
   }

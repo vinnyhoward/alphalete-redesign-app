@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { getAllProducts} from '../../ducks/ProductsDucks'
+import { getAllProducts, getMensAsc, getMensDesc, getMensLowHigh, getMensHighLow } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
 import Products from '../Products/Product';
-import SideBarNav from '../SideBarNav/MensSideBarNav';
+import MensSideBarNav from '../SideBarNav/MensSideBarNav';
 
 
-class Accessories extends Component {
+class Mens extends Component {
   constructor(props) {
     super(props)
 
@@ -13,31 +13,54 @@ class Accessories extends Component {
       products: [],
       value: 2
     }
+
+    //MENS BINDED
+    this.getMensAsc = this.getMensAsc.bind(this)
+    this.getMensDesc = this.getMensDesc.bind(this)
+    this.getMensLowHigh = this.getMensLowHigh.bind(this)
+    this.getMensHighLow = this.getMensHighLow.bind(this)
   }
-// =========================================================================
-// COMPONENT DID MOUNT
-// =========================================================================
+
+  handleChange = (event, index, value) => 
+  this.setState({
+    value
+  });
+
+  getMensAsc() {
+    this.props.getMensAsc()
+  }
+  getMensDesc() {
+    this.props.getMensDesc()
+  }
+  getMensLowHigh() {
+    this.props.getMensLowHigh()
+  }
+  getMensHighLow() {
+    this.props.getMensHighLow()
+  }
+ 
   componentDidMount() {
     this.props.getAllProducts()
   }
+
   render() {
-// =========================================================================
-// JAVASCRIPT FILTER
-// =========================================================================
-    const accessClothing = this.props.products.filter(function(products, i) {
-      return products.category === 'accessories';
+
+    const mensClothing = this.props.products.filter(function(products, i) {
+      return products.gender === 'MALE';
     }).map(function(products, i) {
       return (
         <Products 
         key={i}
         products={products}
         />
+
       )
     })
-        return (
+    return (
+
 <div className='body-padding'>
 <div className='banner'></div>
-<div className='banner-title'>SHOP ACCESSORIES</div>
+<div className='banner-title'>SHOP MENS</div>
 <div className='margin-default'>
 <div className='product-container'>
 <div className='header-filter'>
@@ -52,24 +75,25 @@ class Accessories extends Component {
       </div> */}
   </div>
   <div className='content-container'>
-  <div className='nested-content'>{accessClothing}</div>
+  <div className='nested-content'>{mensClothing}</div>
   </div>
   <div className='pag'></div>
   <div className='footer-container'></div>
   <div className='side-bar-container'>
-  <SideBarNav />
+    <MensSideBarNav />
   </div>
   </div>
   </div>
   </div>
-        )
-      }
-    };
+    )
+  }
+};
 
     function mapStateToProps(state) { 
       return {
         products: state.products 
+
       }
     }
 
-    export default connect(mapStateToProps, { getAllProducts })(Accessories);
+    export default connect(mapStateToProps, { getMensAsc, getMensDesc, getMensLowHigh, getMensHighLow, getAllProducts })(Mens);

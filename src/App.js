@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { Switch, Route } from 'react-router-dom';
-import Mens from './components/Mens/Mens';
+import Mens from './components/ProductContainer/Mens';
 import WomansContainer from './components/ProductContainer/WomansContainer';
 import Accessories from './components/Accessories/Accessories';
 import Cart from './components/Cart/Cart';

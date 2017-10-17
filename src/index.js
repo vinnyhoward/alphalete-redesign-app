@@ -6,6 +6,7 @@ import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from './store';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import './styles/main.css'
 
 
 

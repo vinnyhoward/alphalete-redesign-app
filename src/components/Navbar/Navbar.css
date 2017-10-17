@@ -1,150 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Quattrocento+Sans:400,400i,700,700i');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i');
-
-/* NAVBAR */
-
-li {
-  list-style: none;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-
-li a {
-  display: block;
-  color: #202020;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-
 .Navbar {
   position: -webkit-sticky;
   position: sticky;
-  top: 0px;
-}
-
-.Navbar-Container {
+  z-index: 1;
+  top: 0;
+  left: 0;
   height: 65px;
   width: 100%;
   line-height: 35px;
   display: block;
-  background-color: #FCFCFC;
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: 1px;
-  font-weight: 500;
-  font-size: 15px;
-  overflow: hidden;
-  top: 0;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  box-shadow: 1px 1px 2px rgba(162, 162, 162, 0.56);
-    /* border-bottom: 1px solid rgba(153, 153, 153, 0.80); */
-  
-}
-
-.Nav-right {
-  float: right;
-}
-
-.Main-logo {
-  width: 100px;
-  height: 20px;
-  /* background-image: url("../../Alphalete_logo1") */
-}
-
-.left-nav {
-  opacity: 0px;
-  float: left;
-  padding-left: 30px;
-}
-
-.right-nav {
-  opacity: 0px;
-  float: right;
-  padding-right: 30px;
-  color: #202020;
-}
-
-
-/* NAVBAR ANIMATIONS */
-
-.slide_mens {
-  height: 0px;
-  width: 100%;
-  background: #FFFFFF;
-  transition: .3s;
-  transition-timing-function: ease-out;
-  /* border-bottom: 1px solid rgba(153, 153, 153, 0.80); */
-  /* box-shadow: 1px 1px 2px #333; */
-}
-
-.slide_womans {
-  height: 0px;
-  width: 100%;
-  background: #FFFFFF;
-  transition: .3s;
-  transition-timing-function: ease-out;
-  /* border-bottom: 1px solid rgba(153, 153, 153, 0.80); */
-  /* box-shadow: 1px 1px 2px #333; */
-}
-
-.slide_accessories {
-  height: 0px;
-  width: 100%;
-  background: #FFFFFF;
-  transition: .3s;
-  transition-timing-function: ease-out;
-  /* border-bottom: 1px solid rgba(153, 153, 153, 0.80); */
-  /* box-shadow: 1px 1px 2px #333; */
-}
-
-
-
-.open_mens {
-  height: 300px;
-  background: #FFFFFF;
-  display: relative;
-  position: absolute;
-  border-bottom: 1px solid rgba(153, 153, 153, 0.80);
-
-}
-
-
-.open_womans {
-  height: 300px;
-  position: absolute;
-  border-bottom: 1px solid rgba(153, 153, 153, 0.80);
-
-}
-
-.open_accessories {
-  height: 300px;
-  position: absolute;
-  border-bottom: 1px solid rgba(153, 153, 153, 0.80);
-
-}
-
-.Open-Search-Box {
-  outline: none;
-  margin-right: 20px;
-  height: 25px;
-  width: 250px;
-  border: 1px solid #D8D8D8;
+  background-color: #000000;
+  color: #999;
   padding-left: 10px;
-  font-size: 10pt;
-  margin-top: 17px;
-
-  
+  padding-right: 10px;
+  text-align: center;
+  text-decoration: none;
+  /* border-bottom: solid 0.5px #000000; */
 }
+/* .Navbar-extra {
+  height: 65px;
+  width: 100%;
+  top: 0px;
+  position: aboslute;
+  background-color: #000000;
+  color: #999;
+} */
+

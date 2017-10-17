@@ -1,3 +1,3 @@
 SELECT * 
-FROM customer
+FROM users
 WHERE auth_id = $1;
