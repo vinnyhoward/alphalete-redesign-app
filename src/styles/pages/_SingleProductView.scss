@@ -1,0 +1,249 @@
+.header-single{
+  width: 100%;
+  height: 80px;
+  background: #FFFFFF;
+}
+
+.single-body {
+  background-color: #fff
+}
+/* ========================================================================== */
+/*  CSS MAIN GRID
+/* ========================================================================== */
+.single-wrapper {
+display: grid;
+grid-template-columns: repeat( 6,1fr );
+grid-gap: 2em;
+}
+
+.single-wrapper > div {
+// background: #987070; 
+}
+
+.single-wrapper > div:nth-child(odd) {
+// background: #FFC9C9; 
+}
+
+.margin-left-single {
+grid-column: 1/2;
+}
+
+.picture-single-content {
+grid-column: 2/4;
+// @include width-height(500px, 750px);
+// background-color: #fff;
+}
+
+.info-single-content {
+background: #fff;
+padding: 30px;
+grid-column: 4/6;
+// grid-template-columns: repeat( 2,1fr );
+}
+
+.margin-right-single {
+grid-column: 6/8;
+}
+
+.back {
+grid-column: 1/8;
+}
+
+.single-footer {
+grid-column: 1/8;
+}
+
+/* ========================================================================== */
+/*  IMAGE
+/* ========================================================================== */
+
+.image-single {
+  width: 500px;
+  height: 500px;
+}
+/* ========================================================================== */
+/*  INFO CONTAINER
+/* ========================================================================== */
+.product-info-caption {
+  display: grid;
+}
+.nested-images {
+  display: grid;
+  grid-template-columns: repeat( 3,1fr );
+  width: 525px;
+  .nested-image {
+    padding-top: 20px;
+    @include width-height(150px, 150px)
+  }
+}
+
+.product-info-caption  > div {
+  // background: #757272; 
+}
+
+.product-info-caption > div:nth-child(odd) {
+  // background: #BDBDBD; 
+}
+/* ========================================================================== */
+/*  TITLE / PRICE / COLOR
+/* ========================================================================== */
+.title-price {
+  font-family: 'Montserrat', sans-serif;
+  padding: 15px;
+}
+
+.single-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.single-price {
+  color: #4eb5f9;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 16pt;
+}
+
+.single-color {
+  font-family: 'Montserrat', sans-serif;
+  color: #A7A7A7;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.single-price {
+  font-family: 'Montserrat', sans-serif;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 0.5px solid #E3E3E3;
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+/* ========================================================================== */
+/*  COLOR AND SHARE
+/* ========================================================================== */
+.color-share {
+  padding: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+/* ========================================================================== */
+/*  ADD TO CART
+/* ========================================================================== */
+.size-cart {
+  padding: 15px;
+  font-family: 'Montserrat', sans-serif;
+  grid-template-columns: repeat( 4,1fr );
+}
+.add-cart-button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background: #4eb5f9;
+  height: 50px;
+  width: 400px;
+  font-size: 11pt;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+.add-cart-button:hover { 
+background: #419BD7;
+}
+
+.dropbtn-size {
+  background-color: #f0f0f0;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 275px;
+  color: #808080;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dropdown-size {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-size {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content-size  a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content-size  a:hover {background-color: #f1f1f1}
+
+.dropdown-size :hover .dropdown-content-size  {
+  display: block;
+}
+
+.dropdown-size :hover .dropbtn-size {
+  background-color: #3e8e41;
+}
+
+.qty-button-clicker {
+  background-color: #f0f0f0;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 10px;
+  color: #808080;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  height: 25px;
+}
+/* ========================================================================== */
+/*  PRODUCT INFO
+/* ========================================================================== */
+.product-info {
+  padding: 13px;
+  font-family: 'Roboto', sans-serif;
+  color: #767676;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 120%;
+  
+}
+.description-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 26px;
+  padding: 15px;
+  font-weight: 600;
+}
+/* ========================================================================== */
+/* NESTED --- COLOR AND SHARE
+/* ========================================================================== */
+.color-share {
+  display: grid;
+  grid-template-columns: repeat( 2,1fr );
+  font-family: 'Montserrat', sans-serif;
+}

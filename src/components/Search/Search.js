@@ -3,7 +3,6 @@ import { getAllProducts, getSearchProducts } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
-
 // function searchingFor(term) {
 //   return function(x){
 //     return x.title.toLowerCase().includes(term.toLowerCase()) || !term
@@ -15,9 +14,7 @@ class Search extends Component {
     super()
 
     this.state = {
-
     }
-
   }
 
   componentDidMount() {

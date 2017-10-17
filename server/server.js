@@ -7,6 +7,10 @@ const express = require('express'),
         Auth0Strategy = require('passport-auth0'),
         ctrl = require('./productsController');
 
+const stripe = require('stripe')('sk_test_jUcA4URQshgokViBG67QJGfd');
+        
+
+
 require ('dotenv').config();
 // =============================================================================
 // EXPRESS AND EXPRESS SESSIONS
@@ -36,56 +40,84 @@ massive(process.env.CONNECTION_STRING).then( db => {
     app.listen(PORT, () => console.log('Listening on port: ', PORT))
 })
 // =============================================================================
-// PASSPPORT STRATEGY
+// PASSPORT STRATEGY
 // =============================================================================
 passport.use( new Auth0Strategy({
-    domain: process.env.AUTH_DOMAIN,
-    clientID: process.env.AUTH_CLIENT_ID,
-    clientSecret: process.env.AUTH_CLIENT_SECRET,
-    callbackURL: process.env.AUTH_CALLBACK
-}, function(accessToken, refreshToken, extraParams, profile, done){
-    const db = app.get('db');
-
-    db.get_user([profile.identities[0].user_id]).then(user => {
-        console.log(user)
-        if (user[0]){
-            done(null, user[0].id)
-        } else {
-            db.create_user([profile.displayName, profile.emails[0].value, profile.identities[0].user_id]).then(user => {
-                done(null, user[0].id)
-            })
-        }
-    }).catch(err => console.log(err))
-}))  
+domain: process.env.AUTH_DOMAIN,
+clientID: process.env.AUTH_CLIENT_ID,
+clientSecret: process.env.AUTH_CLIENT_SECRET,
+callbackURL: process.env.AUTH_CALLBACK
+}, function(accessToken, refreshToken, extraParams, profile, done) {
+const db = app.get('db');
+        db.get_user([profile.identities[0].user_id]).then( user => {
+        if (user[0]) {
+                done(null, user[0].id)
+        } else {
+                db.create_user([
+                profile.emails[0].value,
+                profile.identities[0].user_id]).then( user => {
+                        done(null, user[0].id)
+ })
+}})
+}))
+passport.serializeUser(function(userId, done) {
+        done(null, userId);
+})
+        passport.deserializeUser( function( userId, done) {
+        app.get('db').current_user(userId).then(user => {
+                done(null, user[0])
+})
+})
 // =============================================================================
-// PASSPORT SERIALIZE AND DESERIALIZE 
+// STRIPE 
 // =============================================================================
-passport.serializeUser(function(userId,done) {
-    done(null, userId);
-}) 
-passport.deserializeUser(function(userId,done) {
-    app.get('db').current_user([userId]).then( userId => {
-        done(null,userId[0])
-    })
-}) 
+app.post('/api/payment', function (req, res, next) {
+console.log('yup this is it', req.body)
+const amountArray = req.body.amount.toString().split('');
+const pennies = [];
+for (var i = 0; i < amountArray.length; i++) {
+  if (amountArray[i] === ".") {
+    if (typeof amountArray[i + 1] === "string") {
+      pennies.push(amountArray[i + 1]);
+    } else {
+      pennies.push("0");
+    }
+    if (typeof amountArray[i + 2] === "string") {
+      pennies.push(amountArray[i + 2]);
+    } else {
+      pennies.push("0");
+    }
+    break;
+  } else {
+    pennies.push(amountArray[i])
+  }
+}
+const convertedAmt = parseInt(pennies.join(''));
+const charge = stripe.charges.create({
+  amount: convertedAmt, // amount in cents, again
+  currency: 'usd',
+  source: req.body.token.id,
+  description: 'Test charge from react app'
+}, function (err, charge) {
+  if (err) return res.sendStatus(500)
+        });
+});
 // =============================================================================
 // AUTH ENDPOINTS
 // =============================================================================
 app.get('/auth', passport.authenticate('auth0'));
-app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/mens',
-    failureRedirect: 'http://localhost:3000/#womens'
-}));
-app.get('/auth/user', (req, res) => {
-   if(!req.user) {
-       return res.status(404).send('User not found');
-   } else {
-    return res.status(200).send(req.user);
-   }
-})
+app.get('/auth/callback', passport.authenticate('auth0',{
+        successRedirect: 'http://localhost:3000/#/',
+        failureRedirect: '/auth'
+}))
 app.get('/auth/logout', (req,res) => {
-    req.logOut();
-    res.redirect(302, 'http://localhost:3000/')
+        req.logOut();
+        res.redirect(302, 'https://vinnyhoward.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2f&client_id=liHYp5cWSNPbc3bhKAMZurnA8O8HR4F5')
+})
+app.get('/api/user',  passport.authenticate('auth0'), (req, res) => {
+        req.app.get('db').current_user().then(user =>{
+        res.status(200).send(user)
+        }).catch((err) => {console.log(err)})
 })
 // =============================================================================
 // PRODUCT ENDPOINTS
@@ -114,4 +146,3 @@ app.get('/api/getproducts/womans-asc', ctrl.filterWomansByAsc);
 app.get('/api/getproducts/womans-desc', ctrl.filterWomansByDesc);
 app.get('/api/getproducts/womans-price-low-high', ctrl.filterWomansByLowHigh);
 app.get('/api/getproducts/womans-price-high-low', ctrl.filterWomansByHighLow);
-

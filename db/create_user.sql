@@ -1,5 +1,6 @@
-INSERT INTO customer (
-username, user_email, auth_id
+INSERT INTO users (
+email, auth_id
 )
 VALUES
-($1, $2, $3);
+($1, $2)
+RETURNING *;

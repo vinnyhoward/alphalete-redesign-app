@@ -7,6 +7,14 @@
 .product {
 background-color: #FFFFFF;
 padding: 0px;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+align-content: center;
+border: 0.1px solid #F5F5F5;
+transition: background-color 0.5s ease;
 }
 
 .img-product {
@@ -21,7 +29,8 @@ padding: 0px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: #4F4F4F;
-  text-align: left;
+  text-align: left;  
+  transition: text 0.5s ease;
 }
 .product:hover {
 
@@ -32,6 +41,7 @@ padding: 0px;
 .product-price  {
   transition: color 0.1s ease-out;
   color: #4eb5f9;
+
 }
 }
 
@@ -50,17 +60,17 @@ padding: 0px;
   font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #212121;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  float: left;
+  text-align: left;
   color: #4eb5f9;
 }
 
 div.product {
   padding: 0px;
-  width: 275px;
-  height: 380px;
+  width: 320px;
+  height: 420px;
+  background-color: #FFFFFF;
   }
 
 div.product:hover {

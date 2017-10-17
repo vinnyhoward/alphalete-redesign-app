@@ -1,17 +1,59 @@
+a {
+  text-decoration: none;
+  
+}
+
+a:visited {
+  color: #999;
+}
 
 .nav-wrapper {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(11, 1fr);
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  color: $off-grey;
   letter-spacing: 1.5px;
   font-size: 14px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.dead-space-1 {
+
+}
+.dead-space-2{
 
 }
 
+.dead-space-3{
+
+}
+
+.dead-space-4{
+  
+}
+
+
+.icon-search {
+  @include width-height(100%, 100%)
+}
+
+.mens-nav {
+  grid-column: 1/1;
+ 
+}
+
+.womans-nav {
+
+}
+
+.access-nav {
+
+}
+
+
 .font-color {
-  color: $off-grey;
+  color: #999;
 }
 
 .nav-wrapper > div {
@@ -25,7 +67,7 @@
 }
 
 .logo-main-nav {
-  grid-column: 4/8;
+  grid-column: 6/6;
 }
 
 .alpha-logo {
@@ -35,3 +77,70 @@
 // .alpha-dog-logo {
 //   @include width-height( 30px, 100% ) 
 // }
+
+.badge-number {
+  background: #4eb5f9;
+  @include width-height(35px,35px);
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 15px;
+  right: 70px;
+}
+
+/* ========================================================================== */
+/* POP UP MENU */ 
+/* ========================================================================== */
+
+.pop-up {
+  width: 100%;
+  height: 420px;
+  background: #fff;
+  border: 0.1px solid #F5F5F5;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  transition: 0.2s ease-out;
+
+}
+
+.pop-up-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.sub-section-nest {
+  display: grid;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #6C6C6C;
+  padding: 15px;
+  padding-top: 40px;
+}
+
+.sidelist-nest{
+  padding: 10px;
+  font-weight: 400px;
+}
+
+.sidelist-nest-header {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: #000000;
+  padding: 10px;
+}
+
+.navbar-product-content {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+}
+
+.navbar-product-content-nest {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

@@ -13,6 +13,7 @@ addToCart:(req,res) => {
                     console.log('HIYA')
                     db.update_quantity([dup[0].qty + 1, dup[0].productid]).then(() => {
                      db.return_cart([cart[0].id]).then((cartItems) => {
+                         console.log(cartItems);
                          res.send(cartItems)
                      })
                       

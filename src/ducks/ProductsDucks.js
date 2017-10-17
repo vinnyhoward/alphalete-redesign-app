@@ -59,6 +59,7 @@ export function addToCart(product) {
       productid: product, 
       userid: 1
     }).then((cart) => { //Could be a problem later on with tables //userid is from orders table
+      console.log(cart.data);
       return cart.data
     }).catch( err => console.log(err))
   }

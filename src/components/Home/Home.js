@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getAllProducts } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
+import Products from '../../components/Products/Product'
 
 class Home extends Component {
 
@@ -8,26 +9,35 @@ class Home extends Component {
     this.props.getAllProducts()
   }
 
-  render() {
-    const allClothing = this.props.products.slice(0, 4).map((e, i) => {
-      return (
-        <div key={i} className='product'>
-        <img className='img' src={e.image1} alt=" " />
-        <div className='caption-container'>
-        <h1 className='product-title'>{e.title}</h1>
-        <p className='product-color'>{e.color}</p>
-        <p className='product-price'>${e.price}</p>
-        <button className='cart-button'>ADD TO CART</button>
-        </div>
-        </div>
-
-      )
-
-    })
+render() {
+const allClothing = this.props.products.slice(0, 4).map((products, i) => {
+  return (
+    <div className='product'>
+    <Products 
+    key={i}
+    products={products}
+    />
+    </div>
+  )
+})
 
     return (
-      <div className ='product-container'>
-{ allClothing }
+      <div className='home-body'>
+      <div className='main-banner'>
+        <div className='banner-text'>NEW RELEASES</div>
+        <div className='banner-text-caption'>AVAILABLE NOW</div>
+        <button className='explore-button'>SHOP NOW</button>
+      </div>
+      <div className='home-margin'>
+      <div className='home-wrapper'>
+      <div className='home-products'>
+      { allClothing }
+      </div>
+      <div href='https://www.youtube.com/watch?v=U-RsYBRaYRc' className='featured-athletes'></div>
+      <div className='find-out'></div>
+      </div>
+      </div>
+      <div className='home-footer'></div>
       </div>
     );
   }

@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 // =============================================================================
-// DUMB COMPONENT - PRODUCTS
+// DUMB COMPONENT - PRODUCTSMALL
 // =============================================================================
-function Products(props) {
+function ProductSmall(props) {
     return (
       <div>
       <div>
-      <div className='product'>
+      <div className='product-small-box'>
       <Link to={`/products/${props.products.productid}`}>
-      <img  className='img-product' src={props.products.image1} alt=" " />
+      <img  className='img-product-small' src={props.products.image1} alt=" " />
       </Link>
-      <div className='caption-container'>
+      <div className='caption-container-small'>
 
       <div className='product-title'>{props.products.title}</div>
       <p className='product-color'>{props.products.color}</p>
@@ -24,4 +24,4 @@ function Products(props) {
     )
   }
 
-export default Products
+export default ProductSmall

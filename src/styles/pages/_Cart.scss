@@ -1,0 +1,165 @@
+/* ========================================================================== */
+ /* CSS GRID   */
+/* ========================================================================== */
+.garbage {
+  @include width-height(0px, 0px)
+}
+.cart-body-margin {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.checkout-container {
+  display: grid;
+  grid-template-columns: repeat( 6,1fr );
+
+}
+.checkout-container > div  {
+// background: #987070; 
+}
+.checkout-container div:nth-child(odd) {
+// background: #594949; 
+}
+
+.cart-header{
+  grid-column: 1/8;
+  height: 120px;
+  line-height: 140px;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #0E0E0E;
+  font-size: 28px;
+
+}
+.cart-content {
+  grid-column: 1/8;
+}
+.cart-checkout {
+  grid-column: 1/8;
+}
+.cart-footer {
+  grid-column: 1/8;
+}
+.cart-footer-backup {
+  grid-column: 1/8;
+}
+.cart-footer-backup2 {
+  grid-column: 1/8;
+}
+/* ========================================================================== */
+ /* NESTED CART ITEMS */
+/* ========================================================================== */
+.shopping-image {
+  @include width-height(120px, 120px)
+}
+
+.product-cart-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  line-height: 125px;
+  background: #FFFFFF;
+  padding: 15px;
+  border: 0.1px solid #F5F5F5;
+
+}
+.product-cart-title {
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #000000;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.product-cart-qty {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #878787;
+  font-size: 14px;
+}
+
+.product-cart-sub {
+  text-align: center;
+  font-weight: 400;
+  color: #878787;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.remove {
+  @include width-height(180px, 40px);
+  background: #CECECE;
+  color: white;
+  border: none;
+  text-align: center;
+  justify-content: end;
+  font-weight: 300;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  outline: none;
+}
+
+.remove:hover {
+  color: white;
+  transition: background 0.5s ease;
+  background: #4eb5f9;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ========================================================================== */
+ /* CHECKOUT */
+/* ========================================================================== */
+
+.cart-checkout {
+ height: 200px;
+}
+
+.input-checkout {
+  height: 90px;
+  width: 500px;
+  margin-top: 5px;
+  color: #373737;
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 500px;
+  line-height: 1em; // this probably doesn't matter
+  border: none;
+  outline:none;
+}
+.special-seller {
+  font-weight: 500;
+  color: #878787;
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 50px;
+}
+
+.checkout-box {
+  float: right;
+}
+
+.checkout-total {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #0C0C0C;
+  font-size: 20px;
+  text-align: right;
+}
+
+.taxes-are-dumb {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #878787;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.final-checkout {
+  padding-top: 20px;
+  float: right;
+}

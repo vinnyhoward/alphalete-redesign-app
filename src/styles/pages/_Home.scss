@@ -1,0 +1,123 @@
+
+.home-body{
+  background: #F0F0F0;
+}
+.main-banner {
+  /* The image used */
+  background-image: url("https://cdn.shopify.com/s/files/1/0667/0133/files/B6I7845_2048x.jpg?v=1507967118.jpg");
+
+  /* Set a specific height */
+  height: 600px; 
+  width: 100%;
+  background-size: 100% 100%;
+  position:relative;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 10px;
+}
+.home-margin {
+  margin-left: 185px;
+  margin-right:  185px;
+}
+
+.explore-button{
+  width: 260px;
+  height: 60px;
+  background: rgba(198, 198, 198, 0.00);
+  border: 3px solid #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700px;
+  font-size: 16px;
+  letter-spacing: 3px;
+  top: 450px;
+  left: 180px;
+  right: 180px;
+  cursor: pointer;
+  position: absolute;
+  // border: none;
+  color: #FFFFFF;
+}
+
+.explore-button:hover {
+  background: #4eb5f9;
+  transition: background 0.5s ease;
+  border: none;
+}
+
+.banner-text {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 48px;
+  letter-spacing: 3px;
+  top: 360px;
+  left: 180px;
+  right: 180px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.banner-text-caption {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 3px;
+  top: 410px;
+  left: 180px;
+  right: 180px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.home-wrapper {
+  display: grid;
+  grid-gap: 3em;
+}
+
+.home-products {
+
+}
+
+.find-out {
+  background: #fff;
+  height: 270px;
+  width: 1280px;
+}
+
+.featured-athletes {
+background-image: url('https://cdn.shopify.com/s/files/1/0667/0133/files/something_1024x.jpg?v=1500044130');
+height: 270px;
+width: 1280px;
+position:relative;
+/* Create the parallax scrolling effect */
+}
+
+.home-footer {
+  background: #000000;
+  height: 320px;
+  width: 100%;
+  margin-top: 50px;
+  background-size: 100% 100%;
+  position:relative;
+  /* Create the parallax scrolling effect */
+  // background-attachment: fixed;
+  // background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  background-size: 100% 100%;
+  position:relative;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
