@@ -73,29 +73,6 @@
   position: absolute;
 }
 
-.home-wrapper {
-  display: grid;
-  grid-gap: 3em;
-}
-
-.home-products {
-
-}
-
-.find-out {
-  background: #fff;
-  height: 270px;
-  width: 1280px;
-}
-
-.featured-athletes {
-background-image: url('https://cdn.shopify.com/s/files/1/0667/0133/files/something_1024x.jpg?v=1500044130');
-height: 270px;
-width: 1280px;
-position:relative;
-/* Create the parallax scrolling effect */
-}
-
 .home-footer {
   background: #000000;
   height: 320px;
@@ -110,14 +87,46 @@ position:relative;
   background-size: cover;
 }
 
-.home-products {
+// .home-products {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   align-items: center;
+//   background-size: 100% 100%;
+//   position:relative;
+//   /* Create the parallax scrolling effect */
+//   background-attachment: fixed;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+
+.main-page-wrapper {
+// background-color: red;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-gap: 2em;
+}
+
+.content-main-alpha {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  background-size: 100% 100%;
-  position:relative;
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
+
+.featured-person {
+  grid-column: 2/3;
+  // background: green;
+  background-image: url('https://cdn.shopify.com/s/files/1/0667/0133/files/something_1024x.jpg?v=1500044130');
+  height: 270px;
+  width: 1280px;
+}
+
+.email-sub {
+  grid-column: 2/3;
+  background: #fff;
+  height: 270px;
+  width: 1280px;
+}
+
+// .home-margin-right{
+// }
+// .home-margin-left{
+// }

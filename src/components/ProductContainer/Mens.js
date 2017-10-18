@@ -13,7 +13,6 @@ class Mens extends Component {
       products: [],
       value: 2
     }
-
     //MENS BINDED
     this.getMensAsc = this.getMensAsc.bind(this)
     this.getMensDesc = this.getMensDesc.bind(this)
@@ -57,22 +56,47 @@ class Mens extends Component {
       )
     })
     return (
+<div>
+<div className='banner'></div>
+<div className='banner-title'>SHOP MENS</div>
+<div className='body-color-prod'>
+<div className="product-container-wrapper">
+<div className='margin-left-prod'></div>
+<div className='side-bar-prod'></div> 
+<div className='content-prod'>
+<div className='nested-content-prod'>
 
-<div className='body-padding'>
+{/* <div className='sort-filter-wrapper'>
+  <div className='sort-label'>SORT BY</div>
+<a className='filter-button' onClick={ this.getMensLowHigh }>LOW TO HIGH</a>
+<a className='filter-button' onClick={ this.getMensHighLow }>HIGH TO LOW</a>
+<a className='filter-button' onClick={ this.getMensAsc } >A-Z</a>
+<a className='filter-button' onClick={ this.getMensDesc } >Z-A</a>
+</div> */}
+  
+</div>
+  <div className='nested-content-prod'>
+  {mensClothing}
+  </div>
+</div>
+<div className='margin-right-prod'></div>
+</div>
+</div>
+</div>  
+
+/* <div className='body-padding'>
 <div className='banner'></div>
 <div className='banner-title'>SHOP MENS</div>
 <div className='margin-default'>
 <div className='product-container'>
 <div className='header-filter'>
-      {/* <div ClassName="dropdown">
-      <button ClassName="dropbtn">SORT BY</button>
-      <div ClassName="dropdown-content">
-      <a onClick={ this.getWomansLowHigh }>LOW TO HIGH</a>
-        <a onClick={ this.getWomansHighLow }>HIGH TO LOW</a>
-        <a onClick={ this.getWomansAsc } >A-Z</a>
-        <a onClick={ this.getWomansDesc } >Z-A</a>
-      </div>
-      </div> */}
+<div className='sort-filter-wrapper'>
+  <div className='sort-label'>SORT BY</div>
+<a className='filter-button' onClick={ this.getMensLowHigh }>LOW TO HIGH</a>
+<a className='filter-button' onClick={ this.getMensHighLow }>HIGH TO LOW</a>
+<a className='filter-button' onClick={ this.getMensAsc } >A-Z</a>
+<a className='filter-button' onClick={ this.getMensDesc } >Z-A</a>
+</div>
   </div>
   <div className='content-container'>
   <div className='nested-content'>{mensClothing}</div>
@@ -84,7 +108,7 @@ class Mens extends Component {
   </div>
   </div>
   </div>
-  </div>
+  </div>   */
     )
   }
 };

@@ -20,25 +20,22 @@ const allClothing = this.props.products.slice(0, 4).map((products, i) => {
     </div>
   )
 })
-
     return (
-      <div className='home-body'>
-      <div className='main-banner'>
-        <div className='banner-text'>NEW RELEASES</div>
-        <div className='banner-text-caption'>AVAILABLE NOW</div>
-        <button className='explore-button'>SHOP NOW</button>
-      </div>
-      <div className='home-margin'>
-      <div className='home-wrapper'>
-      <div className='home-products'>
-      { allClothing }
-      </div>
-      <div href='https://www.youtube.com/watch?v=U-RsYBRaYRc' className='featured-athletes'></div>
-      <div className='find-out'></div>
-      </div>
-      </div>
-      <div className='home-footer'></div>
-      </div>
+<div className='home-body'>
+<div className='main-banner'>
+<div className='banner-text'>NEW RELEASES</div>
+<div className='banner-text-caption'>AVAILABLE NOW</div>
+<button className='explore-button'>SHOP NOW</button>
+</div>
+<div className='main-page-wrapper'>
+<div className='home-margin-right'></div>
+<div className='content-main-alpha'>{ allClothing }</div>
+<div className='home-margin-left'></div>
+<div className='featured-person'></div>
+<div className='email-sub'></div>
+</div>
+<div className='home-footer'></div>
+</div>
     );
   }
 }

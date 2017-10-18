@@ -1,14 +1,14 @@
-/* ========================================================================== */
- /* CSS GRID - PRODUCTS  */
-/* ========================================================================== */
+// /* ========================================================================== */
+//  /* CSS GRID - PRODUCTS  */
+// /* ========================================================================== */
 
-body {
-  background: #F0F0F0;
-}
+// body {
+//   background: #F0F0F0;
+// }
 
-.body-padding {
-  // padding-left: 80px;
-}
+// .body-padding {
+//   padding-left: 80px;
+// }
 
 .sort-filter {
   display: grid;
@@ -47,90 +47,161 @@ body {
 //   display: block;
 
 // }
-// .parallax { 
-//   /* The image used */
-//   background-image: url("../../photos/photo5.jpg");
 
-//   /* Set a specific height */
-//   height: 320px; 
-//   width: 100%;
-
-//   /* Create the parallax scrolling effect */
-//   background-attachment: fixed;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   margin: 0px;
-// }
 .banner-title {
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
   text-align: center;
   font-size: 28px;
   font-weight: 600;
-  height: 100px;
+  height: 150px;
   color: #212121;
   line-height: 120px;
+  background: #F0F0F0;
 }
 
-.product-container {
+// .product-container {
+//   display: grid;
+//   grid-template-columns: 25% 25% 25% 25%;
+//   grid-auto-rows: (300px, auto);
+//   font-family: 'Montserrat', sans-serif;
+//   font-weight: 400;
+//   letter-spacing: 1.5px;
+//   font-size: 14px;
+//   padding: 1em;
+//   margin-left: 50px;
+//   width: 95%;
+//   max-width: 1200px;
+// }
+
+// .product-container > div {
+// // background: #BFBFBF;
+
+// }
+
+// .product-container > div:nth-child(odd) {
+// // background: #888888; 
+// }
+
+// .header-filter {
+//  grid-column: 2/6;
+
+// }
+
+// .content-container {
+//   grid-column: 2/6;
+//   background: #F0F0F0;
+//   grid-column-gap: 30px;
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr 1fr;
+//   grid-auto-rows: (300px, auto);
+
+// }
+
+// .pag {
+//   grid-column: 2/6;
+// }
+
+// .footer-container {
+//   grid-column: 2/6;
+// }
+
+// .side-bar-container {
+//   grid-column: 1/1;
+//   grid-row: 1/6;
+// }
+
+// .nested-content {
+//   display: grid;
+//   grid-template-columns: 25% 25% 25% 25%;
+//   grid-auto-rows: (300px, auto);
+//   justify-content: stretch;
+//   align-items: stretch;
+//   width: 100%;
+//   // /* grid-auto-rows: 300px; */
+//   align-items: center;
+//   // grid-gap: 3em;
+
+// }
+
+// .margin-default {
+//   margin-left: 20px;
+//   margin-right: 20px;
+// }
+
+.sort-filter-wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.sort-label {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 1.5px;
   font-size: 14px;
-  padding: 1em;
-  margin-left: 50px;
-  width: 95%;
-  max-width: 1200px;
+  color: #6C6C6C
 }
 
-.product-container > div {
-// background: #BFBFBF;
-
+.filter-button {
+  cursor: pointer;
 }
 
-.product-container > div:nth-child(odd) {
-// background: #888888; 
+.filter-button:hover {
+  transition: color 0.1s ease-out;
+color: #4eb5f9;
 }
 
-.header-filter {
- grid-column: 2/6;
+.product-container-wrapper {
+display: grid;
+grid-template-columns: repeat(14, 1fr);
+grid-gap: 2em;
+width: 100vw;
 }
 
-.content-container {
-  grid-column: 2/6;
-  background: #F0F0F0;
-  grid-column-gap: 30px;
+// .margin-left-prod {
 
+// margin-left: 170px;
+// }
+
+// .margin-right-prod  {
+
+// margin-right: 170px;
+// }
+
+.side-bar-prod {
+background: #7B4444;
+grid-column: 2/4;
+}
+.content-prod {
+grid-column: 2/14;
 }
 
-.pag {
-  grid-column: 2/6;
-}
-
-.footer-container {
-  grid-column: 2/6;
-}
-
-.side-bar-container {
-  grid-column: 1/1;
-  grid-row: 1/6;
-}
-
-.nested-content {
+.nested-content-prod{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  // /* grid-auto-rows: 300px; */
-  align-items: center;
-  // grid-gap: 3em;
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, 1fr);
-  }
+  grid-gap: 0em;
 }
 
-.margin-default {
-  margin-left: 20px;
-  margin-right: 20px;
+.body-color-prod {
+background: #F0F0F0;
+width: 100vw;
+}
+
+.main-banner {
+  /* The image used */
+  background-image: url("https://s1.postimg.org/676k17eexr/image-alpha.jpg");
+
+  /* Set a specific height */
+  height: 300px; 
+  width: 100%;
+  background-size: 100% 100%;
+  position:relative;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 10px;
 }

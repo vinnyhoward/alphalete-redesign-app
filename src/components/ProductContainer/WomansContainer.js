@@ -63,33 +63,59 @@ productHover() {
       )
     })
     return (
-<div className='body-padding'>
-  <div className='banner'></div>
-  <div className='banner-title'>SHOP WOMANS</div>
-  <div className='margin-default'>
-  <div className='product-container'>
-      <div className='header-filter'>
 
-      {/* <div ClassName="dropdown">
-      <button ClassName="dropbtn">SORT BY</button>
-      <div ClassName="dropdown-content">
-      <a onClick={ this.getWomansLowHigh }>LOW TO HIGH</a>
-        <a onClick={ this.getWomansHighLow }>HIGH TO LOW</a>
-        <a onClick={ this.getWomansAsc } >A-Z</a>
-        <a onClick={ this.getWomansDesc } >Z-A</a>
-      </div>
-      </div> */}
+<div>
+<div className='banner'></div>
+<div className='banner-title'>SHOP WOMENS</div>
+<div className='body-color-prod'>
+<div className="product-container-wrapper">
+<div className='margin-left-prod'></div>
+<div className='side-bar-prod'></div> 
+<div className='content-prod'>
+<div className='nested-content-prod'>
 
-        </div>
-      <div className='content-container'>
-        <div className='nested-content'>{womansClothing}</div>
-        </div>
-      <div className='pag'></div>
-      <div className='footer-container'></div>
-      <div className='side-bar-container'><SideBarNav /></div>
-  </div>
-  </div>
-  </div>
+{/* <div className='sort-filter-wrapper'>
+  <div className='sort-label'>SORT BY</div>
+<a className='filter-button' onClick={ this.getMensLowHigh }>LOW TO HIGH</a>
+<a className='filter-button' onClick={ this.getMensHighLow }>HIGH TO LOW</a>
+<a className='filter-button' onClick={ this.getMensAsc } >A-Z</a>
+<a className='filter-button' onClick={ this.getMensDesc } >Z-A</a>
+</div> */}
+  
+</div>
+<div className='nested-content-prod'>
+{womansClothing}
+</div>
+</div>
+<div className='margin-right-prod'></div>
+</div>
+</div>
+</div>
+
+
+/* <div className='body-padding'>
+<div className='banner'></div>
+<div className='banner-title'>SHOP WOMANS</div>
+<div className='margin-default'>
+<div className='product-container'>
+<div className='header-filter'>
+<div className='sort-filter-wrapper'>
+<div className='sort-label'>SORT BY</div>
+<a className='filter-button' onClick={ this.getWomansLowHigh }>LOW TO HIGH</a>
+<a className='filter-button' onClick={ this.getWomansHighLow }>HIGH TO LOW</a>
+<a className='filter-button' onClick={ this.getWomansAsc } >A-Z</a>
+<a className='filter-button' onClick={ this.getWomansDesc } >Z-A</a>
+</div>
+</div>
+<div className='content-container'>
+<div className='nested-content'>{womansClothing}</div>
+</div>
+<div className='pag'></div>
+<div className='footer-container'></div>
+<div className='side-bar-container'><SideBarNav /></div>
+</div>
+</div>
+</div> */
     )
   }
 };

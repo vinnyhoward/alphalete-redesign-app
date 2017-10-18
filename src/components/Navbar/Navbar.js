@@ -128,33 +128,30 @@ let shoppingNotification = this.props.cart.reduce((sum, cart) => {
 
         <div 
           className='mens-nav'
-          onMouseOver={ this.openSlideMens }
           >
           <Link 
           to="/mens" 
           className={'font-color'}
           style={{ textDecoration: 'none' }}
-          >MEN'S</Link></div>
+          ><div onMouseOver={ this.openSlideMens } >MEN'S</div></Link></div>
 
            <div 
           className='womans-nav'
-          onMouseOver={ this.openSlideWomans } 
           >
           <Link 
           to="/womans" 
           className={'font-color'}
           style={{ textDecoration: 'none' }}
-          >WOMAN'S</Link></div>
+          ><div onMouseOver={ this.openSlideWomans } >WOMAN'S</div></Link></div>
 
           <div 
           className='access-nav'
-          onMouseOver={ this.openSlideAccess }
           >
           <Link 
           to="/accessories" 
           className={'font-color'}
           style={{ textDecoration: 'none' }}
-          >ACCESSORIES</Link></div>
+          ><div onMouseOver={ this.openSlideAccess } >ACCESSORIES</div></Link></div>
 
           {/* <div className='dog-nav'>
           <img className='alpha-dog-logo' 
@@ -185,7 +182,7 @@ let shoppingNotification = this.props.cart.reduce((sum, cart) => {
 
           <div className='login-nav' > 
           <a 
-          className='auth0' href={'http://localhost:3030/auth' }>
+          className='auth0' href={`/auth` }>
           LOGIN </a>
           </div>
           {/* <a href={'http://localhost:3000/'}><button className='logout buttontheme'> Logout </button></a> */}
@@ -290,11 +287,25 @@ let shoppingNotification = this.props.cart.reduce((sum, cart) => {
 {/* // =====================================================================
 // CART POP UPS
 // ===================================================================== */}
-{/* {this.state.slideVisibleCart ? (
-        <div className='cart-pop-up'
-        onClick={ this.cartAnimate}
-        >HI</div>
-        ) :  (<div className='pop-up-close'></div>)} */}
+
+{/* this.state.slideVisibleCart ? (
+  <div className='cart-pop-up'
+  onMouseLeave={this.cartAnimateLeave}>
+  <div className='cart-side-menu-wrapper'>
+    <div className='side-cart-header'>1</div>
+    <div className='side-product-cart'>2</div>
+    <div className='side-total-cart'>3</div>
+    <div className='side-checkout-cart'>
+    <Link 
+        to="/cart" 
+        className={'font-color'}
+        style={{ textDecoration: 'none' }}
+        >
+        <button className='side-cart-button'>VIEW CHECKOUT</button>
+        </Link>
+    </div>
+  </div>
+  </div>) :  (<div className='pop-up-close'></div>)} */}
 
       </div>
     )

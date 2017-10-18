@@ -9,9 +9,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './styles/main.css'
 
 
-
-// import registerServiceWorker from './registerServiceWorker';
-
 ReactDOM.render(
 
  <Provider store={store}>
@@ -22,4 +19,3 @@ ReactDOM.render(
  </MuiThemeProvider>
 </Provider>
 , document.getElementById('root'));
-// registerServiceWorker();

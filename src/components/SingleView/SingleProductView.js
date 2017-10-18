@@ -25,7 +25,7 @@ class SingleProductView extends Component {
           <div className='single-body'>
             <div className='header-single'></div>
             <div className='single-wrapper'>
-              <div className='margin-left-single'>1</div>
+              <div className='margin-left-single'></div>
               <div className='picture-single-content'>
               <img className='image-single' src={this.state.singleProduct.image1} alt='' />
                 <div className='nested-images'>
@@ -53,7 +53,7 @@ class SingleProductView extends Component {
               
               <div className='size-cart'>
               <hr/>
-              SIZE
+              {/* SIZE */}
               <div className="dropdown-size-size">
               <button className="dropbtn-size">SIZE</button>
               <div className="dropdown-content-size">
@@ -62,7 +62,7 @@ class SingleProductView extends Component {
               <a >Link 3</a>
               </div>
               </div>
-              <div className="qty-button-clicker"></div>
+              {/* <div className="qty-button-clicker"></div> */}
               <button className='add-cart-button' onClick={ () => {this.props.addToCart(this.state.singleProduct.productid)}}
               > ADD TO CART</button>
              
@@ -73,9 +73,9 @@ class SingleProductView extends Component {
               <div className='product-info'>{this.state.singleProduct.description}</div>
               </div>
               </div>
-              <div className='margin-right-single'>4</div>
-              <div className='back'>5</div>
-              <div className='single-footer'>6</div>
+              <div className='margin-right-single'></div>
+              <div className='back'></div>
+              <div className='single-footer'></div>
             </div>
           {/* <img src={this.state.singleProduct.image1} alt='' />
               <div>{this.state.singleProduct.title}</div>

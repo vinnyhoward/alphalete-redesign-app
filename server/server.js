@@ -7,9 +7,7 @@ const express = require('express'),
         Auth0Strategy = require('passport-auth0'),
         ctrl = require('./productsController');
 
-const stripe = require('stripe')('sk_test_jUcA4URQshgokViBG67QJGfd');
-        
-
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 require ('dotenv').config();
 // =============================================================================
@@ -107,12 +105,12 @@ const charge = stripe.charges.create({
 // =============================================================================
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0',{
-        successRedirect: 'http://localhost:3000/#/',
+        successRedirect: `${process.env.SERVERHOST}/#/`,
         failureRedirect: '/auth'
 }))
 app.get('/auth/logout', (req,res) => {
         req.logOut();
-        res.redirect(302, 'https://vinnyhoward.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2f&client_id=liHYp5cWSNPbc3bhKAMZurnA8O8HR4F5')
+        res.redirect(302, `https:${process.env.AUTH_DOMAIN}/v2/logout?returnTo=${process.env.SERVERHOST}`)
 })
 app.get('/api/user',  passport.authenticate('auth0'), (req, res) => {
         req.app.get('db').current_user().then(user =>{
