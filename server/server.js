@@ -24,11 +24,12 @@ app.use(session({
 // =============================================================================
 app.use(cors());
 // =============================================================================
-// PASSPORT AND BODYPARSER
+// PASSPORT AND BODYPARSERs
 // =============================================================================
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(express.static(`${__dirname}./../build`));
 // =============================================================================
 // MASSIVE - CONNECTION STRING FOR DATABASE
 // =============================================================================
@@ -144,3 +145,4 @@ app.get('/api/getproducts/womans-asc', ctrl.filterWomansByAsc);
 app.get('/api/getproducts/womans-desc', ctrl.filterWomansByDesc);
 app.get('/api/getproducts/womans-price-low-high', ctrl.filterWomansByLowHigh);
 app.get('/api/getproducts/womans-price-high-low', ctrl.filterWomansByHighLow);
+

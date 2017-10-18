@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import{ removeFromCart } from '../../ducks/ProductsDucks'
 import StripeCheckout from 'react-stripe-checkout';
-import stripe from './stripeKey';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
@@ -75,7 +74,7 @@ return (
             <div className='taxes-are-dumb'>Shipping & taxes calculated at checkout</div>
             <div className='final-checkout'><StripeCheckout
             token={this.onToken}
-            stripeKey={ stripe }
+            stripeKey={ process.env.STRIPE_PUBLIC_KEY }
             amount={allTotal * 100}
              />
             </div>
