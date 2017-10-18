@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getAllProducts } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
 import Products from '../../components/Products/Product'
+import { Link } from "react-router-dom";
 
 class Home extends Component {
 
@@ -25,7 +26,7 @@ const allClothing = this.props.products.slice(0, 4).map((products, i) => {
 <div className='main-banner'>
 <div className='banner-text'>NEW RELEASES</div>
 <div className='banner-text-caption'>AVAILABLE NOW</div>
-<button className='explore-button'>SHOP NOW</button>
+<Link to='/mens'><button className='explore-button'>SHOP NOW</button></Link>
 </div>
 <div className='main-page-wrapper'>
 <div className='home-margin-right'></div>

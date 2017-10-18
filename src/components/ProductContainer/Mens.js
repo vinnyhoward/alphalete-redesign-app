@@ -65,6 +65,17 @@ class Mens extends Component {
 <div className='side-bar-prod'></div> 
 <div className='content-prod'>
 <div className='nested-content-prod'>
+<div className='nested-content-prod'>
+<div className='sort-filter-wrapper'>
+  
+  <div className='sort-label'>SORT BY</div>
+<a className='filter-button' onClick={ this.getMensLowHigh }>LOW TO HIGH</a>
+<a className='filter-button' onClick={ this.getMensHighLow }>HIGH TO LOW</a>
+<a className='filter-button' onClick={ this.getMensAsc } >A-Z</a>
+<a className='filter-button' onClick={ this.getMensDesc } >Z-A</a>
+</div> 
+
+</div>
 
 {/* <div className='sort-filter-wrapper'>
   <div className='sort-label'>SORT BY</div>

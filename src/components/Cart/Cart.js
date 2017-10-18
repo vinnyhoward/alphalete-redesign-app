@@ -79,7 +79,7 @@ return (
             <div className='taxes-are-dumb'>Shipping & taxes calculated at checkout</div>
             <div className='final-checkout'><StripeCheckout
             token={this.onToken}
-            stripeKey={ process.env.STRIPE_PUBLIC_KEY }
+            stripeKey={ process.env.REACT_APP_STRIPE_PUBLIC_KEY}
             amount={allTotal * 100}
              />
             </div>

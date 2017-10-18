@@ -225,20 +225,23 @@ div.product:hover {
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
   text-align: center;
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 600;
   height: 150px;
   color: #212121;
-  line-height: 120px;
-  background: #F0F0F0; }
+  line-height: 180px;
+  background: #F0F0F0;
+  color: black; }
 
 .sort-filter-wrapper {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   font-weight: 600;
+  grid-gap: 5em;
   padding-bottom: 20px; }
 
 .sort-label {
+  width: 230px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -246,11 +249,20 @@ div.product:hover {
   color: #6C6C6C; }
 
 .filter-button {
-  cursor: pointer; }
+  cursor: pointer;
+  width: 230px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-size: 14px; }
 
 .filter-button:hover {
   transition: color 0.1s ease-out;
-  color: #4eb5f9; }
+  color: #4eb5f9;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-size: 14px; }
 
 .product-container-wrapper {
   display: grid;
@@ -280,11 +292,11 @@ div.product:hover {
   background: #F0F0F0;
   width: 100vw; }
 
-.main-banner {
+.banner {
   /* The image used */
   background-image: url("https://s1.postimg.org/676k17eexr/image-alpha.jpg");
   /* Set a specific height */
-  height: 300px;
+  height: 400px;
   width: 100%;
   background-size: 100% 100%;
   position: relative;
@@ -292,8 +304,25 @@ div.product:hover {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  margin-bottom: 10px; }
+  background-size: cover; }
+
+.banner-girl {
+  /* The image used */
+  background-image: url("https://pbs.twimg.com/media/DFCiQCJVoAAFNLk.jpg");
+  /* Set a specific height */
+  height: 400px;
+  width: 100%;
+  background-size: 100% 100%;
+  position: relative;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.sort-filter-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); }
 
 div.sidebar {
   width: 240px;
@@ -903,6 +932,7 @@ hr {
   right: 180px;
   cursor: pointer;
   position: absolute;
+  outline: none;
   color: #FFFFFF; }
 
 .explore-button:hover {

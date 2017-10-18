@@ -65,8 +65,8 @@ const womansClothing = this.props.products.filter(function(products, i) {
 return (
 
 <div>
-<div className='banner'></div>
-<div className='banner-title'>SHOP WOMENS</div>
+<div className='banner-girl'></div>
+<div className='banner-title'>SHOP ACCESSORIES</div>
 <div className='body-color-prod'>
 <div className="product-container-wrapper">
 <div className='margin-left-prod'></div>
@@ -74,13 +74,13 @@ return (
 <div className='content-prod'>
 <div className='nested-content-prod'>
 
-{/* <div className='sort-filter-wrapper'>
-  <div className='sort-label'>SORT BY</div>
-<a className='filter-button' onClick={ this.getMensLowHigh }>LOW TO HIGH</a>
-<a className='filter-button' onClick={ this.getMensHighLow }>HIGH TO LOW</a>
-<a className='filter-button' onClick={ this.getMensAsc } >A-Z</a>
-<a className='filter-button' onClick={ this.getMensDesc } >Z-A</a>
-</div> */}
+<div className='sort-filter-wrapper'>
+<div className='sort-label'>SORT BY</div>
+<a className='filter-button' onClick={ this.getWomanLowHigh }>LOW TO HIGH</a>
+<a className='filter-button' onClick={ this.getWomansHighLow }>HIGH TO LOW</a>
+<a className='filter-button' onClick={ this.getWomansAsc } >A-Z</a>
+<a className='filter-button' onClick={ this.getWomansDesc } >Z-A</a>
+</div> 
   
 </div>
 <div className='nested-content-prod'>

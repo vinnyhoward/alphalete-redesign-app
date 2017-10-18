@@ -22,7 +22,7 @@ onToken(token) {
       <div>
     <StripeCheckout
       token={this.onToken}
-      stripeKey={ stripe }
+      stripeKey={ process.env. }
       amount={00}
     />
       </div>
