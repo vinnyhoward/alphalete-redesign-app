@@ -14,7 +14,7 @@ class Search extends Component {
   constructor() {
     super()
 
-    this.state = {ç
+    this.state = {
     }
   }
 
