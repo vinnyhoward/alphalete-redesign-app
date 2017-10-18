@@ -144,3 +144,18 @@ a:visited {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+
+/* ========================================================================== */
+/* CHECKOUT CART SLIDE */ 
+/* ========================================================================== */
+
+.cart-pop-up {
+  width: 440px;
+  height: 100%;
+  right: 0;
+  background: #fff;
+  border: 0.1px solid #F5F5F5;
+  position: absolute;
+  transition: 0.1s ease-out;
+  
+}

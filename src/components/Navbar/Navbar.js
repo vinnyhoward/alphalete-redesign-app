@@ -12,28 +12,36 @@ constructor() {
     slideVisibleMens: false,
     slideVisibleWomans: false,
     slideVisibleAccess: false,
+    slideVisibleCart: false,
     searchOpen: false,
     term: '',
+
   }
 // =============================================================================
 // BINDS
 // =============================================================================
+this.cartAnimate = this.cartAnimate.bind(this)
 this.openSlideMens = this.openSlideMens.bind(this)
 this.openSlideWomans = this.openSlideWomans.bind(this)
 this.openSlideAccess = this.openSlideAccess.bind(this)
-this.searchAnimate = this.searchAnimate.bind(this)
-this.changeHandler = this.changeHandler.bind(this)
-this.keyPressHandler = this.keyPressHandler.bind(this)
+// this.searchAnimate = this.searchAnimate.bind(this)
+// this.changeHandler = this.changeHandler.bind(this)
+// this.keyPressHandler = this.keyPressHandler.bind(this)
 }
 // =============================================================================
 // ANIMATION METHODS
 // =============================================================================
 
-searchAnimate() {
+cartAnimate() {
   this.setState({
-    searchOpen: !this.state.searchOpen
+    slideVisibleCart: !this.state.slideVisibleCart
   })
 }
+// openSlideMens() {
+//   this.setState({
+//     slideVisibleMens: !this.state.slideVisibleMens
+//   })
+// }
 openSlideMens() {
   this.setState({
     slideVisibleMens: !this.state.slideVisibleMens
@@ -73,14 +81,29 @@ const womansAll = this.props.products.filter(function(products, i) {
 
 const womansProd = womansAll.map(( products, i ) => {
     return (
-      <Products 
+      <div className='product'>
+      <ProductSmall 
       key={i}
       products={products}
       />
+      </div>
     )
 })
 
-console.log(womansProd);
+const accessAll = this.props.products.filter(function(products, i) {
+  return products.category === 'accessories';
+}).splice(0,4)
+
+const accessProd = accessAll.map(( products, i ) => {
+  return (
+    <div className='product'>
+    <ProductSmall 
+    key={i}
+    products={products}
+    />
+    </div>
+  )
+})
 
 const mensClothing = this.props.products.slice(0, 4).map((products, i) => {
   return (
@@ -92,7 +115,6 @@ const mensClothing = this.props.products.slice(0, 4).map((products, i) => {
     </div>
   )
 })
-
 
 let shoppingNotification = this.props.cart.reduce((sum, cart) => {
   return sum + (cart.qty)
@@ -173,44 +195,19 @@ let shoppingNotification = this.props.cart.reduce((sum, cart) => {
           to="/cart" 
           className={'font-color'}
           style={{ textDecoration: 'none' }}
+          onClick={ this.cartAnimate }
           >CART
           <div className='badge-number'>
             {shoppingNotification}
           </div>
           </Link>
           </div>
-
         </div>
         </div>
 {/* // =====================================================================
 // MENU POP UPS
 // ===================================================================== */}
-        {this.state.slideVisibleMens ? (
-        <div className='pop-up'
-        onMouseLeave={ this.openSlideMens }
-        >
-        <div className='pop-up-wrapper'>
-        <div className='sub-section'>
-        <div className='sub-section-nest'>
-        <ul>
-        <li className='sidelist-nest-header'>MENS</li>
-        <li className='sidelist-nest'>All</li>
-        <li className='sidelist-nest'>Tops</li>
-        <li className='sidelist-nest'>Leggings</li>
-        <li className='sidelist-nest'>Shorts</li>
-        </ul>
-        </div>
-        </div>
-        <div className='navbar-product-content'>
-        <div className='navbar-product-content-nest'>
-        {mensClothing}
-        </div>
-        </div>
-        <div className='n3'></div>
-        </div>  
-        </div>
-        ) :  (<div className='mens-pop-up-close'></div>)}
-
+      
         {this.state.slideVisibleWomans ? (
         <div className='pop-up'
         onMouseLeave={ this.openSlideWomans }
@@ -236,10 +233,69 @@ let shoppingNotification = this.props.cart.reduce((sum, cart) => {
         </div>  
         </div>
         ) :  (<div className='mens-pop-up-close'></div>)}
-      {/* <div className={this.state.searchAnimate ? 'Search-Box-Transitions Open-Search-Box' : ' '}></div>
-      <div className={this.state.slideVisibleMens ? 'slide_mens open_mens' : ' ' }> </div>
-      <div className={this.state.slideVisibleWomans ? 'slide_womans open_womans' : ' '}></div>
-      <div className={this.state.slideVisibleAccess ? 'slide_accessories open_accessories' : ' '}></div>  */}
+
+        {this.state.slideVisibleAccess ? (
+        <div className='pop-up'
+        onMouseLeave={ this.openSlideAccess }
+        >
+        <div className='pop-up-wrapper'>
+        <div className='sub-section'>
+        <div className='sub-section-nest'>
+        <ul>
+        <li className='sidelist-nest-header'>ACCESSORIES</li>
+        <li className='sidelist-nest'>All</li>
+        <li className='sidelist-nest'>Tops</li>
+        <li className='sidelist-nest'>Leggings</li>
+        <li className='sidelist-nest'>Shorts</li>
+        </ul>
+        </div>
+        </div>
+        <div className='navbar-product-content'>
+        <div className='navbar-product-content-nest'>
+        { accessProd }
+        </div>
+        </div>
+        <div className='n3'></div>
+        </div>  
+        </div>
+        ) :  (<div className='mens-pop-up-close'></div>)}
+
+        {this.state.slideVisibleMens ? (
+          <div className='pop-up'
+          onMouseLeave={ this.openSlideMens }
+          >
+          <div className='pop-up-wrapper'>
+          <div className='sub-section'>
+          <div className='sub-section-nest'>
+          <ul>
+          <li className='sidelist-nest-header'>MENS</li>
+          <li className='sidelist-nest'>All</li>
+          <li className='sidelist-nest'>Tops</li>
+          <li className='sidelist-nest'>Leggings</li>
+          <li className='sidelist-nest'>Shorts</li>
+          </ul>
+          </div>
+          </div>
+          <div className='navbar-product-content'>
+          <div className='navbar-product-content-nest'>
+          {mensClothing}
+          </div>
+          </div>
+          <div className='n3'></div>
+          </div>  
+          </div>
+          ) :  (<div className='mens-pop-up-close'></div>)}
+
+
+{/* // =====================================================================
+// CART POP UPS
+// ===================================================================== */}
+{/* {this.state.slideVisibleCart ? (
+        <div className='cart-pop-up'
+        onClick={ this.cartAnimate}
+        >HI</div>
+        ) :  (<div className='pop-up-close'></div>)} */}
+
       </div>
     )
   }
