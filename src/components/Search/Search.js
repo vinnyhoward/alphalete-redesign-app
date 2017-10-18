@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getAllProducts, getSearchProducts } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
+import Products from '../Products/Product';
 
 // function searchingFor(term) {
 //   return function(x){
@@ -30,26 +31,45 @@ class Search extends Component {
   }
 
   render() {
-    console.log();
 
-    const searchedClothing = this.props.products.map((e, i) => {
+    const searchedClothing = this.props.products.map((products, i) => {
       return (
-        <div key={i} className='product'>
-         <Link to={`/mens/${e.productid}`}><img className='img-womans' src={e.image1} alt=" " /></Link>
-        <div className='caption-container'>
-        <h1 className='product-title'>{e.title}</h1>
-        <p className='product-color'>{e.color}</p>
-        <p className='product-price'>${e.price}</p>
-        
-        </div>
-        </div>
+        <Products 
+        key={i}
+        products={products}
+    />
       )
     })
     
     return ( 
-      <div>
-      { searchedClothing }
-      </div>
+<div>
+<div className='banner'></div>
+<div className='banner-title'>SEARCH</div>
+<div className='body-color-prod'>
+<div className="product-container-wrapper">
+<div className='margin-left-prod'></div>
+<div className='side-bar-prod'></div> 
+<div className='content-prod'>
+<div className='nested-content-prod'>
+
+{/* <div className='sort-filter-wrapper'>
+  <div className='sort-label'>SORT BY</div>
+<a className='filter-button' onClick={ this.getMensLowHigh }>LOW TO HIGH</a>
+<a className='filter-button' onClick={ this.getMensHighLow }>HIGH TO LOW</a>
+<a className='filter-button' onClick={ this.getMensAsc } >A-Z</a>
+<a className='filter-button' onClick={ this.getMensDesc } >Z-A</a>
+</div> */}
+  
+</div>
+<div className='nested-content-prod'>
+{searchedClothing}
+</div>
+</div>
+<div className='margin-right-prod'></div>
+</div>
+</div>
+</div>
+
     );
   }
 }

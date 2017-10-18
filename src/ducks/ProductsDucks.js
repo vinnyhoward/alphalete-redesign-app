@@ -19,6 +19,7 @@ export const ADD_TO_CART = 'ADD_TO_CART '
 // =============================================================================
 const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 const GET_SEARCH_PRODUCTS = 'GET_SEARCH_PRODUCTS'
+const GET_SINGLE_PRODUCTS = 'GET_SINGLE_PRODUCTS'
 // =============================================================================
 // MENS
 // =============================================================================
@@ -67,6 +68,17 @@ export function addToCart(product) {
 // =============================================================================
 // REDUX FUNCTIONS - GENERAL 
 // =============================================================================
+
+export function singleProductView() {
+  const products = axios.get(`/api/getproduct/${this.props.match.params.id}`)
+  .then(res => {
+    return res.data
+  }) 
+  return {
+    type: GET_SINGLE_PRODUCTS,
+    payload: products 
+  }
+}
 export function getSearchProducts(q) {
   const products = axios.get(`/api/getproducts/search?q=${q}`)
   .then(res => {
@@ -225,7 +237,10 @@ switch (action.type) {
   return Object.assign({}, state, {user: action.payload})
 // =============================================================================
 // GENERAL PRODUCTS REDUCERS
-// =============================================================================
+// ============================================================================= 
+  case GET_SINGLE_PRODUCTS + '_FULFILLED':
+    return Object.assign({}, state, {products: action.payload})
+  
   case GET_PRODUCTS + '_FULFILLED':
     return Object.assign({}, state, {products: action.payload})
 

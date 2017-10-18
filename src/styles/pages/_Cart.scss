@@ -5,8 +5,8 @@
   @include width-height(0px, 0px)
 }
 .cart-body-margin {
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 .checkout-container {
   display: grid;
@@ -162,4 +162,14 @@
 .final-checkout {
   padding-top: 20px;
   float: right;
+}
+
+.empty-cart {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #878787;
+  font-size: 28px;
+  text-align: center;
+  padding-top: 400px;
+
 }

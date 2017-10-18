@@ -258,6 +258,12 @@ div.product:hover {
   grid-gap: 2em;
   width: 100vw; }
 
+.margin-left-prod {
+  margin-left: 160px; }
+
+.margin-right-prod {
+  margin-right: 160px; }
+
 .side-bar-prod {
   background: #7B4444;
   grid-column: 2/4; }
@@ -715,8 +721,8 @@ hr {
   height: 0px; }
 
 .cart-body-margin {
-  margin-left: 200px;
-  margin-right: 200px; }
+  margin-left: 150px;
+  margin-right: 150px; }
 
 .checkout-container {
   display: grid;
@@ -852,6 +858,14 @@ hr {
 .final-checkout {
   padding-top: 20px;
   float: right; }
+
+.empty-cart {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #878787;
+  font-size: 28px;
+  text-align: center;
+  padding-top: 400px; }
 
 .home-body {
   background: #F0F0F0; }

@@ -34,10 +34,14 @@ render() {
 // =============================================================================
 // NOTES - EVERYTHING NEEDS TO BE DONE
 // =============================================================================
+let shoppingNotification = this.props.cart.reduce((sum, cart) => {
+  return sum + (cart.qty)
+}, 0)
 
 let allTotal = this.props.cart.reduce((sum, cart) => {
-  return sum +   (cart.price * cart.qty)
+  return sum +  (cart.price * cart.qty)
 },0)
+
 let shoppingCartDisplay = this.props.cart.map((product, i ) => {
 return (
 <div key={i}>
@@ -58,6 +62,7 @@ return (
   )
 })
   return (
+   <div> {shoppingNotification >= 1 ? (
     <div className='cart-body-margin'>
       <div className='checkout-container'>
         <div className='cart-header'>SHOPPING CART</div>
@@ -84,7 +89,10 @@ return (
         <div className='cart-footer-backup'></div>
         <div className='cart-footer-backup2'></div>
       </div>
+    </div>) : (<div className='empty-cart'> SORRY NOTHING IS IN HERE😢😪 </div>)}
     </div>
+
+
   );
 }
 }

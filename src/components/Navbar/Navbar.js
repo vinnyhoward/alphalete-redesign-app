@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import Products from '../../components/Products/Product'
 import ProductSmall from '../Products/ProductSmall'
+import{ removeFromCart } from '../../ducks/ProductsDucks'
 // import { getSearchProducts } from '../../ducks/ProductsDucks'
 class Navbar extends Component {
 constructor() {
@@ -75,6 +76,7 @@ keyPressHandler(event){
 // =============================================================================
 // NOTES - TERNARY OPERATORS FOR POPUP MENUS NEED TO BE FIXED 
 // =============================================================================
+
 const womansAll = this.props.products.filter(function(products, i) {
   return products.gender === 'FEMALE';
 }).splice(0,4)
@@ -119,6 +121,7 @@ const mensClothing = this.props.products.slice(0, 4).map((products, i) => {
 let shoppingNotification = this.props.cart.reduce((sum, cart) => {
   return sum + (cart.qty)
 }, 0)
+
 
     return ( 
       <div>
@@ -194,9 +197,12 @@ let shoppingNotification = this.props.cart.reduce((sum, cart) => {
           style={{ textDecoration: 'none' }}
           onClick={ this.cartAnimate }
           >CART
+
+        {shoppingNotification >= 1 ? (
           <div className='badge-number'>
             {shoppingNotification}
           </div>
+          ) : (<div></div>)}
           </Link>
           </div>
         </div>
@@ -320,5 +326,5 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, { removeFromCart  })(Navbar);
 
