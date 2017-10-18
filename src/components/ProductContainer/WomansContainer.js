@@ -66,7 +66,7 @@ return (
 
 <div>
 <div className='banner-girl'></div>
-<div className='banner-title'>SHOP ACCESSORIES</div>
+<div className='banner-title'>SHOP WOMANS</div>
 <div className='body-color-prod'>
 <div className="product-container-wrapper">
 <div className='margin-left-prod'></div>

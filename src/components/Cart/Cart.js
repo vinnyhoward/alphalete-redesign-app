@@ -4,6 +4,7 @@ import{ removeFromCart } from '../../ducks/ProductsDucks'
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import Stripe from './stripeKey'
 
 class Cart extends Component {
 constructor() {
@@ -79,7 +80,7 @@ return (
             <div className='taxes-are-dumb'>Shipping & taxes calculated at checkout</div>
             <div className='final-checkout'><StripeCheckout
             token={this.onToken}
-            stripeKey={ process.env.REACT_APP_STRIPE_PUBLIC_KEY}
+            stripeKey={ process.env.REACT_APP_STRIPE_PUBLIC_KEY }
             amount={allTotal * 100}
              />
             </div>

@@ -38,7 +38,7 @@ class Accessories extends Component {
 
 <div>
 <div className='banner'></div>
-<div className='banner-title'>SHOP WOMENS</div>
+<div className='banner-title'>SHOP ACCESSORIES</div>
 <div className='body-color-prod'>
 <div className="product-container-wrapper">
 <div className='margin-left-prod'></div>
