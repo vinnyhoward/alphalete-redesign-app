@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { getAllProducts, getWomansAsc, getWomansDesc, getWomansLowHigh, getWomansHighLow } from '../../ducks/ProductsDucks';
 import { connect } from 'react-redux';
-import SideBarNav from '../SideBarNav/SideBarNav';
 import Products from '../Products/Product';
+// import SideBarNav from '../SideBarNav/SideBarNav';
 
 class Womans extends Component {
   constructor(props) {
@@ -63,7 +63,6 @@ const womansClothing = this.props.products.filter(function(products, i) {
   )
 })
 return (
-
 <div>
 <div className='banner-girl'></div>
 <div className='banner-title'>SHOP WOMANS</div>
@@ -91,31 +90,6 @@ return (
 </div>
 </div>
 </div>
-
-
-/* <div className='body-padding'>
-<div className='banner'></div>
-<div className='banner-title'>SHOP WOMANS</div>
-<div className='margin-default'>
-<div className='product-container'>
-<div className='header-filter'>
-<div className='sort-filter-wrapper'>
-<div className='sort-label'>SORT BY</div>
-<a className='filter-button' onClick={ this.getWomansLowHigh }>LOW TO HIGH</a>
-<a className='filter-button' onClick={ this.getWomansHighLow }>HIGH TO LOW</a>
-<a className='filter-button' onClick={ this.getWomansAsc } >A-Z</a>
-<a className='filter-button' onClick={ this.getWomansDesc } >Z-A</a>
-</div>
-</div>
-<div className='content-container'>
-<div className='nested-content'>{womansClothing}</div>
-</div>
-<div className='pag'></div>
-<div className='footer-container'></div>
-<div className='side-bar-container'><SideBarNav /></div>
-</div>
-</div>
-</div> */
     )
   }
 };

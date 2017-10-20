@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { getAllProducts, getSearchProducts } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
 import Products from '../Products/Product';
-
+// import { Link } from "react-router-dom";
 // function searchingFor(term) {
 //   return function(x){
 //     return x.title.toLowerCase().includes(term.toLowerCase()) || !term
 //   }
 // }
-
 class Search extends Component {
   constructor() {
     super()
@@ -17,7 +15,9 @@ class Search extends Component {
     this.state = {
     }
   }
-
+// =============================================================================
+// SEARCH NOT YET FINISHED
+// =============================================================================
   componentDidMount() {
     function searchFilter(string) {
       const firstString = string[0] + string[1] + string[2]
@@ -40,7 +40,6 @@ class Search extends Component {
     />
       )
     })
-    
     return ( 
 <div>
 <div className='banner'></div>
@@ -51,15 +50,6 @@ class Search extends Component {
 <div className='side-bar-prod'></div> 
 <div className='content-prod'>
 <div className='nested-content-prod'>
-
-{/* <div className='sort-filter-wrapper'>
-  <div className='sort-label'>SORT BY</div>
-<a className='filter-button' onClick={ this.getMensLowHigh }>LOW TO HIGH</a>
-<a className='filter-button' onClick={ this.getMensHighLow }>HIGH TO LOW</a>
-<a className='filter-button' onClick={ this.getMensAsc } >A-Z</a>
-<a className='filter-button' onClick={ this.getMensDesc } >Z-A</a>
-</div> */}
-  
 </div>
 <div className='nested-content-prod'>
 {searchedClothing}
@@ -69,7 +59,6 @@ class Search extends Component {
 </div>
 </div>
 </div>
-
     );
   }
 }

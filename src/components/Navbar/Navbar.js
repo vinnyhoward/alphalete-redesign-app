@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './Navbar.css';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import Products from '../../components/Products/Product'
 import ProductSmall from '../Products/ProductSmall'
 import{ removeFromCart } from '../../ducks/ProductsDucks'
+// import Products from '../../components/Products/Product'
 // import { getSearchProducts } from '../../ducks/ProductsDucks'
 class Navbar extends Component {
 constructor() {
@@ -15,8 +15,7 @@ constructor() {
     slideVisibleAccess: false,
     slideVisibleCart: false,
     searchOpen: false,
-    term: '',
-
+    term: ''
   }
 // =============================================================================
 // BINDS
@@ -185,7 +184,7 @@ let shoppingNotification = this.props.cart.reduce((sum, cart) => {
 
           <div className='login-nav' > 
           <a 
-          className='auth0' href={`/auth` }>
+          className='auth0' href={`/auth`}>
           LOGIN </a>
           </div>
           {/* <a href={'http://localhost:3000/'}><button className='logout buttontheme'> Logout </button></a> */}

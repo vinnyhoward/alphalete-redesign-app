@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { getAllProducts, getMensAsc, getMensDesc, getMensLowHigh, getMensHighLow } from '../../ducks/ProductsDucks'
 import { connect } from 'react-redux';
 import Products from '../Products/Product';
-import MensSideBarNav from '../SideBarNav/MensSideBarNav';
-
+// import MensSideBarNav from '../SideBarNav/MensSideBarNav';
 
 class Mens extends Component {
   constructor(props) {
