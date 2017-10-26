@@ -71,7 +71,6 @@ passport.serializeUser(function(userId, done) {
 // STRIPE 
 // =============================================================================
 app.post('/api/payment', function (req, res, next) {
-console.log('yup this is it', req.body)
 const amountArray = req.body.amount.toString().split('');
 const pennies = [];
 for (var i = 0; i < amountArray.length; i++) {

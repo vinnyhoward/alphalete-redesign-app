@@ -31,7 +31,7 @@ this.openSlideAccess = this.openSlideAccess.bind(this)
 // =============================================================================
 // ANIMATION METHODS
 // =============================================================================
-
+ 
 cartAnimate() {
   this.setState({
     slideVisibleCart: !this.state.slideVisibleCart

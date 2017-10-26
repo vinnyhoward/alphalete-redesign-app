@@ -36,6 +36,7 @@ const allClothing = this.props.products.slice(0, 4).map((products, i) => {
 <div className='email-sub'></div>
 </div>
 <div className='home-footer'></div>
+
 </div>
     );
   }
