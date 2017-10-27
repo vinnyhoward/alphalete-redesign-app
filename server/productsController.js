@@ -44,6 +44,7 @@ removeFromCart(req, res ) {
     const db = req.app.get('db');
     db.get_cart([+req.params.userid]).then((order) => {
             db.delete_item([+req.params.id, order[0].id]).then( () => {
+                
             db.return_cart((order[0].id)).then((cartItems) => {
                     res.send(cartItems)
             })

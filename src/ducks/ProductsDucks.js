@@ -4,6 +4,7 @@ import axios from 'axios';
 // =============================================================================
 const initialState = {
   products: [],
+  singleProduct: {},
   cart: [],
   user: {}
 }
@@ -53,7 +54,7 @@ export function removeFromCart(productIndex,userid){
 //   })
 // }
 export function addToCart(product) {
-  console.log(product);
+  // console.log(product);
   return {
     type: ADD_TO_CART,
     payload: axios.post('/api/cart', {
@@ -69,14 +70,14 @@ export function addToCart(product) {
 // REDUX FUNCTIONS - GENERAL 
 // =============================================================================
 
-export function singleProductView() {
-  const products = axios.get(`/api/getproduct/${this.props.match.params.id}`)
+export function singleProductView(id) {
+  const singleProduct = axios.get(`/api/getproduct/${id}`)
   .then(res => {
     return res.data
   }) 
   return {
     type: GET_SINGLE_PRODUCTS,
-    payload: products 
+    payload: singleProduct 
   }
 }
 export function getSearchProducts(q) {
@@ -239,7 +240,7 @@ switch (action.type) {
 // GENERAL PRODUCTS REDUCERS
 // ============================================================================= 
   case GET_SINGLE_PRODUCTS + '_FULFILLED':
-    return Object.assign({}, state, {products: action.payload})
+    return Object.assign({}, state, {singleProduct: action.payload})
   
   case GET_PRODUCTS + '_FULFILLED':
     return Object.assign({}, state, {products: action.payload})

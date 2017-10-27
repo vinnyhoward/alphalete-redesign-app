@@ -244,6 +244,59 @@ background: #419BD7;
 /* ========================================================================== */
 .color-share {
   display: grid;
-  grid-template-columns: repeat( 2,1fr );
+  grid-template-columns: repeat( 3,1fr );
   font-family: 'Montserrat', sans-serif;
+}
+
+.mint {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #B8E0DB;
+  background-color: #9CD7D3
+}
+
+.burgundy {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #BE5E6E;
+  background-color: #BB2E45
+}
+
+.black {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #4A4A4A;
+  background-color: #000000
+}
+
+.black {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #4A4A4A;
+  background-color: #000000
+}
+
+.cool-grey {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #7E7E7E;
+  background-color: #444444
+}
+
+.white {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 5px solid #E5E5E5;
+  background-color: #F7F7F7
+}
+
+.color-title{
+  display: inline-block;
+  padding: none;
 }

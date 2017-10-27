@@ -34,10 +34,12 @@ class Search extends Component {
 
     const searchedClothing = this.props.products.map((products, i) => {
       return (
+    <div key={i}>
         <Products 
         key={i}
         products={products}
     />
+    </div>
       )
     })
     return ( 

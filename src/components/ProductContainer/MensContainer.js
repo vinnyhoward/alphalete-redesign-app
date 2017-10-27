@@ -47,10 +47,13 @@ class Mens extends Component {
       return products.gender === 'MALE';
     }).map(function(products, i) {
       return (
-        <Products 
-        key={i}
-        products={products}
-        />
+
+    <div key={i}>
+    <Products 
+    key={i}
+    products={products}
+    />
+    </div>
 
       )
     })

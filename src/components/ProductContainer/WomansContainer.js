@@ -56,10 +56,12 @@ const womansClothing = this.props.products.filter(function(products, i) {
   return products.gender === 'FEMALE';
 }).map(function(products, i) {
   return (
+    <div key={i}>
     <Products 
     key={i}
     products={products}
     />
+    </div>
   )
 })
 return (

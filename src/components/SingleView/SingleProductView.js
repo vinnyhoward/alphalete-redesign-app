@@ -1,54 +1,78 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux'
-import { addToCart } from '../../ducks/ProductsDucks';
+import { addToCart, singleProductView } from '../../ducks/ProductsDucks';
 
 
 class SingleProductView extends Component {
 
-  constructor() {
-    super()
-    this.state = {
-      singleProduct: {}
-    }
-  }
   componentDidMount() {
-    axios.get(`/api/getproduct/${this.props.match.params.id}`).then( res => {
-      this.setState({
-        singleProduct: res.data
-      })
-    })
+    this.props.singleProductView(this.props.match.params.id)
   }
+
+
   render() {
     
 return ( 
 <div className='single-body'>
 <div className='header-single'></div>
+
 <div className='single-wrapper'>
-  <div className='margin-left-single'></div>
+<div className='margin-left-single'></div>
+
+{/* // =============================================================================
+// IMAGES
+// ============================================================================= */}
+
 <div className='picture-single-content'>
-    <img className='image-single' src={this.state.singleProduct.image1} alt='' />
+    <img className='image-single' src={this.props.singleProduct.image1} alt='' />
 <div className='nested-images'>
-    <img className='nested-image' src={this.state.singleProduct.image1} alt='' />
-    <img className='nested-image' src={this.state.singleProduct.image2} alt='' />
-    <img className='nested-image' src={this.state.singleProduct.image3} alt='' />
+    <img className='nested-image' src={this.props.singleProduct.image1} alt='' />
+    <img className='nested-image' src={this.props.singleProduct.image2} alt='' />
+    <img className='nested-image' src={this.props.singleProduct.image3} alt='' />
 </div>
 </div>
+
+
+
   <div className='info-single-content'>
   <div className='product-info-caption'>
-
 <div className='title-price'>
-  <div className='single-title'>{this.state.singleProduct.title}</div>
-  <div className='single-color'>{this.state.singleProduct.color}</div>
-  <div className='single-price'>${this.state.singleProduct.price}.00</div>
+{/* // =============================================================================
+// CONTENT RIGHT
+// ============================================================================= */}
+  <div className='single-title'>{this.props.singleProduct.title}</div>
+  <div className='single-color'>{this.props.singleProduct.color}</div>
+  <div className='single-price'>${this.props.singleProduct.price}.00</div>
   <hr/>
 </div>
 
 <div className='color-share'>
   <div className='color-title'>COLOR</div>
+  {
+    (() => {
+      console.log('object');
+      if(this.props.singleProduct.color === 'MINT') {
+        return <div className='mint'></div> 
+      } else if(this.props.singleProduct.color === 'BURGUNDY') {
+        return <div className='burgundy'></div>
+      } else if(this.props.singleProduct.color === 'BLACK') {
+        return <div className='black'></div>
+      } else if(this.props.singleProduct.color === 'COOL GREY') {
+        return <div className='cool-grey'></div>
+      } else if(this.props.singleProduct.color === 'WHITE') {
+        return <div className='white'></div>
+      } 
+    })()
+  }
+
+
+
+
   <div className='share-title'>SHARE</div>
 </div>
-  
+{/* // =============================================================================
+// ADD TO CART AND SIZE
+// ============================================================================= */}
 <div className='size-cart'>
   <hr/>
   {/* SIZE */}
@@ -61,24 +85,21 @@ return (
   </div>
   </div>
   {/* <div className="qty-button-clicker"></div> */}
-  <button className='add-cart-button' onClick={ () => {this.props.addToCart(this.state.singleProduct.productid)}}
+  <button className='add-cart-button' onClick={ () => {this.props.addToCart(this.props.singleProduct.productid)}}
   > ADD TO CART</button>  
   <hr/>
 </div>
-  <div className='description-title'>{this.state.singleProduct.descriptiontitle}</div>
-  <div className='product-info'>{this.state.singleProduct.description}</div>
+{/* // =============================================================================
+// TITLE AND DESCRIPTION
+// ============================================================================= */}
+  <div className='description-title'>{this.props.singleProduct.descriptiontitle}</div>
+  <div className='product-info'>{this.props.singleProduct.description}</div>
   </div>
   </div>
   <div className='margin-right-single'></div>
   <div className='back'></div>
   <div className='single-footer'></div>
 </div>
-{/* <img src={this.state.singleProduct.image1} alt='' />
-  <div>{this.state.singleProduct.title}</div>
-  <div>{this.state.singleProduct.color}</div>
-  <div>{this.state.singleProduct.price}</div>
-
-<button onClick={ () => {this.props.addToCart(this.state.singleProduct.productid)}}> ADD TO CART</button> */}
 </div>
 )
 }
@@ -86,11 +107,12 @@ return (
 
 function mapStateToProps(state) { 
   return {
-    products: state.products 
+    products: state.products,
+    singleProduct: state.singleProduct
   }
 }
 
-export default connect(mapStateToProps, { addToCart })( SingleProductView );
+export default connect(mapStateToProps, { addToCart, singleProductView })( SingleProductView );
 
 
 // const products = this.props.products.filter((product) => {

@@ -28,10 +28,12 @@ class Accessories extends Component {
       return products.category === 'accessories';
     }).map(function(products, i) {
       return (
-        <Products 
-        key={i}
-        products={products}
-        />
+  <div key={i}>
+  <Products 
+  key={i}
+  products={products}
+  />
+    </div>
       )
     })
         return (

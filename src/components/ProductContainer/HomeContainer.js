@@ -13,7 +13,7 @@ class Home extends Component {
 render() {
 const allClothing = this.props.products.slice(0, 4).map((products, i) => {
   return (
-    <div className='product'>
+    <div className='product' key={i}>
     <Products 
     key={i}
     products={products}

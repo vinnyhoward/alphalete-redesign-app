@@ -3,7 +3,7 @@ import './Navbar.css';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import ProductSmall from '../Products/ProductSmall'
-import{ removeFromCart } from '../../ducks/ProductsDucks'
+import{ removeFromCart, singleProductView } from '../../ducks/ProductsDucks'
 // import Products from '../../components/Products/Product'
 // import { getSearchProducts } from '../../ducks/ProductsDucks'
 class Navbar extends Component {
@@ -71,6 +71,8 @@ keyPressHandler(event){
     //Call action creator from ducks and pass this.state.term
   }
 }
+
+
   render() {
 // =============================================================================
 // NOTES - TERNARY OPERATORS FOR POPUP MENUS NEED TO BE FIXED 
@@ -81,14 +83,14 @@ const womansAll = this.props.products.filter(function(products, i) {
 }).splice(0,4)
 
 const womansProd = womansAll.map(( products, i ) => {
-    return (
-      <div className='product'>
-      <ProductSmall 
-      key={i}
-      products={products}
-      />
-      </div>
-    )
+  return (
+    <div className='product' key={i}>
+    <ProductSmall 
+    key={i}
+    products={products}
+    />
+    </div>
+  )
 })
 
 const accessAll = this.props.products.filter(function(products, i) {
@@ -97,7 +99,7 @@ const accessAll = this.props.products.filter(function(products, i) {
 
 const accessProd = accessAll.map(( products, i ) => {
   return (
-    <div className='product'>
+    <div className='product' key={i}>
     <ProductSmall 
     key={i}
     products={products}
@@ -108,7 +110,7 @@ const accessProd = accessAll.map(( products, i ) => {
 
 const mensClothing = this.props.products.slice(0, 4).map((products, i) => {
   return (
-    <div className='product'>
+    <div className='product' key={i}>
     <ProductSmall 
     key={i}
     products={products}
@@ -321,9 +323,10 @@ let shoppingNotification = this.props.cart.reduce((sum, cart) => {
 function mapStateToProps(state) { 
   return {
     products: state.products,
-    cart: state.cart
+    cart: state.cart,
+    singleProduct: state.singleProduct
   }
 }
 
-export default connect(mapStateToProps, { removeFromCart  })(Navbar);
+export default connect(mapStateToProps, { removeFromCart, singleProductView  })(Navbar);
 
