@@ -168,7 +168,7 @@ let shoppingNotification = this.props.cart.reduce((sum, cart) => {
           <div 
           className='logo-main-nav'>
           <Link to="/"><img className='alpha-logo' 
-          src='https://s1.postimg.org/85nwfzpg33/Asset_3_3x.png' alt='ALPHA' />
+          src='https://image.ibb.co/gFo91x/white_Asset_2_3x.png' alt='ALPHA' />
           </Link></div>
 {/* <div className='dead-space-4' ></div> */}
 <div className='dead-space-5' ></div>
